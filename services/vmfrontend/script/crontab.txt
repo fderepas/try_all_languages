@@ -1,0 +1,11 @@
+# Edit this file to introduce tasks to be run by cron.
+# m h  dom mon dow   command
+0 1 * * * sudo apt update -y -q
+0 2 * * * sudo apt upgrade -y -q
+* * * * * bash /home/user/tal/services/vmfrontend/script/kill_old.sh
+* * * * * bash /home/user/tal/services/vmfrontend/script/make_sure_server_is_launched.sh
+0 * * * * bash /home/user/tal/services/vmfrontend/script/clean_data_dir.sh
+0 */4 * * * bash /home/user/tal/services/vmfrontend/script/reboot.sh
+* * * * * bash /home/user/tal/services/generic_machine/cmd/rec_msg.sh
+* * * * * bash /home/user/tal/services/vmfrontend/script/check_cpu.sh
+

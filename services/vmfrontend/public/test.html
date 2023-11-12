@@ -1,0 +1,237 @@
+<html>
+  <head>
+    <style>
+      body {
+          background-color:black;
+          color:white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+    </style>
+    <script>
+      var progs={
+          "apl":"out←{\n⎕←⍵\n}\nout ⍞\nout ⍞\nout ⍞\n",
+          "bash":"dd\n",
+          "bqn":"•Out¨ •args\n",
+          "c":"#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char * line = NULL;\n    size_t len = 0;\n    ssize_t read;\n\n    while ((read = getline(&line, &len, stdin)) != -1) {\n        printf(\"%s\", line);\n    }\n    if (line)\n        free(line);\n    exit(EXIT_SUCCESS);\n}\n",
+          "clojure":"(ns clojure.examples.hello\n   (:gen-class))\n(defn hello-world []\n   (doseq [ln (line-seq (java.io.BufferedReader. *in*))]\n   (println ln)))\n(hello-world)\n",
+          "cpp":"#include <iostream>\nusing namespace std;\n\nint main () {\n  int a;\n  cout << (cin >> a,a) << endl;\n  cout << (cin >> a,a) << endl;\n  cout << (cin >> a,a) << endl;\n  return 0;\n}\n",
+          "csharp":"using static System.Console;\nclass H {\n    static void Main() {\n       WriteLine (ReadLine());\n       WriteLine (ReadLine());\n       WriteLine (ReadLine());\n    }\n}",
+          "dc":"?fc?fc?fc\n",
+          "elixir":"IO.write(IO.read(:stdio, :line))\nIO.write(IO.read(:stdio, :line))\nIO.write(IO.read(:stdio, :line))\n",
+          "fsharp":"open System\n[<EntryPoint>]\nlet main args =\n    printfn \"%s\" (Console.ReadLine())\n    printfn \"%s\" (Console.ReadLine())\n    printfn \"%s\" (Console.ReadLine())\n    0 // return an integer exit code\n",
+          "go":"package main\n\nimport \"fmt\"\nimport \"os\"\nimport \"bufio\"\nimport \"log\"\n\nfunc main() {\n  scanner := bufio.NewScanner(os.Stdin)\n  for scanner.Scan() {\n        fmt.Println(scanner.Text())\n  }\n\n  if err := scanner.Err(); err != nil {\n        log.Println(err)\n  }\n}\n",
+          "golfscript":"\n",
+          "haskell":"import System.IO\n\nmain = do\n    z <- getLine\n    putStrLn z\n    z <- getLine\n    putStrLn z\n    z <- getLine\n    putStrLn z\n",
+	  "j":"a=: 1!:1 <3\necho a\n",
+          "java":"import java.io.*;\npublic class prog {\n   public static void main (String[] args) {\n      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n      try {\n        System.out.println(br.readLine());\n        System.out.println(br.readLine());\n        System.out.println(br.readLine());\n      }  catch (IOException ioe) {\n         System.out.println(ioe);\n      }\n   }\n}\n",
+          "jelly":"0ƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈ\n",
+          "julia":"print(readline())\nprint(\"\n\")\nprint(readline())\nprint(\"\n\")\nprint(readline())\nprint(\"\n\")\n",
+          "k":"`0:0:0\n",
+          "kotlin":"fun main() {\n println(generateSequence(::readLine).joinToString(\"\\n\"))\n}\n",
+          "lua":"print(io.read(\"*a\"))\n",
+          "node":"console.log(prompt());\nconsole.log(prompt());\nconsole.log(prompt());\n",
+          "ocaml":"let i = read_int () in\nlet j = read_int () in\nlet k = read_int () in\nprint_int i;\nprint_string \"\n\";\nprint_int j;\nprint_string \"\n\";\nprint_int k;\nprint_string \"\n\";\n",
+          "perl":"while (<>) {\nprint;\n}\n",
+          "php":"<?php\n$a=\"\";\nwhile (fscanf(STDIN, \"%s\",$a)) {\n  echo \"$a\n\";\n}\n?>\n",
+	  "powershell":"cat",
+	  "prolog":"main:- \n    % read and output a string\n    read_line_to_string(user_input,A),writeln(A),\n    read_line_to_string(user_input,B),writeln(B),\n    read_line_to_string(user_input,C),writeln(C).\n",
+          "python":"print(open(0).read())\n",
+          "r":"x <- scan(file(\"stdin\"),quiet = TRUE);\ncat(x[1]);\ncat(\"\n\")\ncat(x[2]);\ncat(\"\n\")\ncat(x[3]);\ncat(\"\n\")\n",
+	  "raku":"for lines() {\n    say \"\", \$_\n}",
+          "ruby":"puts *$<\n",
+          "rust":"use std::io::{self, BufRead};\n\nfn main() {\n    let stdin = io::stdin();\n    for line in stdin.lock().lines() {\n        println!(\"{}\", line.unwrap());\n    }\n}\n",
+	  "sass":"@debug see();",
+          "scala":"import scala.io.StdIn.readLine\nobject p {\n  def main(args: Array[String]): Unit = {\n    println(readLine())\n    println(readLine())\n    println(readLine())\n  }\n}\n",
+	  "vyxal":"\n",
+	  "zsh":"cat"
+      };
+      function getQueryVariable(variable) {
+          var query = window.location.search.substring(1);
+          var vars = query.split('&');
+          for (var i = 0; i < vars.length; i++) {
+              var pair = vars[i].split('=');
+              if (decodeURIComponent(pair[0]) == variable) {
+                  return decodeURIComponent(pair[1]);
+              }
+          }
+          console.log('Query variable %s not found', variable);
+      }
+      function resetLog() {
+          document.getElementById('textarea-log').value = "";
+      }
+      function appendLog(msg) {
+          document.getElementById('textarea-log').value += "\n" + msg;
+      }
+      function sendForm() {
+          var countInput=2
+          var url ="/?lang="+document.getElementById('lang').value;
+          url+="&countInput="+countInput;
+          url+="&code="+encodeURIComponent(document.getElementById('code').value);
+          url+="&input0="+encodeURIComponent(document.getElementById('input0').value);
+          url+="&input1="+encodeURIComponent(document.getElementById('input1').value);
+          appendLog("URL: " + url);
+          
+          let xhr = new XMLHttpRequest();
+          xhr.onload = function(progressEvent) {
+              appendLog("onload!");
+              appendLog(" status = " + xhr.status);
+              appendLog(" statusText = " + xhr.statusText);
+              
+              appendLog(" ------ xhr.responseText ------: ");
+              appendLog(xhr.responseText);
+              var answer = JSON.parse(xhr.responseText);
+              var count=0;
+              for (const e of answer.data) {
+                  document.getElementById('output'+count).value=decodeURIComponent(e.out);
+                  document.getElementById('err'+count).value=decodeURIComponent(e.err);
+                  document.getElementById('code'+count).innerHTML=e.code;
+                  ++count;
+              }
+          }
+          
+          let async = true;
+          // Initialize It.
+          xhr.open("GET", url, async);
+          
+          // Send it (Without body data)
+          xhr.send();
+      }
+      function getRandomInt(max) {
+          return Math.floor(Math.random() * max);
+      }
+      function get3ints() {
+          var s = getRandomInt(10000).toString()+"\n";
+          s+=getRandomInt(10000).toString()+"\n";
+          s+=getRandomInt(10000).toString()+"\n";
+          return s;
+      }
+      function changeLang() {
+          var lang=document.getElementById('lang').value;
+          document.getElementById('code').value=progs[lang];
+          document.getElementById('input0').value=get3ints();
+          document.getElementById('input1').value=get3ints();
+          document.getElementById('output0').value="";
+          document.getElementById('output1').value="";
+          document.getElementById('err0').value="";
+          document.getElementById('err1').value="";
+          document.getElementById('code0').innerHTML="";
+          document.getElementById('code1').innerHTML="";
+          resetLog();
+      }
+      window.addEventListener('DOMContentLoaded', (event) => {
+          console.log('DOM fully loaded and parsed');
+          changeLang();
+      });
+    </script>
+    <title>testing programs</title>
+  </head>
+  <body>
+    <table>
+        <tr>
+          <td>language</td>
+          <td>
+            <select id="lang" onchange="changeLang();">
+              <option value="apl">apl</option>
+              <option value="bash">bash</option>
+              <option value="bqn">bqn</option>
+              <option value="c">c</option>
+              <option value="clojure">clojure</option>
+              <option value="cpp">c++</option>
+              <option value="csharp">c#</option>
+              <option value="dc">dc</option>
+              <option value="elixir">elixir</option>
+              <option value="fsharp">f#</option>
+              <option value="go">go</option>
+              <option value="golfscript">golfscript</option>
+              <option value="haskell">haskell</option>
+              <option value="j">j</option>
+              <option value="java">java</option>
+              <option value="jelly">jelly</option>
+              <option value="julia">julia</option>
+              <option value="k">k</option>
+              <option value="kotlin">kotlin</option>
+              <option value="lua">lua</option>
+              <option value="node">node</option>
+              <option value="ocaml">ocaml</option>
+              <option value="perl">perl</option>
+              <option value="php">php</option>
+              <option value="powershell">powershell</option>
+              <option value="prolog">prolog</option>
+              <option value="python">python</option>
+              <option value="r">r</option>
+              <option value="raku">raku</option>
+              <option value="ruby">ruby</option>
+              <option value="rust">rust</option>
+	      <option value="sass">sass</option>
+              <option value="scala">scala</option>
+              <option value="vyxal">vyxal</option>
+              <option value="zsh">zsh</option>
+            </select>
+            <a href="version.json">versions</a>
+          </td>
+        </tr>
+        <tr>
+          <td>code</td>
+          <td>
+          <textarea id="code" name="code" rows="8" cols="80"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>test 1</td>
+          <td>
+            <table>
+              <tr>
+                <td>standard input</td><td>standard output</td><td>standard error</td>
+              </tr>
+              <tr>
+                <td>
+                  <textarea id="input0" rows="4" cols="20"></textarea>
+                </td>
+                <td>
+                  <textarea id="output0" rows="4" cols="20" style="background-color:black;color:white;" readonly></textarea>
+                </td>
+                <td>
+                  <textarea id="err0" rows="4" cols="20" style="background-color:black;color:white;" readonly></textarea>
+                </td>
+                <td id="code0"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>test 2</td>
+          <td>
+            <table>
+              <tr>
+                <td>
+                  <textarea id="input1" rows="4" cols="20"></textarea>
+                </td>
+                <td>
+                  <textarea id="output1" rows="4" cols="20" style="background-color:black;color:white;" readonly></textarea>
+                </td>
+                <td>
+                  <textarea id="err1" rows="4" cols="20" style="background-color:black;color:white;" readonly></textarea>
+                </td>
+                <td id="code1"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button onClick="sendForm();">execute</button>
+          </td>
+        </tr>
+        <tr>
+          <td>log</td>
+          <td>
+            <textarea id="textarea-log" cols="50" rows="5" style="background-color:black;color:white;" readonly></textarea>
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>
+
