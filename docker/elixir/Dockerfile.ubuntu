@@ -1,0 +1,21 @@
+FROM ubuntu:latest
+
+RUN apt update -q -y
+RUN apt upgrade -q -y
+RUN apt install -y elixir
+RUN addgroup tal
+RUN adduser --home /home/tal --shell /bin/bash --uid 1000 --gid 1000 tal
+RUN chown tal:tal /mnt
+
+WORKDIR /mnt
+
+# compile
+COPY --chown=tal:tal launch.sh /home/tal/launch.sh
+# leave root user
+USER tal:tal
+RUN mkdir /mnt/in
+RUN mkdir /mnt/out
+
+
+
+

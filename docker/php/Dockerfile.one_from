@@ -1,0 +1,35 @@
+FROM alpine:latest
+
+RUN apk update
+RUN apk add build-base make cmake gcc g++ unzip autoconf  bison re2c libxml2 libxml2-dev sqlite-dev sqlite git
+
+RUN addgroup tal
+RUN adduser -h /home/tal -g '' -s /bin/ash -G tal -D tal
+RUN chown tal:tal /mnt
+
+WORKDIR /home/tal
+
+# compile
+COPY --chown=tal:tal launch.sh /home/tal/launch.sh
+COPY --chown=root:root php.ini /etc/php7/php.ini
+
+
+# leave root user
+USER tal:tal
+RUN mkdir /mnt/in
+RUN mkdir /mnt/out
+
+RUN git clone --single-branch --branch PHP-8.1.9  https://github.com/php/php-src.git
+WORKDIR /home/tal/php-src
+RUN ./buildconf
+RUN ./configure
+RUN make
+
+USER root:root
+RUN rm /usr/bin/perl
+USER tal:tal
+
+USER root:root
+RUN rm /usr/bin/tr
+RUN rm /bin/ls
+USER tal:tal

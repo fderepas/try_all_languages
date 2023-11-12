@@ -1,0 +1,28 @@
+FROM ubuntu:latest
+
+RUN apt update -q -y
+RUN apt upgrade -q -y
+RUN apt install -y nodejs npm reptyr
+RUN addgroup tal
+RUN adduser --home /home/tal --shell /bin/bash --uid 1000 --gid 1000 tal
+RUN chown tal:tal /mnt
+
+WORKDIR /home/tal
+RUN sed -i 's/1/0/' /etc/sysctl.d/10-ptrace.conf
+
+# compile
+COPY --chown=tal:tal launch.sh /home/tal/launch.sh
+# leave root user
+USER tal:tal
+WORKDIR /home/tal
+RUN npm install readline-sync
+RUN mkdir /mnt/in
+RUN mkdir /mnt/out
+
+# set default entry point
+#ENTRYPOINT /bin/sh /home/tal/launch.sh
+
+
+
+
+

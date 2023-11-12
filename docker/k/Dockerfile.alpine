@@ -1,0 +1,29 @@
+FROM alpine:latest
+
+RUN apk update
+RUN apk add --update build-base make cmake unzip git
+RUN apk add --update wget tar gzip xz gcc sed gmp-dev
+RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+RUN addgroup tal
+RUN adduser -h /home/tal -g '' -s /bin/ash -G tal -D tal
+RUN chown tal:tal /mnt
+
+WORKDIR /home/tal
+
+# compile
+COPY --chown=tal:tal launch.sh /home/tal/launch.sh
+# leave root user
+USER tal:tal
+RUN mkdir /mnt/in
+RUN mkdir /mnt/out
+
+RUN git clone https://github.com/kevinlawler/kona.git
+WORKDIR /home/tal/kona
+RUN make
+
+# set default entry point
+#ENTRYPOINT /bin/sh /home/tal/launch.sh
+
+
+
+

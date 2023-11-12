@@ -1,0 +1,24 @@
+FROM alpine:latest
+
+RUN apk update
+RUN apk add py3-pip py3-wheel git
+RUN addgroup tal
+RUN adduser -h /home/tal -g '' -s /bin/ash -G tal -D tal && chown tal:tal /mnt
+
+# compile
+COPY --chown=tal:tal launch.sh /home/tal/launch.sh
+# leave root user
+USER tal:tal
+RUN mkdir /mnt/in
+RUN mkdir /mnt/out
+
+WORKDIR /home/tal
+RUN git clone -q https://github.com/DennisMitchell/jellylanguage.git
+WORKDIR /home/tal/jellylanguage
+RUN PATH=/home/tal/.local/bin:$PATH pip3 install --upgrade --user .
+
+# set default entry point
+#ENTRYPOINT /bin/sh /home/tal/launch.sh
+
+
+
