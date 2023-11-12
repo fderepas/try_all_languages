@@ -16,6 +16,10 @@ clean:
 	for i in `ls -F | grep /`; do cd $$i; make clean ; cd .. ; done
 
 size:
+	for i in `docker images --format "{{.Repository}} {{.Tag}}" | grep ^tal- | grep latest | cut -d ' ' -f 1`; do  docker inspect ${i}:latest | jq '.[].Size' ; done  > tmp.txt
+	awk '{s+=$1} END {print s}' tmp.txt
+	rm tmp.txt
+
 	docker images --format "{{.ID}}\t{{.Size}}\t{{.Repository}}\t{{.Tag}}" | sort -k 2 -h | grep latest | grep tal
 # added in crontab
 # for i in `find /home/tal/tal/docker -name update.sh`; do bash $i; done
