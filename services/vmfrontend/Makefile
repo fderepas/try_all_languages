@@ -5,6 +5,10 @@ default :
 	node_modules/.bin/pm2 start
 install :
 	npm install express --save
+stop:
+	./node_modules/.bin/pm2 stop all
+list:
+	./node_modules/.bin/pm2 list
 clean:
 	rm -rf data node_modules  package-lock.json package.json
 	rm -rf `find . -name \*~`
