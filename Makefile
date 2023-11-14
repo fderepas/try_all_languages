@@ -1,4 +1,9 @@
 default:
+	@echo "type 'make test' to launch tests"
+
+.PHONY:test
+test:
+	cd services && make test
 
 clean:
 	rm -f *~
