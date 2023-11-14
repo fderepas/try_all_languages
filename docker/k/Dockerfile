@@ -22,4 +22,4 @@ RUN mkdir /mnt/out
 
 RUN git clone https://codeberg.org/ngn/k.git
 WORKDIR /home/tal/k
-RUN make k-libc
+RUN make CC=/usr/bin/gcc
