@@ -25,7 +25,7 @@ RUN git clone https://github.com/dzaima/CBQN && \
 FROM alpine:latest
 
 RUN apk update
-RUN apk add libffi-dev
+RUN apk add libffi-dev libstdc++
 RUN addgroup tal
 RUN adduser -h /home/tal -g '' -s /bin/ash -G tal -D tal
 RUN chown tal:tal /mnt
