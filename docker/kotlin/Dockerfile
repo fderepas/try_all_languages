@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 RUN apk update
-RUN apk add openjdk17
+RUN apk add openjdk21 --repository https://dl-3.alpinelinux.org/alpine/edge/community/
 RUN apk add bash curl git zip 
 
 RUN addgroup tal
@@ -20,7 +20,7 @@ RUN chmod 777 /mnt/out
 
 RUN curl -s "https://get.sdkman.io" | bash
 
-RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk version"
+#RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk version"
 RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk install kotlin"
 WORKDIR /home/tal/
 
