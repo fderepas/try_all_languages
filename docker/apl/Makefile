@@ -8,4 +8,4 @@ test :
 clean:
 	rm -f *~ 
 	cd test && make clean
-	rm -f apl.deb
+	rm -f apl.deb wget-log
