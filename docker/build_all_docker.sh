@@ -2,9 +2,11 @@
 for i in `ls -F | grep / `; do
     cd $i
     j=`echo $i | tr -d '/'`
-    c=$(docker images | grep $j | grep `date +"%Y%m%d"` | wc -l)
+    # image was done today
+    #c=$(docker images | grep tal-$j | grep `date +"%Y%m%d"` | wc -l)
+    c=$(docker images | grep ^tal-$j | grep latest | wc -l)
     if [ $c -eq 1 ]; then
-        # an image made today is already here, just test
+        # an image is already here, just test
         echo testing $j
         cd test
         make > /dev/null 2> /dev/null
