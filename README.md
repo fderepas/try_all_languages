@@ -5,7 +5,7 @@ Its a project to execute programs in many different languages via a REST API. Li
 
 ## Docker images
 
-This section details the docker images used to execute code in many different lanugages. There is one docker per image. To build all docker images type:
+This section details the docker images used to execute code in many different lanugages. There is one docker image per language. To build all docker images type:
 
 ```
 cd docker
@@ -59,3 +59,5 @@ mkfs.ext3 dir2
 ```
 Then ```dir2``` is mounted as a filesystem by the container executing arbitrary code.
 This container has a timeout of 60 seconds.
+
+This container version of the pm2 server is performed in the ```services/allvms``` directory.
