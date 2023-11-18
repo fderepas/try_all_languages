@@ -11,7 +11,7 @@ install:
 	bash install_sysbox.sh
 
 clean:
-	rm -f *~ 
+	rm -f *~ *.deb
 	cd test && make clean
 
 #create registry
