@@ -39,15 +39,23 @@ The REST API can be put in a container itself:
 
 ```
  +---------------docker/nestybox-----------------+
- |                          +----- docker -----+ |
- |  +----PM2 server---+     | execute arbitrary| |
- |  |                 |---->|    program       | |
- |  +-----------------+     +-/mnt/in--/mnt/out+ |
+ |  +----PM2 server---+     +----- docker -----+ |
+ |  |                 |---->| execute arbitrary| |
+ |  +-----------------+     |    program       | |
+ |                          +-/mnt/in--/mnt/out+ |
  |  +-docker registry-+         |         |      |
  |  |                 |        dir1      dir2    |
  |  +-----------------+                          |
  +-----------------------------------------------+
 ```
 Dockers to execute langage do not live for long, just a few seconds.
-In order to use in a kuibernetes environment we need to put that in a container which lives
-for a long period of time. I order to spawn rapidly the images we have a local docker registry.
+In order to use in a kubernetes environment we need to put that in a container which lives
+for a long period of time. In order to spawn rapidly the images we have a local docker registry.
+
+In order to limit the output of the arbitrary program it's output, stored in ```dir2``` is a file:
+```
+dd if=/dev/zero of=dir2 bs=1000 count=10000
+mkfs.ext3 dir2
+```
+Then ```dir2``` is mounted as a filesystem by the container executing arbitrary code.
+This container has a timeout of 60 seconds.
