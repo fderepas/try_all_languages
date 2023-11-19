@@ -9,7 +9,7 @@ This section details the docker images used to execute code in many different la
 
 ```
 cd docker
-bash build_all_docker.sh
+make
 ```
 
 Here is the achitecture below. Arbitrary code is executed in a docker. Directories ```dir1``` on host is mounted on ```/mnt/in``` on docker to read input data an source code,
