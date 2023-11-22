@@ -3,6 +3,9 @@
 
 It's a project to execute programs in many different languages via a REST API. List of supported languages: apl, bash, bqn, c, clojure, cpp, csharp, dc, elixir, fsharp, go, golfscript, haskell, j, java, jelly, julia, k, kotlin, lua, node, ocaml, perl, php, powershell, prolog, python, r, raku, ruby, rust, scala, vyxal, zsh. The version of runtimes or compilers is given [here](docker/version.json).
 
+
+![all colors](https://github.com/fderepas/try_all_languages/blob/main/test.png?raw=true)
+
 ## Docker images
 
 This section details the docker images used to execute code in many different lanugages. There is one docker image per language. To build all docker images type:
