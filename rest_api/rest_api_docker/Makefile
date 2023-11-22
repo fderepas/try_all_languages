@@ -5,13 +5,14 @@ test :
 	cd test && make test
 
 run :
-	docker run --runtime=sysbox-runc -it  --mount type=bind,source=`pwd`/../..,target=/mnt/ tal-allvms:latest
+	bash run.sh
 
 install:
 	bash install_sysbox.sh
 
 clean:
 	rm -f *~ *.deb
+	rm -rf rest_api_server
 	cd test && make clean
 
 #create registry
@@ -20,3 +21,5 @@ clean:
 #{ "insecure-registries": ["your_hostname.local:5000"] }
 # docker tag tal-bash:latest nvi.local:5000/tal-bash:latest
 # docker push nvi.local:5000/tal-bash:latest
+# on host
+# iptables -A INPUT -i docker0 -j ACCEPT

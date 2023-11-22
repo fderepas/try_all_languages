@@ -3,10 +3,10 @@ default:
 
 .PHONY:test
 test:
-	cd vmfrontend && make install
-	cd vmfrontend && make  &
+	cd rest_api_server && make install
+	cd rest_api_server && make  &
 	sleep 10
-	cd vmfrontend_test && make
+	cd rest_api_server_test && make
 
 clean:
 	rm -f *~

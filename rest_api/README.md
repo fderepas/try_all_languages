@@ -6,15 +6,15 @@
 
 This directory enables to build a REST API to access the containers executing the arbitrary programs.
 
-## vmfrontend
+## rest_api_server
 
 Launches a pm2 webserver reading the REST requests. 
 
-## vmfrontend_test
+## rest_api_server_test
 
 Tests the REST API of each language using random tests.
 
-## allvms
+## rest_api_docker
 
-Creates a container containing a vmfrontend system.
+Creates a container containing a rest_api_server system.
 

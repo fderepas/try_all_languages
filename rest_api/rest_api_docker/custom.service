@@ -1,0 +1,12 @@
+[Unit]
+Description=Starting rest api server
+After=docker.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/rest_api_server.sh
+ExecReload=/usr/bin/rest_api_server.sh
+
+[Install]
+WantedBy=multi-user.target

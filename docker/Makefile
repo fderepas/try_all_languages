@@ -1,5 +1,6 @@
 default:
-	for i in `ls -F | grep / | grep -v ^erlang/$$ | grep -v ^apl/$$ | grep -v ^bqn/$$ | grep -v ^dc/$$ | grep -v haskell | grep -v clojure | grep -v kotlin | grep -v ^k/$$ | grep -v ^j/$$ | grep -v ^r/$$ `; do cd $$i && make &&  cd test && make && cd ../.. ; done
+	bash build_all_docker.sh
+#	for i in `ls -F | grep / | grep -v ^erlang/$$ | grep -v ^apl/$$ | grep -v ^bqn/$$ | grep -v ^dc/$$ | grep -v haskell | grep -v clojure | grep -v kotlin | grep -v ^k/$$ | grep -v ^j/$$ | grep -v ^r/$$ `; do cd $$i && make &&  cd test && make && cd ../.. ; done
 
 .PHONY:version.json
 version.json:
