@@ -9,7 +9,7 @@ Here is an example from the ```test.html``` page that comes with the rest api se
 
 ## Docker images
 
-This section details the docker images used to execute code in many different lanugages. There is one docker image per language. To build all docker images type:
+This section details the docker images used to execute code in many different langages. There is one docker image per language. To build all docker images type:
 
 ```
 cd docker
@@ -35,7 +35,9 @@ To test the REST API from the host machine type in the root of the git repo:
 make test
 ```
 
-It launches on host a pm2/expressjs server parses the request and launches the right docker image, executes the code and returns the results. Source code is in ```services/vmfrontend```. Tests of the REST API is performed in ```services/vmfrontend_test```.
+It launches on host a pm2/expressjs server parses the request and launches the right docker image, executes the code and returns the results. Source code is in ```rest_api/rest_api_server```. Tests of the REST API is performed in ```rest_api/rest_api_server_test```.
+
+To test the server in an interactive manner you can try ```/test.html``` on the running pm2 server.
 
 ## Container for the REST API
 
@@ -64,4 +66,4 @@ mkfs.ext3 dir2
 Then ```dir2``` is mounted as a filesystem by the container executing arbitrary code.
 This container has a timeout of 60 seconds.
 
-This container version of the pm2 server is performed in the ```services/allvms``` directory.
+This container version of the pm2 server is performed in the ```rest_api/rest_api_docker``` directory.
