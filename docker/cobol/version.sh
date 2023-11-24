@@ -1,3 +1,3 @@
 #!/bin/bash
-cat build.sh | grep "download.dyalog.com" | sed -e 's/^.*file=//' | sed -e 's/\/linux.*//'
-
+# arguments after the entry point are given after image name
+docker run --rm --entrypoint /usr/bin/cobc tal-$(basename `pwd`):latest --version | head -n 1
