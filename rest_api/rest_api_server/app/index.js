@@ -5,7 +5,7 @@ const app = express();
 const fs = require('fs');
 const port = 8087;
 const { exec } = require("child_process");
-const ext = { 'sass': 'sass', 'cpp':'cc','node':'js', 'python':'py', 'bash':'sh', 'ruby':'rb', 'java':'java', 'go':'go', 'rust':'rs', 'ocaml':'ml', 'elixir':'exs','csharp':'cs','clojure':'clj','julia':'jl','r':'r','php':'php','perl':'pl','haskell':'hs','k':'k','lua':'lua','kotlin':'kt','c':'c','zsh':'zsh','vyxal':'vyxal','raku':'raku','j':'ijs','prolog':'prolog','jelly':'jelly','golfscript':'golfscript','dc':'dc','scala':'scala','apl':'apl','powershell':'sh','bqn':'bqn','fsharp':'fs'};
+const ext = { 'sass': 'sass', 'cpp':'cc','node':'js', 'python':'py', 'bash':'sh', 'ruby':'rb', 'java':'java', 'go':'go', 'rust':'rs', 'ocaml':'ml', 'elixir':'exs','csharp':'cs','clojure':'clj','julia':'jl','r':'r','php':'php','perl':'pl','haskell':'hs','k':'k','lua':'lua','kotlin':'kt','c':'c','zsh':'zsh','vyxal':'vyxal','raku':'raku','j':'ijs','prolog':'prolog','jelly':'jelly','golfscript':'golfscript','dc':'dc','scala':'scala','apl':'apl','powershell':'sh','bqn':'bqn','fsharp':'fs','cobol':'cob','fortran':'f90'};
 
 function callDocker(req,res,tmp,countInput) {
     var s="";
@@ -97,30 +97,20 @@ app.get('/',(req,res) => {
 		return;
 	    }
 	    console.log('Directory '+tmp+'/in created successfully!');
-/*	
-	    fs.mkdir('data/'+tmp+'/out', (err) => {
-		if (err) {
-		    console.error(err);
-		    res.send('{"code":1004,"msg":"mkdir /out error."}');
-		    return;
-		}
-		console.log('Directory '+tmp+'/in created successfully!');
-*/	    
-		if (!(req.query.lang in ext)) {
-		    res.send('{"code":1005,"msg":"language not supported. Here is the list: '+JSON.stringify(Object.keys(ext)).replace(/"/g, '\'')+'."}');
-		    return;
-		}
-		const myext = ext[req.query.lang];
-		//querystring.unescape
-		fs.writeFileSync('data/'+tmp+'/in/prog.'+myext,req.query.code);
-		for (let i=0;i<countInput;++i) {
-		    fs.writeFileSync('data/'+tmp+"/in/input"+i+".txt", req.query["input"+i]);
-		}
-		callDocker(req,res,tmp,countInput);
-	    /* }); */
+	    if (!(req.query.lang in ext)) {
+		res.send('{"code":1005,"msg":"language not supported. Here is the list: '+JSON.stringify(Object.keys(ext)).replace(/"/g, '\'')+'."}');
+		return;
+	    }
+	    const myext = ext[req.query.lang];
+	    //querystring.unescape
+	    fs.writeFileSync('data/'+tmp+'/in/prog.'+myext,req.query.code);
+	    for (let i=0;i<countInput;++i) {
+		fs.writeFileSync('data/'+tmp+"/in/input"+i+".txt", req.query["input"+i]);
+	    }
+	    callDocker(req,res,tmp,countInput);
 	}); 
     });
-
+    
 })
 //app.get('/version.json', (req, res) => {
 //  res.send('Hello World!')

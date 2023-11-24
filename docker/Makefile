@@ -9,7 +9,7 @@ version.json:
 	echo "}" >> tmp.json
 	tr -cd '\11\12\40-\176' < tmp.json > version.json
 	rm tmp.json
-	cat version.json >  ../services/vmfrontend/public/version.json
+	cat version.json > ../rest_api/rest_api_server/public/version.json 
 prune:
 	docker system prune -f 
 clean:

@@ -8,7 +8,7 @@ HELLO
        DATA DIVISION.
        WORKING-STORAGE SECTION.
        77 NUM_1 PIC Z(10).
-       01 WS-STR PIC X(20) VALUE '          BBXXXYYYY'. 
+       01 WS-STR PIC X(20) VALUE ' '. 
        01 WS-SPACE PIC X(20).                       
        01 WS-FIELD PIC X(20).                       
 
