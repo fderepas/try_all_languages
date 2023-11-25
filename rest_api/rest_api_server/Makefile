@@ -7,6 +7,10 @@ install :
 	npm install express --save
 stop:
 	./node_modules/.bin/pm2 stop all
+restart:
+	./node_modules/.bin/pm2 restart all
+start:
+	./node_modules/.bin/pm2 start all
 list:
 	./node_modules/.bin/pm2 list
 clean:
