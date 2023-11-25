@@ -1,7 +1,5 @@
 cat <<EOF > program.txt
-main:- read_string(end_of_line, _, A),writeln(A),
-    read_string(end_of_line, _, B),writeln(B),
-    read_string(end_of_line, _, C),writeln(C).
+main:- read_line_to_string(user_input,A),number_string(B,A),C is 1*B,writeln(C),read_line_to_string(user_input,D),writeln(D),read_line_to_string(user_input,E),writeln(E).
 EOF
 r1=()
 r2=()
