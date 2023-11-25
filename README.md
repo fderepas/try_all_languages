@@ -7,6 +7,8 @@
 Here is an example from the [test.html](rest_api/rest_api_server/public/test.html) page that comes with the rest api server:
 ![all colors](https://github.com/fderepas/try_all_languages/blob/main/test.png?raw=true)
 
+You can it live at [https://t-a-l.org/test.html](https://t-a-l.org/test.html).
+
 ## Docker images
 
 Docker images are also available on [DockerHub](https://hub.docker.com/repositories/fderepas).
