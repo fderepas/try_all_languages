@@ -9,6 +9,8 @@ Here is an example from the [test.html](rest_api/rest_api_server/public/test.htm
 
 ## Docker images
 
+Docker images are also available on [DockerHub](https://hub.docker.com/repositories/fderepas).
+
 This section details the docker images used to execute code in many different langages. There is one docker image per language. To build all docker images type:
 
 ```
