@@ -1,4 +1,4 @@
-This docker enables to execute a source code for a [C](https://en.wikipedia.org/wiki/C_(programming_language)). It's also available on [DockerHub](https://hub.docker.com/r/fderepas/tal-c). Here is how it is meant to be used:
+This docker enables to execute a source code for a [C](https://en.wikipedia.org/wiki/C_(programming_language)) program. It's also available on [DockerHub](https://hub.docker.com/r/fderepas/tal-c). Here is how it is meant to be used:
 
 ```
     +----- docker -----+
