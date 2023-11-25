@@ -17,5 +17,5 @@ RUN mkdir /mnt/in
 RUN mkdir /mnt/out
 
 WORKDIR /home/tal
-RUN wget https://github.com/Seggan/Fig/releases/download/1.6.1/Fig-1.6.1.jar
-RUN ln -s Fig-1.6.1.jar fig.jar
+RUN wget https://github.com/Seggan/Fig/releases/download/1.9.0/Fig-1.9.0.jar
+RUN ln -s Fig-1.9.0.jar fig.jar

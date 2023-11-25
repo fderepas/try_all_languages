@@ -3,6 +3,7 @@ set -e
 set -x
 cat <<EOF > prog.fig
 EOF
+
 r1=()
 r2=()
 r3=()
