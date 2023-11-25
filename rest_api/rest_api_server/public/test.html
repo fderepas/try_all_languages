@@ -22,6 +22,9 @@
           "csharp":"using static System.Console;\nclass H {\n    static void Main() {\n       WriteLine (ReadLine());\n       WriteLine (ReadLine());\n       WriteLine (ReadLine());\n    }\n}",
           "dc":"?fc?fc?fc\n",
           "elixir":"IO.write(IO.read(:stdio, :line))\nIO.write(IO.read(:stdio, :line))\nIO.write(IO.read(:stdio, :line))\n",
+          "erlang":"-module(prog).\n-export([start/0]).\nstart() ->\n    hello(3).\n\n%% Do nothing when there is no hello to write\nhello(N) when N =< 0 -> ok;\n%% Else, write a 'Hello World!', and then write (n-1) hellos\nhello(N) ->\n   Line = io:get_line(""),\n   io:format(Line),\n   hello(N - 1).\n",
+          "fig":"",
+          "fortran":"Program Hello\ncharacter(len=23) :: str\ndo n = 1, 3\n    read *, i\n    write(str,'(1i10)') i\n    write(*,'(a)') trim(adjustl(trim(str)))\nend do\nEnd Program Hello\n ",
           "fsharp":"open System\n[<EntryPoint>]\nlet main args =\n    printfn \"%s\" (Console.ReadLine())\n    printfn \"%s\" (Console.ReadLine())\n    printfn \"%s\" (Console.ReadLine())\n    0 // return an integer exit code\n",
           "go":"package main\n\nimport \"fmt\"\nimport \"os\"\nimport \"bufio\"\nimport \"log\"\n\nfunc main() {\n  scanner := bufio.NewScanner(os.Stdin)\n  for scanner.Scan() {\n        fmt.Println(scanner.Text())\n  }\n\n  if err := scanner.Err(); err != nil {\n        log.Println(err)\n  }\n}\n",
           "golfscript":"\n",
@@ -140,10 +143,14 @@
               <option value="bqn">bqn</option>
               <option value="c">c</option>
               <option value="clojure">clojure</option>
+              <option value="cobol">cobol</option>
               <option value="cpp">c++</option>
               <option value="csharp">c#</option>
               <option value="dc">dc</option>
               <option value="elixir">elixir</option>
+              <option value="erlang">erlang</option>
+              <option value="fig">fig</option>
+              <option value="fortran">fortran</option>
               <option value="fsharp">f#</option>
               <option value="go">go</option>
               <option value="golfscript">golfscript</option>
