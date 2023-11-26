@@ -2,12 +2,31 @@
   <head>
     <style>
       body {
-          background-color:black;
+          background-color:#222;
           color:white;
           display: flex;
           align-items: center;
           justify-content: center;
           font-family: Arial;
+      }
+      /* unvisited link */
+      a:link {
+	  color: #88f; text-decoration: underline;
+      }
+      
+      /* visited link */
+      a:visited {
+	  color: #88f;  text-decoration: underline;
+      }
+
+      /* mouse over link */
+      a:hover {
+	  color: #88f; text-decoration: underline;
+      }
+      
+      /* selected link */
+      a:active {
+	  color: #88f; text-decoration: underline;
       }
     </style>
     <script>
@@ -123,6 +142,8 @@
           document.getElementById('err1').value="";
           document.getElementById('code0').innerHTML="";
           document.getElementById('code1').innerHTML="";
+	  document.getElementById('dockerfilelink').outerHTML="<a id='dockerfilelink' href='https://github.com/fderepas/try_all_languages/tree/main/docker/"+lang+"' target='_blank'>"+lang+" Dockerfile</a>";
+	  document.getElementById('dockerhublink').outerHTML="<a id='dockerhublink' href='https://hub.docker.com/r/fderepas/tal-"+lang+"' target='_blank'>"+lang+" docker image</a>";
           resetLog();
       }
       window.addEventListener('DOMContentLoaded', (event) => {
@@ -178,7 +199,11 @@
               <option value="vyxal">vyxal</option>
               <option value="zsh">zsh</option>
             </select>
-            <a href="version.json">versions</a>
+	    <a id="dockerfilelink" href=""></a>
+	    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    <a id="dockerhublink" href=""></a>
+	    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="version.json">all versions</a>
           </td>
         </tr>
         <tr>
@@ -192,7 +217,7 @@
           <td>
             <table>
               <tr>
-                <td>standard input</td><td>standard output</td><td>standard error</td>
+                <td>standard input</td><td>standard output</td><td>standard error</td><td>ret. code</td>
               </tr>
               <tr>
                 <td>
@@ -231,13 +256,15 @@
         <tr>
           <td></td>
           <td>
-            <button onClick="sendForm();">execute</button>
+            <button style="color: white;border: none;padding: 15px 32px;background-color: #04AA6D;" onClick="sendForm();">
+	      execute
+	    </button>
           </td>
         </tr>
         <tr>
           <td>log</td>
           <td>
-            <textarea id="textarea-log" cols="50" rows="5" style="background-color:black;color:white;" readonly></textarea>
+            <textarea id="textarea-log" cols="80" rows="5" style="background-color:black;color:white;" readonly></textarea>
           </td>
         </tr>
         <tr>
