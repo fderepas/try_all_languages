@@ -1,7 +1,7 @@
 
 ## About try_all_languages
 
-```try_all_languages``` enables to execute programs in many different languages via a REST API. List of supported languages: apl, bash, bqn, c, clojure, cobol, cpp, csharp, dc, elixir, fortran, fsharp, go, golfscript, haskell, j, java, jelly, julia, k, kotlin, lua, node, ocaml, perl, php, powershell, prolog, python, r, raku, ruby, rust, scala, vyxal, zsh. The version of runtimes or compilers is given [here](docker/version.json).
+```try_all_languages``` enables to execute programs in many different languages via a REST API. List of supported languages: apl, bash, bqn, c, clojure, cobol, cpp, csharp, dc, elixir, erlang, fig, fortran, fsharp, go, golfscript, haskell, j, java, jelly, julia, k, kotlin, lua, node, ocaml, perl, php, powershell, prolog, python, r, raku, ruby, rust, scala, vyxal, zsh. The version of runtimes or compilers is given [here](docker/version.json).
 
 
 Here is an example from the [test.html](rest_api/rest_api_server/public/test.html) page that comes with the rest api server:
