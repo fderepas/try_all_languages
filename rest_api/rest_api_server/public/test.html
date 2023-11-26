@@ -9,22 +9,15 @@
           justify-content: center;
           font-family: Arial;
       }
-      /* unvisited link */
       a:link {
 	  color: #88f; text-decoration: underline;
       }
-      
-      /* visited link */
       a:visited {
 	  color: #88f;  text-decoration: underline;
       }
-
-      /* mouse over link */
       a:hover {
 	  color: #88f; text-decoration: underline;
       }
-      
-      /* selected link */
       a:active {
 	  color: #88f; text-decoration: underline;
       }
@@ -34,7 +27,7 @@
           "apl":"out←{\n⎕←⍵\n}\nout ⍞\nout ⍞\nout ⍞\n",
           "bash":"dd\n",
           "bqn":"•Out¨ •args\n",
-          "c":"#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char * line = NULL;\n    size_t len = 0;\n    ssize_t read;\n\n    while ((read = getline(&line, &len, stdin)) != -1) {\n        printf(\"%s\", line);\n    }\n    if (line)\n        free(line);\n    exit(EXIT_SUCCESS);\n}\n",
+          "c":"#include <unistd.h>\n\nint main(void) {\n    char buf[1000];\n    int c;\n    while ((c=read(0,buf,1000))>0) {\n        write(1,buf,c);\n    }   \n    return c;\n}"
           "clojure":"(ns clojure.examples.hello\n   (:gen-class))\n(defn hello-world []\n   (doseq [ln (line-seq (java.io.BufferedReader. *in*))]\n   (println ln)))\n(hello-world)\n",
           "cobol":"HELLO\n       IDENTIFICATION DIVISION.\n       PROGRAM-ID. ADDITION.\n       DATA DIVISION.\n       WORKING-STORAGE SECTION.\n       77 NUM_1 PIC Z(10).\n       01 WS-STR PIC X(20) VALUE ' '. \n       01 WS-SPACE PIC X(20).                       \n       01 WS-FIELD PIC X(20).                       \n\n       PROCEDURE DIVISION.\n       PARA.\n       ACCEPT NUM_1.\n       MOVE NUM_1 TO WS-STR.\n       UNSTRING WS-STR DELIMITED BY ALL SPACES INTO   \n                WS-SPACE,WS-FIELD.   \n       DISPLAY WS-FIELD.\n       ACCEPT NUM_1.\n       MOVE NUM_1 TO WS-STR.\n       UNSTRING WS-STR DELIMITED BY ALL SPACES INTO   \n                WS-SPACE,WS-FIELD.   \n       DISPLAY WS-FIELD.\n       ACCEPT NUM_1.\n       MOVE NUM_1 TO WS-STR.\n       UNSTRING WS-STR DELIMITED BY ALL SPACES INTO   \n                WS-SPACE,WS-FIELD.   \n       DISPLAY WS-FIELD.\n       STOP RUN.\n",
           "cpp":"#include <iostream>\nusing namespace std;\n\nint main () {\n  int a;\n  cout << (cin >> a,a) << endl;\n  cout << (cin >> a,a) << endl;\n  cout << (cin >> a,a) << endl;\n  return 0;\n}\n",
