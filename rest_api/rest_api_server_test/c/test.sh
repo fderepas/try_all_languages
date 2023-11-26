@@ -1,18 +1,13 @@
 cat <<EOF > program.txt
-#include <stdio.h>
-#include <stdlib.h>
+#include <unistd.h>
 
 int main(void) {
-    char * line = NULL;
-    size_t len = 0;
-    ssize_t read;
-
-    while ((read = getline(&line, &len, stdin)) != -1) {
-        printf("%s", line);
-    }
-    if (line)
-        free(line);
-    exit(EXIT_SUCCESS);
+    char buf[1000];
+    int c;
+    while ((c=read(0,buf,1000))>0) {
+        write(1,buf,c);
+    }   
+    return c;
 }
 EOF
 r1=()
