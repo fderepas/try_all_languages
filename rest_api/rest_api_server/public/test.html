@@ -60,6 +60,7 @@
           "ruby":"puts *$<\n",
           "rust":"use std::io::{self, BufRead};\n\nfn main() {\n    let stdin = io::stdin();\n    for line in stdin.lock().lines() {\n        println!(\"{}\", line.unwrap());\n    }\n}\n",
           "scala":"import scala.io.StdIn.readLine\nobject p {\n  def main(args: Array[String]): Unit = {\n    println(readLine())\n    println(readLine())\n    println(readLine())\n  }\n}\n",
+          "swift":"print(readLine(strippingNewline: true)!)\nprint(readLine(strippingNewline: true)!)\nprint(readLine(strippingNewline: true)!)\n",
 	  "vyxal":"\n",
 	  "zsh":"cat"
       };
@@ -187,6 +188,7 @@
               <option value="ruby">ruby</option>
               <option value="rust">rust</option>
               <option value="scala">scala</option>
+              <option value="swift">swift</option>
               <option value="vyxal">vyxal</option>
               <option value="zsh">zsh</option>
             </select>
