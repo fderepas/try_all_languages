@@ -71,3 +71,9 @@ Then ```dir2``` is mounted as a filesystem by the container executing arbitrary 
 This container has a timeout of 60 seconds.
 
 This container version of the pm2 server is performed in the ```rest_api/rest_api_docker``` directory.
+
+## Docker image size
+Here is the graph of docker image size per language:
+
+![all colors](https://github.com/fderepas/try_all_languages/blob/main/images/docker_image_size_by_language.png?raw=true)
+
