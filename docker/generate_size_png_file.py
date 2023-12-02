@@ -22,4 +22,4 @@ plt.subplots_adjust(bottom=0.3)
 
 plt.ylabel('Image size in Go')
 plt.xlabel('Language');
-plt.savefig('docker_image_size_by_language.svg')
+plt.savefig('docker_image_size_by_language.png')

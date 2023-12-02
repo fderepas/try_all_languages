@@ -15,8 +15,8 @@ prune:
 
 image_size:
 	bash generate_size_data_file.sh
-	python generate_size_svg_file.py
-	mv docker_image_size_by_language.svg ../images/
+	python generate_size_png_file.py
+	mv docker_image_size_by_language.png ../images/
 	rm image_size.json
 
 clean:
