@@ -83,4 +83,4 @@ Here is the graph of sorted execution time per language:
 
 ![all colors](https://github.com/fderepas/try_all_languages/blob/main/images/docker_time_by_language.png?raw=true)
 
-The test to measure time consists in running 40 times a program which reads 3 lines from stdin and outputs data read. I can be launched by typing ```cd docker; make time```.
+The test to measure time consists in running 40 times a program which reads 3 lines from stdin and outputs data read. It can be launched by typing ```cd docker; make time```.
