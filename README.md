@@ -5,7 +5,7 @@
 
 
 Here is an example from the [test.html](rest_api/rest_api_server/public/test.html) page that comes with the rest api server:
-![all colors](https://github.com/fderepas/try_all_languages/blob/main/test.png?raw=true)
+![all colors](https://github.com/fderepas/try_all_languages/blob/main/images/screenshot_of_live_web_site.png?raw=true)
 
 You can test it live at [https://t-a-l.org/test.html](https://t-a-l.org/test.html).
 
