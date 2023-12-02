@@ -18,6 +18,11 @@ image_size:
 	python generate_size_png_file.py
 	mv docker_image_size_by_language.png ../images/
 	rm image_size.json
+time:
+	bash compute_time.sh
+	python generate_time_png_file.py
+	mv docker_time_by_language.png ../images/
+	rm execution_time.json
 
 clean:
 	rm -f *~ image_size.json
