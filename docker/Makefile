@@ -11,9 +11,16 @@ version.json:
 	rm tmp.json
 	cat version.json > ../rest_api/rest_api_server/public/version.json 
 prune:
-	docker system prune -f 
+	docker system prune -f
+
+image_size:
+	bash generate_size_data_file.sh
+	python generate_size_svg_file.py
+	mv docker_image_size_by_language.svg ../images/
+	rm image_size.json
+
 clean:
-	rm -f *~ 
+	rm -f *~ image_size.json
 	for i in `ls -F | grep /`; do cd $$i; make clean ; cd .. ; done
 
 size:
