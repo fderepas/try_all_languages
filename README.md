@@ -25,7 +25,7 @@
 [Julia](https://en.wikipedia.org/wiki/Julia_(programming_language)), 
 [K](https://en.wikipedia.org/wiki/K_(programming_language)), 
 [Kotlin](https://en.wikipedia.org/wiki/Kotlin_(programming_language)),
-[Lisp](https://en.wikipedia.org/wiki/Lisp),
+[Lisp](https://en.wikipedia.org/wiki/Lisp_(programming_language)),
 [Logo](https://en.wikipedia.org/wiki/Logo_(programming_language)),
 [Lua](https://en.wikipedia.org/wiki/Lua_(programming_language)), 
 [NodeJs](https://en.wikipedia.org/wiki/Node.js), 
