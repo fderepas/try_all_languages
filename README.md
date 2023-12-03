@@ -125,4 +125,4 @@ Here is the graph of sorted execution time per language:
 
 ![all colors](https://github.com/fderepas/try_all_languages/blob/main/images/docker_time_by_language.png?raw=true)
 
-The test to measure time in seconds consists in running 100 times a program which reads 3 lines from stdin and outputs data read. It can be launched by typing ```cd docker; make time```. The fact that lisp or logo are faster than C just means that the packaging in the container is faster with lisp or logo than C compilation plus C runtime. On the 100 test 10 compilation happens for compiled languages. The test program is incredibly simple which does not favor fast languages.
+The test to measure time in seconds consists in running 100 times a program which reads 3 lines from stdin and outputs data read. It can be launched by typing ```cd docker; make time```. The fact that lisp or logo are faster than C just means that the packaging in the container is faster with lisp or logo than C compilation plus C runtime. On the 100 tests 10 compilations occur for compiled languages. The test program is incredibly simple which does not favor fast languages.
