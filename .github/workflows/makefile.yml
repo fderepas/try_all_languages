@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Build all docker images
-      run: make -C docker
+      run: make -C docker/bash
