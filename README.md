@@ -53,7 +53,7 @@ You can test it live at [https://t-a-l.org/test.html](https://t-a-l.org/test.htm
 
 ## Docker images
 
-Docker images are also available on [DockerHub](https://hub.docker.com/repositories/fderepas).
+Docker images are also available on [DockerHub](https://hub.docker.com/u/fderepas).
 
 This section details the docker images used to execute code in many different langages. There is one docker image per language. To build all docker images type:
 
