@@ -3,6 +3,7 @@
 
 ```try_all_languages``` enables to execute programs in many different languages via a REST API. List of supported languages: 
 [Apl](https://en.wikipedia.org/wiki/APL_(programming_language)), 
+[Assembler (gas)](https://en.wikipedia.org/wiki/GNU_Assembler),
 [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)),
 [Bqn](https://mlochbaum.github.io/BQN/), 
 [C](https://en.wikipedia.org/wiki/C_(programming_language)), 
