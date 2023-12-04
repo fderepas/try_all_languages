@@ -1,5 +1,6 @@
 {
 "apl":"18.2",
+"assembly":"Gnu Assembler x86-64",
 "bash":"GNU bash, version 5.2.21(1)-release (x86_64-alpine-linux-musl)",
 "bqn":"CBQN git 0d2631a2",
 "c":"gcc (Alpine 13.2.1_git20231014) 13.2.1 20231014",
@@ -37,7 +38,7 @@
 "raku":"Welcome to Rakudo v2023.11.",
 "ruby":"ruby 3.2.2 (2023-03-30 revision e51014f9c0) [x86_64-linux-musl]",
 "rust":" 1.71.1 (eb26296b5 2023-08-03) (Alpine Linux)",
-"scala":"",
+"scala":" 3.3.1",
 "swift":"Swift version 5.9.1 (swift-5.9.1-RELEASE)",
 "vyxal":"2.22.0",
 "zsh":"zsh 5.9 (x86_64-alpine-linux-musl)",
