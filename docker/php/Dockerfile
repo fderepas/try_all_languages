@@ -13,7 +13,7 @@ WORKDIR /home/tal
 # leave root user
 USER tal:tal
 
-RUN git clone --single-branch --branch PHP-8.1.10  https://github.com/php/php-src.git
+RUN git clone --single-branch --branch PHP-8.3.0  https://github.com/php/php-src.git
 WORKDIR /home/tal/php-src
 RUN ./buildconf && ./configure --prefix=/home/tal/php && make && make install
 

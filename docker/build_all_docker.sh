@@ -1,7 +1,7 @@
 #!/bin/bash
 push_to_registry () {
-    docker tag tal-$1:latest $2:5000/tal-$1:latest
-    docker push $2:5000/tal-$1:latest
+    docker tag tal-$1:$3 $2/tal-$1:$3
+    docker push $2/tal-$1:$3
 }
 for i in `ls -F | grep / `; do
     cd $i
@@ -17,7 +17,7 @@ for i in `ls -F | grep / `; do
         make > /dev/null 2> /dev/null
         if [ $? -eq 0 ]; then
             printf \\033[32mOK\\033[0m"\n"
-            push_to_registry $j talhost
+            push_to_registry $j fderepas latest
         else
             printf \\033[31mtest_\KO\\033[0m"\n"
         fi
@@ -31,7 +31,7 @@ for i in `ls -F | grep / `; do
             make > /dev/null 2> /dev/null
             if [ $? -eq 0 ]; then
                 printf \\033[32mOK\\033[0m"\n"
-                push_to_registry $j talhost
+                push_to_registry $j fderepas latest
             else
                 printf \\033[31mtest_\KO\\033[0m"\n"
             fi
