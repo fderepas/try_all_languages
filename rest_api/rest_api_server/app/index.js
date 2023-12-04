@@ -5,7 +5,7 @@ const app = express();
 const fs = require('fs');
 const port = 8087;
 const { exec } = require("child_process");
-const ext = { 'sass': 'sass', 'cpp':'cc','node':'js', 'python':'py', 'bash':'sh', 'ruby':'rb', 'java':'java', 'go':'go', 'rust':'rs', 'ocaml':'ml', 'elixir':'exs','csharp':'cs','clojure':'clj','julia':'jl','r':'r','php':'php','perl':'pl','haskell':'hs','k':'k','lua':'lua','kotlin':'kt','c':'c','zsh':'zsh','vyxal':'vyxal','raku':'raku','j':'ijs','prolog':'prolog','jelly':'jelly','golfscript':'golfscript','dc':'dc','scala':'scala','apl':'apl','powershell':'sh','bqn':'bqn','fsharp':'fs','cobol':'cob','fortran':'f90','erlang':'erl','fig':'fig','swift':'swift','lisp':'lisp','logo':'logo','postscript':'ps'};
+const ext = { 'sass': 'sass', 'cpp':'cc','node':'js', 'python':'py', 'bash':'sh', 'ruby':'rb', 'java':'java', 'go':'go', 'rust':'rs', 'ocaml':'ml', 'elixir':'exs','csharp':'cs','clojure':'clj','julia':'jl','r':'r','php':'php','perl':'pl','haskell':'hs','k':'k','lua':'lua','kotlin':'kt','c':'c','zsh':'zsh','vyxal':'vyxal','raku':'raku','j':'ijs','prolog':'prolog','jelly':'jelly','golfscript':'golfscript','dc':'dc','scala':'scala','apl':'apl','powershell':'sh','bqn':'bqn','fsharp':'fs','cobol':'cob','fortran':'f90','erlang':'erl','fig':'fig','swift':'swift','lisp':'lisp','logo':'logo','postscript':'ps','assembly':'s'};
 
 function callDocker(req,res,tmp,countInput) {
     var s="";

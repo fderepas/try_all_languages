@@ -36,8 +36,8 @@ docker run \
        --mount type=bind,source=`pwd`,target=/mnt/in,ro \
        --mount type=bind,source=`pwd`,target=/mnt/out \
        --network none \
-       --name tal-c-$$ --rm \
-       tal-c:latest /bin/sh /home/tal/launch.sh 9
+       --name tal-postscript-$$ --rm \
+       tal-postscript:latest /bin/sh /home/tal/launch.sh 9
 for testcount in `seq 0 1 9`
 do
     errc=`cat errcode$testcount.txt`
