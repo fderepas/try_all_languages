@@ -54,6 +54,7 @@
           "ocaml":"let i = read_int () in\nlet j = read_int () in\nlet k = read_int () in\nprint_int i;\nprint_string \"\n\";\nprint_int j;\nprint_string \"\n\";\nprint_int k;\nprint_string \"\n\";\n",
           "perl":"while (<>) {\nprint;\n}\n",
           "php":"<?php\n$a=\"\";\nwhile (fscanf(STDIN, \"%s\",$a)) {\n  echo \"$a\n\";\n}\n?>\n",
+          "postscript":"% read thinking in postscript\n%https://w3-o.cs.hm.edu/users/ruckert/public_html/compiler/ThinkingInPostScript.pdf\n(%stdout)  (w) file dup          % write to stdout\n/myinput (%stdin)  (r) file def  % define myinput as stdin \nmyinput (toto) readline pop      % read one line from std in\nwritestring                      % write it to stdout\ndup (\\n) writestring             % write \\n to stdout\ndup                              % duplicate stdout on stack\nmyinput (toto) readline pop      % read one line from std in\nwritestring                      % write it to stdout\ndup (\\n) writestring             % write \\n to stdout\ndup                              \nmyinput (toto) readline pop\nwritestring\ndup (\\n) writestring\nclosefile                        %  close stdout\n",
 	  "powershell":"cat",
 	  "prolog":"main:- \n    % read and output a string\n    read_line_to_string(user_input,A),writeln(A),\n    read_line_to_string(user_input,B),writeln(B),\n    read_line_to_string(user_input,C),writeln(C).\n",
           "python":"print(open(0).read())\n",
@@ -184,6 +185,7 @@
               <option value="ocaml">ocaml</option>
               <option value="perl">perl</option>
               <option value="php">php</option>
+              <option value="postscript">postscript</option>
               <option value="powershell">powershell</option>
               <option value="prolog">prolog</option>
               <option value="python">python</option>
