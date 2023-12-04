@@ -32,6 +32,7 @@
 [Ocaml](https://en.wikipedia.org/wiki/OCaml), 
 [Perl](https://en.wikipedia.org/wiki/Perl), 
 [PHP](https://en.wikipedia.org/wiki/PHP), 
+[Postscript](https://en.wikipedia.org/wiki/PostScript), 
 [PowerShell](https://en.wikipedia.org/wiki/PowerShell), 
 [Prolog](https://en.wikipedia.org/wiki/Prolog), 
 [Python](https://en.wikipedia.org/wiki/Python), 
