@@ -1,7 +1,0 @@
-default :
-
-	bash test.sh https://vm.week.golf
-	bash test.sh http://vm.week.golf
-clean:
-	rm -rf *~ *.txt index.json *.enc
-

@@ -22,52 +22,19 @@
 	  color: #88f; text-decoration: underline;
       }
     </style>
+    
     <script>
-      var progs={
-          "apl":"out←{\n⎕←⍵\n}\nout ⍞\nout ⍞\nout ⍞\n",
-          "assembly":"// https://en.wikibooks.org/wiki/X86_Assembly/GNU_assembly_syntax\n// https://web.stanford.edu/class/cs107/resources/x86-64-reference.pdf\n// this is the \"main\" function \n        .globl	main\nmain:\n        // \"subq Src, Dest\" does \"Dest = Dest − Src\"\n        // %rsp is the Stack pointer, we allocate 1008 bytes on the stack:\n        // a buffer of size 1000 and and 8 byte int:\n	subq	\$1008, %rsp\n	movq	%fs:40, %rax\n	movq	%rax, 1000(%rsp)\n        // %rsi stores buffer to write to\n	movq	%rsp, %rsi\n.LOOP:\n	movl	\$1000, %edx\n        // set %edi to 0 (stdin)\n        movl    \$0, %edi\n        // perform read system call with arguments %edi %rsi %edx\n	call	read@PLT\n        // tests if %eax (return code) is zero or not.\n	testl	%eax, %eax\n        // if it is zero, no more data, go to .ENDLOOP\n	jle	.ENDLOOP\n        // move %eax (value returned by read) to %rdx 3rd argument of write\n	movslq	%eax, %rdx\n        // move value 1 (stdout) to register %edi\n	movl	\$1, %edi\n        // perform write system call with arguments %edi %rsp %rdx\n	call	write@PLT\n        // back to the beginnig of the loop\n	jmp	.LOOP\n.ENDLOOP:\n	movq	1000(%rsp), %rax\n	subq	%fs:40, %rax\n        // we release the 1008 bytes previously allocated\n	addq	\$1008, %rsp\n	ret\n",
-          "bash":"dd\n",
-          "bqn":"•Out¨ •args\n",
-          "c":"#include <unistd.h>\n\nint main(void) {\n    char buf[1000];\n    int c;\n    while ((c=read(0,buf,1000))>0) {\n        write(1,buf,c);\n    }   \n    return c;\n}\n",
-          "clojure":"(ns clojure.examples.hello\n   (:gen-class))\n(defn hello-world []\n   (doseq [ln (line-seq (java.io.BufferedReader. *in*))]\n   (println ln)))\n(hello-world)\n",
-          "cobol":"HELLO\n       IDENTIFICATION DIVISION.\n       PROGRAM-ID. ADDITION.\n       DATA DIVISION.\n       WORKING-STORAGE SECTION.\n       77 NUM_1 PIC Z(10).\n       01 WS-STR PIC X(20) VALUE ' '. \n       01 WS-SPACE PIC X(20).                       \n       01 WS-FIELD PIC X(20).                       \n\n       PROCEDURE DIVISION.\n       PARA.\n       ACCEPT NUM_1.\n       MOVE NUM_1 TO WS-STR.\n       UNSTRING WS-STR DELIMITED BY ALL SPACES INTO   \n                WS-SPACE,WS-FIELD.   \n       DISPLAY WS-FIELD.\n       ACCEPT NUM_1.\n       MOVE NUM_1 TO WS-STR.\n       UNSTRING WS-STR DELIMITED BY ALL SPACES INTO   \n                WS-SPACE,WS-FIELD.   \n       DISPLAY WS-FIELD.\n       ACCEPT NUM_1.\n       MOVE NUM_1 TO WS-STR.\n       UNSTRING WS-STR DELIMITED BY ALL SPACES INTO   \n                WS-SPACE,WS-FIELD.   \n       DISPLAY WS-FIELD.\n       STOP RUN.\n",
-          "cpp":"#include <iostream>\nusing namespace std;\n\nint main () {\n  int a;\n  cout << (cin >> a,a) << endl;\n  cout << (cin >> a,a) << endl;\n  cout << (cin >> a,a) << endl;\n  return 0;\n}\n",
-          "csharp":"using static System.Console;\nclass H {\n    static void Main() {\n       WriteLine (ReadLine());\n       WriteLine (ReadLine());\n       WriteLine (ReadLine());\n    }\n}",
-          "dc":"?fc?fc?fc\n",
-          "elixir":"IO.write(IO.read(:stdio, :line))\nIO.write(IO.read(:stdio, :line))\nIO.write(IO.read(:stdio, :line))\n",
-          "erlang":"-module(prog).\n-export([start/0]).\nstart() ->\n    hello(3).\n\n%% Do nothing when there is no hello to write\nhello(N) when N =< 0 -> ok;\n%% Else, write a 'Hello World!', and then write (n-1) hellos\nhello(N) ->\n   Line = io:get_line(\"\"),\n   io:format(Line),\n   hello(N - 1).\n",
-          "fig":"",
-          "fortran":"Program Hello\ncharacter(len=23) :: str\ndo n = 1, 3\n    read *, i\n    write(str,'(1i10)') i\n    write(*,'(a)') trim(adjustl(trim(str)))\nend do\nEnd Program Hello\n ",
-          "fsharp":"open System\n[<EntryPoint>]\nlet main args =\n    printfn \"%s\" (Console.ReadLine())\n    printfn \"%s\" (Console.ReadLine())\n    printfn \"%s\" (Console.ReadLine())\n    0 // return an integer exit code\n",
-          "go":"package main\n\nimport \"fmt\"\nimport \"os\"\nimport \"bufio\"\nimport \"log\"\n\nfunc main() {\n  scanner := bufio.NewScanner(os.Stdin)\n  for scanner.Scan() {\n        fmt.Println(scanner.Text())\n  }\n\n  if err := scanner.Err(); err != nil {\n        log.Println(err)\n  }\n}\n",
-          "golfscript":"\n",
-          "haskell":"import System.IO\n\nmain = do\n    z <- getLine\n    putStrLn z\n    z <- getLine\n    putStrLn z\n    z <- getLine\n    putStrLn z\n",
-	  "j":"a=: 1!:1 <3\necho a\n",
-          "java":"import java.io.*;\npublic class prog {\n   public static void main (String[] args) {\n      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n      try {\n        System.out.println(br.readLine());\n        System.out.println(br.readLine());\n        System.out.println(br.readLine());\n      }  catch (IOException ioe) {\n         System.out.println(ioe);\n      }\n   }\n}\n",
-          "jelly":"0ƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈ\n",
-          "julia":"print(readline())\nprint(\"\n\")\nprint(readline())\nprint(\"\n\")\nprint(readline())\nprint(\"\n\")\n",
-          "k":"`0:0:0\n",
-          "kotlin":"fun main() {\n println(generateSequence(::readLine).joinToString(\"\\n\"))\n}\n",
-          "lisp":"(write-line (read-line))\n(write-line (read-line))\n(write-line (read-line))\n",
-          "logo":"print readrawline\nprint readrawline\nprint readrawline\nbye\n",
-          "lua":"print(io.read(\"*a\"))\n",
-          "node":"console.log(prompt());\nconsole.log(prompt());\nconsole.log(prompt());\n",
-          "ocaml":"let i = read_int () in\nlet j = read_int () in\nlet k = read_int () in\nprint_int i;\nprint_string \"\n\";\nprint_int j;\nprint_string \"\n\";\nprint_int k;\nprint_string \"\n\";\n",
-          "perl":"while (<>) {\nprint;\n}\n",
-          "php":"<?php\n$a=\"\";\nwhile (fscanf(STDIN, \"%s\",$a)) {\n  echo \"$a\n\";\n}\n?>\n",
-          "postscript":"% read thinking in postscript\n%https://w3-o.cs.hm.edu/users/ruckert/public_html/compiler/ThinkingInPostScript.pdf\n(%stdout)  (w) file dup          % write to stdout\n/myinput (%stdin)  (r) file def  % define myinput as stdin \nmyinput (toto) readline pop      % read one line from std in\nwritestring                      % write it to stdout\ndup (\\n) writestring             % write \\n to stdout\ndup                              % duplicate stdout on stack\nmyinput (toto) readline pop      % read one line from std in\nwritestring                      % write it to stdout\ndup (\\n) writestring             % write \\n to stdout\ndup                              \nmyinput (toto) readline pop\nwritestring\ndup (\\n) writestring\nclosefile                        %  close stdout\n",
-	  "powershell":"cat",
-	  "prolog":"main:- \n    % read and output a string\n    read_line_to_string(user_input,A),writeln(A),\n    read_line_to_string(user_input,B),writeln(B),\n    read_line_to_string(user_input,C),writeln(C).\n",
-          "python":"print(open(0).read())\n",
-          "r":"x <- scan(file(\"stdin\"),quiet = TRUE);\ncat(x[1]);\ncat(\"\n\")\ncat(x[2]);\ncat(\"\n\")\ncat(x[3]);\ncat(\"\n\")\n",
-	  "raku":"for lines() {\n    say \"\", \$_\n}",
-          "ruby":"puts *$<\n",
-          "rust":"use std::io::{self, BufRead};\n\nfn main() {\n    let stdin = io::stdin();\n    for line in stdin.lock().lines() {\n        println!(\"{}\", line.unwrap());\n    }\n}\n",
-          "scala":"import scala.io.StdIn.readLine\nobject p {\n  def main(args: Array[String]): Unit = {\n    println(readLine())\n    println(readLine())\n    println(readLine())\n  }\n}\n",
-          "swift":"print(readLine(strippingNewline: true)!)\nprint(readLine(strippingNewline: true)!)\nprint(readLine(strippingNewline: true)!)\n",
-	  "vyxal":"\n",
-	  "zsh":"cat"
-      };
+      var progs;
+      const response = fetch('progs.json')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                progs=data;
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
       function getQueryVariable(variable) {
           var query = window.location.search.substring(1);
           var vars = query.split('&');
@@ -143,9 +110,13 @@
 	  document.getElementById('dockerhublink').outerHTML="<a id='dockerhublink' href='https://hub.docker.com/r/fderepas/tal-"+lang+"' target='_blank'>"+lang+" docker image</a>";
           resetLog();
       }
+      
       window.addEventListener('DOMContentLoaded', (event) => {
           // DOM fully loaded and parsed
-          changeLang();
+          setTimeout(() => {
+              // wait 1 sec for json to load
+              changeLang();
+          }, 1000);
       });
     </script>
     <title>testing programs</title>

@@ -1,5 +1,4 @@
-default :
-	bash test.sh `cat ../vmhost.txt`
+default:
+	make -f ../Makefile.to.call.from.subdir 
 clean:
-	rm -rf *~ input*.txt out*.txt index.json *.enc
-
+	make -f ../Makefile.to.call.from.subdir clean

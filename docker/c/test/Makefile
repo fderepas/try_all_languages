@@ -1,6 +1,11 @@
-default:
-	bash test.sh
 
+# launch the test_docker.sh script with the name of the language so
+# that the files are generated in this directory
+default:
+	lang=`pwd  | sed -e 's/\(.*\)\/[^\/]*$$/\1/' | sed -e 's/.*\/\([^\/]*\)$$/\1/'` && \
+            bash ../../test_docker.sh $$lang
+
+# delete all generated files
 clean:
-	rm -f *~ *.txt prog.c
+	rm -f `ls | grep -v Makefile` *~
 

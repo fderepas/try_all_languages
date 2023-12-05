@@ -1,8 +1,15 @@
-cat <<EOF > program.txt
-print(readLine(strippingNewline: true)!)
-print(readLine(strippingNewline: true)!)
-print(readLine(strippingNewline: true)!)
-EOF
+#!/bin/bash
+if [ "$#" -ne 2 ]; then
+    echo "indicate the url and the name of the language to test." 1>&2
+    exit 1
+fi
+cd `dirname $0`
+lang=$2
+bash ../rest_api_server/public/get_code.sh $lang > $lang/program.txt
+echo `pwd`
+cat $lang/program.txt
+cd $lang/
+
 r1=()
 r2=()
 r3=()
@@ -21,8 +28,7 @@ do
 done
 
 node -e 'console.log(encodeURIComponent(require("fs").readFileSync(0).toString()));' < program.txt > program.enc
-#rm program.txt
-lang=`basename $PWD`
+
 wget -O index.json "$1/?lang=$lang&countInput=10$data"'&code='`cat program.enc` 
 
 for i in `seq 0 1 9`

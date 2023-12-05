@@ -1,0 +1,7 @@
+default :
+	lang=`pwd | sed -e 's/.*\/\([^\/]*\)$$/\1/'` && \
+            bash ../test_rest_api.sh `cat ../vmhost.txt` $$lang
+
+clean:
+	rm -rf *~ *.txt index.json *.enc
+
