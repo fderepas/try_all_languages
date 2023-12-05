@@ -9,7 +9,9 @@ version.json:
 	echo "}" >> tmp.json
 	tr -cd '\11\12\40-\176' < tmp.json > version.json
 	rm tmp.json
-	cat version.json > ../rest_api/rest_api_server/public/version.json 
+	cat version.json > ../rest_api/rest_api_server/public/version.json
+	git pull && git commit version.json ../rest_api/rest_api_server/public/version.json -m 'updated versions' && git push
+
 prune:
 	docker system prune -f
 
