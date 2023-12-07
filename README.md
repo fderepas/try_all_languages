@@ -2,6 +2,7 @@
 ## About try_all_languages
 
 ```try_all_languages``` enables to execute programs in many different languages via a REST API. List of supported languages: 
+[Ada](https://en.wikipedia.org/wiki/Ada_(programming_language)), 
 [Apl](https://en.wikipedia.org/wiki/APL_(programming_language)), 
 [Assembler (gas)](https://en.wikipedia.org/wiki/GNU_Assembler),
 [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)),
@@ -18,7 +19,8 @@
 [Fortran](https://en.wikipedia.org/wiki/Fortran), 
 [F#](https://en.wikipedia.org/wiki/F_Sharp_(programming_language)), 
 [Go](https://en.wikipedia.org/wiki/Go_(programming_language)), 
-[GolfScript](https://esolangs.org/wiki/GolfScript), 
+[GolfScript](https://esolangs.org/wiki/GolfScript),
+[Groovy](https://en.wikipedia.org/wiki/Apache_Groovy), 
 [Haskell](https://en.wikipedia.org/wiki/Haskell), 
 [J](https://en.wikipedia.org/wiki/J_(programming_language)), 
 [Java](https://en.wikipedia.org/wiki/Java_(programming_language)), 
