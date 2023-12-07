@@ -95,8 +95,7 @@
           s+=getRandomInt(10000).toString()+"\n";
           return s;
       }
-      function changeLang() {
-          var lang=document.getElementById('lang').value;
+      function updateLang(lang) {
           document.getElementById('code').value=progs[lang];
           document.getElementById('input0').value=get3ints();
           document.getElementById('input1').value=get3ints();
@@ -110,12 +109,16 @@
 	  document.getElementById('dockerhublink').outerHTML="<a id='dockerhublink' href='https://hub.docker.com/r/fderepas/tal-"+lang+"' target='_blank'>"+lang+" docker image</a>";
           resetLog();
       }
+      function changeLang() {
+          var lang=document.getElementById('lang').value;
+          updateLang(lang);
+      }
       
       window.addEventListener('DOMContentLoaded', (event) => {
           // DOM fully loaded and parsed
           setTimeout(() => {
               // wait 1 sec for json to load
-              const select = document.getElementById('lang');
+              var select = document.getElementById('lang');
               for (let k in progs) {
                   let v=progs[k];
                   const newOption = document.createElement('option');
@@ -123,7 +126,11 @@
                   newOption.setAttribute('value',k);
                   select.appendChild(newOption);
               }
-              changeLang();
+              // select a random language
+              var keys = Object.keys(progs);
+              select.value=keys[ keys.length * Math.random() << 0];
+              // call onChange
+              select.dispatchEvent(new Event('change'))
           }, 1000);
       });
     </script>

@@ -22,7 +22,7 @@
     "j":"a=: 1!:1 <3\necho a\n",
     "java":"import java.io.*;\npublic class prog {\n   public static void main (String[] args) {\n      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n      try {\n        System.out.println(br.readLine());\n        System.out.println(br.readLine());\n        System.out.println(br.readLine());\n      }  catch (IOException ioe) {\n         System.out.println(ioe);\n      }\n   }\n}\n",
     "jelly":"0ƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈ\n",
-    "julia":"print(readline())\nprint(\"\n\")\nprint(readline())\nprint(\"\n\")\nprint(readline())\nprint(\"\n\")\n",
+    "julia":"print(readline())\nprint(\"\\n\")\nprint(readline())\nprint(\"\\n\")\nprint(readline())\nprint(\"\\n\")\n",
     "k":"`0:0:0\n",
     "kotlin":"fun main() {\n println(generateSequence(::readLine).joinToString(\"\\n\"))\n}\n",
     "lisp":"(write-line (read-line))\n(write-line (read-line))\n(write-line (read-line))\n",
