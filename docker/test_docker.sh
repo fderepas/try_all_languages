@@ -7,7 +7,6 @@ if [ "$#" -ne 1 ]; then
 fi
 cd `dirname $0`
 lang=$1
-#lang=`pwd  | sed -e 's/\(.*\)\/[^\/]*$/\1/' | sed -e 's/.*\/\([^\/]*\)$/\1/'`
 sourcefile=prog.`bash ../rest_api/rest_api_server/public/get_ext.sh $lang`
 bash ../rest_api/rest_api_server/public/get_code.sh $lang > $lang/test/$sourcefile
 cd $lang/test/
