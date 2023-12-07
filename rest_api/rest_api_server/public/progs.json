@@ -17,6 +17,7 @@
     "fsharp":"open System\n[<EntryPoint>]\nlet main args =\n    printfn \"%s\" (Console.ReadLine())\n    printfn \"%s\" (Console.ReadLine())\n    printfn \"%s\" (Console.ReadLine())\n    0 // return an integer exit code\n",
     "go":"package main\n\nimport \"fmt\"\nimport \"os\"\nimport \"bufio\"\nimport \"log\"\n\nfunc main() {\n  scanner := bufio.NewScanner(os.Stdin)\n  for scanner.Scan() {\n        fmt.Println(scanner.Text())\n  }\n\n  if err := scanner.Err(); err != nil {\n        log.Println(err)\n  }\n}\n",
     "golfscript":"\n",
+    "groovy": "BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\nfor (int i=0;i<3;++i)\n    println br.readLine();",
     "haskell":"import System.IO\n\nmain = do\n    z <- getLine\n    putStrLn z\n    z <- getLine\n    putStrLn z\n    z <- getLine\n    putStrLn z\n",
     "j":"a=: 1!:1 <3\necho a\n",
     "java":"import java.io.*;\npublic class prog {\n   public static void main (String[] args) {\n      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n      try {\n        System.out.println(br.readLine());\n        System.out.println(br.readLine());\n        System.out.println(br.readLine());\n      }  catch (IOException ioe) {\n         System.out.println(ioe);\n      }\n   }\n}\n",

@@ -115,6 +115,14 @@
           // DOM fully loaded and parsed
           setTimeout(() => {
               // wait 1 sec for json to load
+              const select = document.getElementById('lang');
+              for (let k in progs) {
+                  let v=progs[k];
+                  const newOption = document.createElement('option');
+                  newOption.appendChild(document.createTextNode(k));
+                  newOption.setAttribute('value',k);
+                  select.appendChild(newOption);
+              }
               changeLang();
           }, 1000);
       });
@@ -127,49 +135,6 @@
           <td>language</td>
           <td>
             <select id="lang" onchange="changeLang();">
-              <option value="apl">apl</option>
-              <option value="assembly">assembly</option>
-              <option value="bash">bash</option>
-              <option value="bqn">bqn</option>
-              <option value="c">c</option>
-              <option value="clojure">clojure</option>
-              <option value="cobol">cobol</option>
-              <option value="cpp">c++</option>
-              <option value="csharp">c#</option>
-              <option value="dc">dc</option>
-              <option value="elixir">elixir</option>
-              <option value="erlang">erlang</option>
-              <option value="fig">fig</option>
-              <option value="fortran">fortran</option>
-              <option value="fsharp">f#</option>
-              <option value="go">go</option>
-              <option value="golfscript">golfscript</option>
-              <option value="haskell">haskell</option>
-              <option value="j">j</option>
-              <option value="java">java</option>
-              <option value="jelly">jelly</option>
-              <option value="julia">julia</option>
-              <option value="k">k</option>
-              <option value="kotlin">kotlin</option>
-              <option value="lisp">lisp</option>
-              <option value="logo">logo</option>
-              <option value="lua">lua</option>
-              <option value="node">node</option>
-              <option value="ocaml">ocaml</option>
-              <option value="perl">perl</option>
-              <option value="php">php</option>
-              <option value="postscript">postscript</option>
-              <option value="powershell">powershell</option>
-              <option value="prolog">prolog</option>
-              <option value="python">python</option>
-              <option value="r">r</option>
-              <option value="raku">raku</option>
-              <option value="ruby">ruby</option>
-              <option value="rust">rust</option>
-              <option value="scala">scala</option>
-              <option value="swift">swift</option>
-              <option value="vyxal">vyxal</option>
-              <option value="zsh">zsh</option>
             </select>
 	    <a id="dockerfilelink" href=""></a>
 	    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
