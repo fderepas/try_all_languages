@@ -1,3 +1,6 @@
+# to install matplotlib:
+#    python -m pip install -U pip
+#    python -m pip install -U matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import json

@@ -1,4 +1,6 @@
 #!/bin/bash
+# test a docker by running a simple program which takes 3 numbers as an input
+# and outputs the same numbers.
 set -e
 set -x
 if [ "$#" -ne 1 ]; then

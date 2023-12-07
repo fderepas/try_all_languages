@@ -17,12 +17,12 @@ prune:
 
 image_size:
 	bash generate_size_data_file.sh
-	python generate_size_png_file.py
+	python generate_size_png_file.py || echo -e "Error, install matplotlib:\n    python -m pip install -U pip\n    python -m pip install -U matplotlib"
 	mv docker_image_size_by_language.png ../images/
 	rm image_size.json
 time:
 	bash compute_time.sh
-	python generate_time_png_file.py
+	python generate_time_png_file.py || echo -e "Error, install matplotlib:\n    python -m pip install -U pip\n    python -m pip install -U matplotlib"
 	mv docker_time_by_language.png ../images/
 	rm execution_time.json
 
