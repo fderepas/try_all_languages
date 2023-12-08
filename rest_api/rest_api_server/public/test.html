@@ -10,21 +10,27 @@
           font-family: Arial;
       }
       a:link {
-	  color: #88f; text-decoration: underline;
+	  color: #88f;
+          text-decoration: underline;
       }
       a:visited {
-	  color: #88f;  text-decoration: underline;
+	  color: #88f;
+          text-decoration: underline;
       }
       a:hover {
-	  color: #88f; text-decoration: underline;
+	  color: #88f;
+          text-decoration: underline;
       }
       a:active {
-	  color: #88f; text-decoration: underline;
+	  color: #88f;
+          text-decoration: underline;
       }
     </style>
     
     <script>
+      // disctionnary holding all programs
       var progs;
+      // filling progs using progs.json
       const response = fetch('progs.json')
             .then(function (response) {
                 return response.json();
@@ -35,23 +41,15 @@
             .catch(function (err) {
                 console.log('error: ' + err);
             });
-      function getQueryVariable(variable) {
-          var query = window.location.search.substring(1);
-          var vars = query.split('&');
-          for (var i = 0; i < vars.length; i++) {
-              var pair = vars[i].split('=');
-              if (decodeURIComponent(pair[0]) == variable) {
-                  return decodeURIComponent(pair[1]);
-              }
-          }
-          console.log('Query variable %s not found', variable);
-      }
+      // empty the log
       function resetLog() {
           document.getElementById('textarea-log').value = "";
       }
+      // add data to the log
       function appendLog(msg) {
           document.getElementById('textarea-log').value += "\n" + msg;
       }
+      // send the form 
       function sendForm() {
           var countInput=2
           var url ="/?lang="+document.getElementById('lang').value;
@@ -63,14 +61,14 @@
           
           let xhr = new XMLHttpRequest();
           xhr.onload = function(progressEvent) {
-              appendLog("onload!");
+              // add the status to the log
               appendLog(" status = " + xhr.status);
               appendLog(" statusText = " + xhr.statusText);
-              
               appendLog(" ------ xhr.responseText ------: ");
               appendLog(xhr.responseText);
               var answer = JSON.parse(xhr.responseText);
               var count=0;
+              // add stdout, stderr and error code.
               for (const e of answer.data) {
                   document.getElementById('output'+count).value=decodeURIComponent(e.out);
                   document.getElementById('err'+count).value=decodeURIComponent(e.err);
@@ -78,12 +76,10 @@
                   ++count;
               }
           }
-          
           let async = true;
-          // Initialize It.
+          // Initialize XMLHttpRequest
           xhr.open("GET", url, async);
-          
-          // Send it (Without body data)
+          // Send XMLHttpRequest (without body data)
           xhr.send();
       }
       function getRandomInt(max) {
