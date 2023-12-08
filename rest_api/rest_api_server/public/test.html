@@ -77,12 +77,13 @@
                   document.getElementById('code'+count).innerHTML=e.code;
                   ++count;
               }
+              document.getElementById('waitlogo').innerHTML='';
           }
           
           let async = true;
           // Initialize It.
           xhr.open("GET", url, async);
-          
+          document.getElementById('waitlogo').innerHTML='<img src="wait.gif">';
           // Send it (Without body data)
           xhr.send();
       }
@@ -208,7 +209,6 @@
 	          </button>
                 </td>
                 <td id="waitlogo">
-                  <img src="wait.gif">
                 </td>
               </tr>
             </table>
