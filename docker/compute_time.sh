@@ -9,12 +9,12 @@ for i in `docker images --format "{{.Repository}} {{.Tag}}" | grep ^tal- | grep 
     if [ $firstTime -eq 0 ]; then
         echo ",">> $dataFile
     fi
-    cd $j/test
-    a=$(/usr/bin/time  --format "%e"  make 2>&1 >/dev/null | tail -n 1)
+    cd $j/
+    a=$(/usr/bin/time  --format "%e" make test 2>&1 >/dev/null | tail -n 1)
     for i in `seq 1 10`; do
-        a+=", "$(/usr/bin/time  --format "%e"  make 2>&1 >/dev/null | tail -n 1)
+        a+=", "$(/usr/bin/time  --format "%e" make test 2>&1 >/dev/null | tail -n 1)
     done
-    cd ../..
+    cd ../
     echo -e "\"$j\": [$a]" >> $dataFile
     firstTime=0
 done
