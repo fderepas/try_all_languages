@@ -13,7 +13,7 @@ install:
 clean:
 	rm -f *~ *.deb
 	rm -rf rest_api_server
-	cd test && make clean
+	cd docker-registry && make clean
 
 #create registry
 #docker run -d -p 5000:5000 --restart always --name registry registry:2
