@@ -61,6 +61,8 @@
           
           let xhr = new XMLHttpRequest();
           xhr.onload = function(progressEvent) {
+              // stop waiting
+              document.getElementById('waitlogo').innerHTML='';
               // add the status to the log
               appendLog(" status = " + xhr.status);
               appendLog(" statusText = " + xhr.statusText);
@@ -76,6 +78,7 @@
                   ++count;
               }
           }
+          document.getElementById('waitlogo').innerHTML='<img src="wait.gif">';
           let async = true;
           // Initialize XMLHttpRequest
           xhr.open("GET", url, async);
