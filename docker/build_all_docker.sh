@@ -9,7 +9,7 @@ for i in `ls -F | grep / `; do
     # image was done today
     #c=$(docker images | grep ^tal-$j | grep `date +"%Y%m%d"` | wc -l)
     # image exits
-    c=$(docker images | grep ^tal-$j | grep latest | wc -l)
+    c=$(docker images | grep ^tal-$j' ' | grep latest | wc -l)
     if [ $c -eq 1 ]; then
         # an image is already here, just test
         echo testing $j
