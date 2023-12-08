@@ -88,12 +88,14 @@
       function getRandomInt(max) {
           return Math.floor(Math.random() * max);
       }
+      // write 3 random integers
       function get3ints() {
           var s = getRandomInt(10000).toString()+"\n";
           s+=getRandomInt(10000).toString()+"\n";
           s+=getRandomInt(10000).toString()+"\n";
           return s;
       }
+      // update to a new language
       function updateLang(lang) {
           document.getElementById('code').value=progs[lang];
           document.getElementById('input0').value=get3ints();
@@ -108,17 +110,19 @@
 	  document.getElementById('dockerhublink').outerHTML="<a id='dockerhublink' href='https://hub.docker.com/r/fderepas/tal-"+lang+"' target='_blank'>"+lang+" docker image</a>";
           resetLog();
       }
+      // change language to selected value
       function changeLang() {
           var lang=document.getElementById('lang').value;
           updateLang(lang);
       }
-      
+
+      // DOM fully loaded and parsed
       window.addEventListener('DOMContentLoaded', (event) => {
-          // DOM fully loaded and parsed
           setTimeout(() => {
               // wait 1 sec for json to load
               var select = document.getElementById('lang');
               for (let k in progs) {
+                  // add language j in select
                   let v=progs[k];
                   const newOption = document.createElement('option');
                   newOption.appendChild(document.createTextNode(k));
@@ -206,6 +210,7 @@
 	            execute
 	          </button>
                 </td>
+                <!-- location to display an image while waiting -->
                 <td id="waitlogo" >
                 </td>
               </tr>
