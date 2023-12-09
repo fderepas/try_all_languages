@@ -28,7 +28,7 @@
     "lisp":"(write-line (read-line))\n(write-line (read-line))\n(write-line (read-line))\n",
     "logo":"print readrawline\nprint readrawline\nprint readrawline\nbye\n",
     "lua":"print(io.read(\"*a\"))\n",
-    "node":"console.log(prompt());\nconsole.log(prompt());\nconsole.log(prompt());\n",
+    "node":"// prompt is a function which enables to read stdin\nconsole.log(prompt());\nconsole.log(prompt());\nconsole.log(prompt());\n",
     "ocaml":"let i = read_int () in\nlet j = read_int () in\nlet k = read_int () in\nprint_int i;\nprint_string \"\n\";\nprint_int j;\nprint_string \"\n\";\nprint_int k;\nprint_string \"\n\";\n",
     "perl":"while (<>) {\nprint;\n}\n",
     "php":"<?php\n$a=\"\";\nwhile (fscanf(STDIN, \"%s\",$a)) {\n  echo \"$a\n\";\n}\n?>\n",
@@ -42,7 +42,7 @@
     "rust":"use std::io::{self, BufRead};\n\nfn main() {\n    let stdin = io::stdin();\n    for line in stdin.lock().lines() {\n        println!(\"{}\", line.unwrap());\n    }\n}\n",
     "scala":"import scala.io.StdIn.readLine\nobject p {\n  def main(args: Array[String]): Unit = {\n    println(readLine())\n    println(readLine())\n    println(readLine())\n  }\n}\n",
     "swift":"print(readLine(strippingNewline: true)!)\nprint(readLine(strippingNewline: true)!)\nprint(readLine(strippingNewline: true)!)\n",
-    "typescript":"console.log(prompt());\nconsole.log(prompt());\nconsole.log(prompt());\n",
+    "typescript":"// prompt is a function which enables to read stdin\nconsole.log(prompt());\nconsole.log(prompt());\nconsole.log(prompt());\n",
     "vyxal":"\n",
     "zsh":"cat"
 }
