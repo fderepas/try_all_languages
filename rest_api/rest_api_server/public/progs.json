@@ -42,6 +42,7 @@
     "rust":"use std::io::{self, BufRead};\n\nfn main() {\n    let stdin = io::stdin();\n    for line in stdin.lock().lines() {\n        println!(\"{}\", line.unwrap());\n    }\n}\n",
     "scala":"import scala.io.StdIn.readLine\nobject p {\n  def main(args: Array[String]): Unit = {\n    println(readLine())\n    println(readLine())\n    println(readLine())\n  }\n}\n",
     "swift":"print(readLine(strippingNewline: true)!)\nprint(readLine(strippingNewline: true)!)\nprint(readLine(strippingNewline: true)!)\n",
+    "typescript":"console.log(prompt());\nconsole.log(prompt());\nconsole.log(prompt());\n",
     "vyxal":"\n",
     "zsh":"cat"
 }
