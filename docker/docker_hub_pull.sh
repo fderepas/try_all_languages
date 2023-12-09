@@ -1,7 +1,7 @@
 #!/bin/bash
 cd `dirname $0`
-for i in `ls -F | grep / | tr -d /`; do
-    c=`docker images | grep "^tal-$i " | wc -l`
+function pull_from_docker() {
+    i=$1
     echo '**********************'
     echo pulling $i
     docker pull fderepas/tal-$i:latest
@@ -11,5 +11,13 @@ for i in `ls -F | grep / | tr -d /`; do
     for j in `docker images | grep "tal-$i " | grep -v $tag_to_keep | tr -s ' ' | cut -d ' ' -f 3`; do
 	echo deleting $j
 	docker rmi -f $j
+    done    
+}
+if [ "$#" -eq 0 ]; then
+    for i in `ls -F | grep / | tr -d /`; do
+	pull_from_docker $i
     done
-done
+fi
+if [ "$#" -eq 1 ]; then
+    pull_from_docker $1
+fi
