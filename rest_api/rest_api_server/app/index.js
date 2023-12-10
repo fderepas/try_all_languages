@@ -14,7 +14,6 @@ function callDocker(req,res,tmp,countInput,argc) {
     exec("script/launchvm.sh "+req.query.lang+" data/"+tmp+" "+req.query.countInput, (error, stdout, stderr) => {
 	if (error) {
 	    res.send('{"code":1006,"msg":"error trying to execute virtual machine \''+error.cmd+'\' error message is \''+stderr+'\' stdout: '+stdout+'."}');
-	    //s=JSON.stringify(error);
 	    return;
 	}
 	let out=[];
@@ -64,7 +63,9 @@ app.get('/',(req,res) => {
 	return;
     }
     if (!('lang' in req.query)) {
-	res.send('{"code":1002,"msg":"lang field expected."}');
+        s=" Should have on of the following value: ";
+        s+=Object.keys(ext).join(",")
+	res.send('{"code":1002,"msg":"lang field expected. '+s+'."}');
 	return;
     }
     if (!('countInput' in req.query)) {
