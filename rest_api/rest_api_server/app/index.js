@@ -8,7 +8,7 @@ const { exec } = require("child_process");
 var ext=JSON.parse(fs.readFileSync(__dirname+'/ext.json','utf8'));
 
 
-function callDocker(req,res,tmp,countInput) {
+function callDocker(req,res,tmp,countInput,argc) {
     var s="";
     console.log("script/launchvm.sh "+req.query.lang+" data/"+tmp+" "+req.query.countInput);
     exec("script/launchvm.sh "+req.query.lang+" data/"+tmp+" "+req.query.countInput, (error, stdout, stderr) => {
@@ -71,8 +71,19 @@ app.get('/',(req,res) => {
 	res.send('{"code":10022,"msg":"countInput field expected."}');
 	return;
     }
+    let argc=[];
     let countInput=req.query.countInput;
     for (let i=0;i<countInput;++i) {
+        if (('argc'+i) in req.query) {
+            b=Number(req.query["argc"+i])
+            if (!isNaN(b)) {
+                argc[i]=b;
+            } else {
+                argc[i]=0;
+            }
+        } else {
+            argc[i]=0;
+        }
 	if (!(('input'+i) in req.query)) {
 	    res.send('{"code":10022,"msg":"input$i field expected."}');
 	    return;
@@ -99,7 +110,8 @@ app.get('/',(req,res) => {
 	    }
 	    console.log('Directory '+tmp+'/in created successfully!');
 	    if (!(req.query.lang in ext)) {
-		res.send('{"code":1005,"msg":"language not supported. Here is the list: '+JSON.stringify(Object.keys(ext)).replace(/"/g, '\'')+'."}');
+		res.send('{"code":1005,"msg":"language not supported. Here is the list: '
+                         +JSON.stringify(Object.keys(ext)).replace(/"/g, '\'')+'."}');
 		return;
 	    }
 	    const myext = ext[req.query.lang];
@@ -107,16 +119,24 @@ app.get('/',(req,res) => {
 	    fs.writeFileSync('data/'+tmp+'/in/prog.'+myext,req.query.code);
 	    for (let i=0;i<countInput;++i) {
 		fs.writeFileSync('data/'+tmp+"/in/input"+i+".txt", req.query["input"+i]);
+		fs.writeFileSync('data/'+tmp+"/in/argc"+i+".txt", argc[i]);
+                for (let j=0;j<argc[i];++j) {
+                    let fname='data/'+tmp+"/in/argv_"+i+"_"+j+".txt";
+                    if ("argv_"+i+"_"+j in req.query) {
+                        fs.writeFileSync(fname, req.query["argv_"+i+"_"+j]);
+                    } else {
+                        fs.writeFileSync(fname, "");
+                    }
+                }
 	    }
-	    callDocker(req,res,tmp,countInput);
+	    callDocker(req,res,tmp,countInput,argc);
 	}); 
     });
     
 })
-//app.get('/version.json', (req, res) => {
-//  res.send('Hello World!')
-//})
+
 app.listen(port,() => {
     console.log(`server is running on port ${port}`);
 })
+
 app.use(express.static('public'))
