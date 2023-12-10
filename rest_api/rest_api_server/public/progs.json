@@ -32,7 +32,7 @@
     "ocaml":"for i = 1 to 3 do\n  print_int (read_int ());\n  print_string \"\\n\";\ndone\n",
     "perl":"while (<>) {\nprint;\n}\n",
     "php":"<?php\n$a=\"\";\nwhile (fscanf(STDIN, \"%s\",$a)) {\n  echo \"$a\n\";\n}\n?>\n",
-    "postscript":"% read \"thinking in postscript\"\n% https://w3-o.cs.hm.edu/users/ruckert/public_html/compiler/ThinkingInPostScript.pdf\n(%stdout) (w) file dup           % write to stdout\n/myinput (%stdin)  (r) file def  % define myinput as stdin \n/echo {                                % expects stdout on the stack\n    myinput (abcdefghij) readline pop  % read one line from std in\n    writestring                        % write it to stdout - after that stack is stdout\n    dup (\\n) writestring               % write to stdout\n    dup\n} def\necho\necho\necho\n",
+    "postscript":"% read \"thinking in postscript\"\n% https://w3-o.cs.hm.edu/users/ruckert/public_html/compiler/ThinkingInPostScript.pdf\nn(%stdout) (w) file dup           % write to stdout\n/myinput (%stdin)  (r) file def  % define myinput as stdin \n1 1 3 {                                % expect stdout on the stack\n    pop                                % pop loop index index\n    myinput (abcdefghij) readline pop  % read one line from std in\n    writestring                        % write it to stdout - after that stack is stdout\n    dup (\\n) writestring               % write to stdout\n    dup                                % keep stdout\n} for\n",
     "powershell":"cat",
     "prolog":"main:- \n    % read and output a string\n    read_line_to_string(user_input,A),writeln(A),\n    read_line_to_string(user_input,B),writeln(B),\n    read_line_to_string(user_input,C),writeln(C).\n",
     "python":"print(open(0).read())\n",
