@@ -22,7 +22,7 @@
     "j":"a=: 1!:1 <3\necho a\n",
     "java":"import java.io.*;\npublic class prog {\n   public static void main (String[] args) {\n      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n      try {\n         for (int i=0;i<3;++i) System.out.println(br.readLine());\n      }  catch (IOException ioe) {\n         System.out.println(ioe);\n}  }  }\n",
     "jelly":"0ƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈƈ\n",
-    "julia":"for i in \"123\"\n   print(readline())\n   print(\"\n\")\nend\n",
+    "julia":"for i in \"123\"\n   print(readline())\n   print(\"\\n\")\nend\n",
     "k":"`0:0:0\n",
     "kotlin":"fun main() {\n println(generateSequence(::readLine).joinToString(\"\\n\"))\n}\n",
     "lisp":"(loop for x in '(1 2 3)\n  do(write-line (read-line)))\n",
@@ -32,7 +32,8 @@
     "ocaml":"for i = 1 to 3 do\n  print_int (read_int ());\n  print_string \"\\n\";\ndone\n",
     "perl":"while (<>) {\nprint;\n}\n",
     "php":"<?php\n$a=\"\";\nwhile (fscanf(STDIN, \"%s\",$a)) {\n  echo \"$a\n\";\n}\n?>\n",
-    "postscript":"% read thinking in postscript\n% https://w3-o.cs.hm.edu/users/ruckert/public_html/compiler/ThinkingInPostScript.pdf\n(%stdout)  (w) file dup          % write to stdout\n/myinput (%stdin)  (r) file def  % define myinput as stdin \nmyinput (abcdefghij) readline pop      % read one line from std in\nwritestring                      % write it to stdout\ndup (\\n) writestring             % write \\n to stdout\ndup                              % duplicate stdout on stack\nmyinput (abcdefghij) readline pop      % read one line from std in\nwritestring                      % write it to stdout\ndup (\\n) writestring             % write \\n to stdout\ndup                              \nmyinput (abcdefghij) readline pop\nwritestring\ndup (\\n) writestring\nclosefile                        %  close stdout\n",
+    "postscript":"% read \"thinking in postscript\"\n% https://w3-o.cs.hm.edu/users/ruckert/public_html/compiler/ThinkingInPostScript.pdf\n(%stdout) (w) file dup           % write to stdout\n/myinput (%stdin)  (r) file def  % define myinput as stdin \n/echo {                                % expects stdout on the stack\n    myinput (abcdefghij) readline pop  % read one line from std in\n    writestring                        % write it to stdout - after that stack is stdout\n    dup (\\n) writestring               % write \n to stdout\n    dup\n} def\necho\necho
+echo\n",
     "powershell":"cat",
     "prolog":"main:- \n    % read and output a string\n    read_line_to_string(user_input,A),writeln(A),\n    read_line_to_string(user_input,B),writeln(B),\n    read_line_to_string(user_input,C),writeln(C).\n",
     "python":"print(open(0).read())\n",
