@@ -42,6 +42,7 @@
 "rust":" 1.71.1 (eb26296b5 2023-08-03) (Alpine Linux)",
 "scala":" 3.3.1",
 "swift":"Swift version 5.9.1 (swift-5.9.1-RELEASE)",
+"typescript":"Version 5.3.3",
 "vyxal":"2.22.0",
 "zsh":"",
 }
