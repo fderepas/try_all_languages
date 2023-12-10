@@ -65,7 +65,7 @@ app.get('/',(req,res) => {
     if (!('lang' in req.query)) {
         s=" The 'lang' variable should have on of the following value: ";
         s+=Object.keys(ext).join(", ")
-	res.send('{"code":1002,"msg":"lang variable name expected in query string. '+s+'."}');
+	res.send('{"code":1002,"msg":"\'lang\' variable is expected in query string. '+s+'."}');
 	return;
     }
     if (!(req.query.lang in ext)) {
@@ -75,11 +75,15 @@ app.get('/',(req,res) => {
 	return;
     }
     if (!('countInput' in req.query)) {
-	res.send('{"code":10022,"msg":"countInput field expected."}');
+	res.send('{"code":10022,"msg":"countInput variable expected, to give the number of different executions to perform."}');
+	return;
+    }
+    if (isNaN(Number(req.query.countInput))) {
+	res.send('{"code":10022,"msg":"countInput variable expected, to give the number of different executions to perform."}');
 	return;
     }
     let argc=[];
-    let countInput=req.query.countInput;
+    let countInput=Number(req.query.countInput);
     for (let i=0;i<countInput;++i) {
         if (('argc'+i) in req.query) {
             b=Number(req.query["argc"+i])
@@ -92,12 +96,13 @@ app.get('/',(req,res) => {
             argc[i]=0;
         }
 	if (!(('input'+i) in req.query)) {
-	    res.send('{"code":10022,"msg":"input$i field expected."}');
-	    return;
+            req.query['input'+i]='';
+	    //res.send('{"code":10022,"msg":"\'input$i\' variable expected in query string."}');
+	    //return;
 	}
     }
     if (!('code' in req.query)) {
-	res.send('{"code":1003,"msg":"code field expected."}');
+	res.send('{"code":1003,"msg":"\'code\' variable expected in query string."}');
 	return;
     }
 
