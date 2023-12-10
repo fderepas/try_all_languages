@@ -63,9 +63,15 @@ app.get('/',(req,res) => {
 	return;
     }
     if (!('lang' in req.query)) {
-        s=" Should have on of the following value: ";
-        s+=Object.keys(ext).join(",")
-	res.send('{"code":1002,"msg":"lang field expected. '+s+'."}');
+        s=" The 'lang' variable should have on of the following value: ";
+        s+=Object.keys(ext).join(", ")
+	res.send('{"code":1002,"msg":"lang variable name expected in query string. '+s+'."}');
+	return;
+    }
+    if (!(req.query.lang in ext)) {
+        s=" The 'lang' variable should have on of the following value: ";
+        s+=Object.keys(ext).join(", ")
+	res.send('{"code":1005,"msg":"Language not supported. '+s+'."}');
 	return;
     }
     if (!('countInput' in req.query)) {
