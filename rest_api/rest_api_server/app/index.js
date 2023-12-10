@@ -13,7 +13,8 @@ function callDocker(req,res,tmp,countInput,argc) {
     console.log("script/launchvm.sh "+req.query.lang+" data/"+tmp+" "+req.query.countInput);
     exec("script/launchvm.sh "+req.query.lang+" data/"+tmp+" "+req.query.countInput, (error, stdout, stderr) => {
 	if (error) {
-	    res.send('{"code":1006,"msg":"error trying to execute virtual machine \''+error.cmd+'\' error message is \''+stderr+'\' stdout: '+stdout+'."}');
+	    res.send('{"code":1006,"msg":"error trying to execute virtual machine \''
+                     +error.cmd+'\' error message is \''+stderr+'\' stdout: '+stdout+'."}');
 	    return;
 	}
 	let out=[];

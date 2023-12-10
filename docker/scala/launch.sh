@@ -4,7 +4,7 @@ countNbTest=$1
 set +e # support errors
 for testcount in `seq 0 1 $countNbTest`
 do
-    /home/tal/.cache/scalacli/local-repo/bin/scala-cli/scala-cli \
+    /home/tal/.cache/scalacli/local-repo/bin/scala-cli/scala-cli      \
         /mnt/in/prog.scala                                            \
         < /mnt/in/input$testcount.txt                                 \
         > /mnt/out/out$testcount.txt                                  \
