@@ -26,6 +26,9 @@ time:
 	mv docker_time_by_language.png ../images/
 	rm execution_time.json
 
+clean_images:
+	docker rmi -f `docker images | grep ^tal- | tr -s ' ' | cut -d ' ' -f 3 | sort -u`
+
 clean:
 	rm -f *~ image_size.json
 	for i in `ls -F | grep /`; do cd $$i; make clean ; cd .. ; done
