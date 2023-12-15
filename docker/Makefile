@@ -28,6 +28,7 @@ time:
 
 clean_images:
 	docker rmi -f `docker images | grep ^tal- | tr -s ' ' | cut -d ' ' -f 3 | sort -u`
+	docker system prune -f
 
 clean:
 	rm -f *~ image_size.json
