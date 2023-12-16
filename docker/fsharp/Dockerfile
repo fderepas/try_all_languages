@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 RUN apk update
-RUN apk add bash icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib wget
+RUN apk add bash icu-libs krb5-libs libgcc libintl libssl3 libstdc++ zlib wget
 RUN apk add libgdiplus --repository https://dl-3.alpinelinux.org/alpine/edge/testing/
 RUN addgroup tal
 RUN adduser -h /home/tal -g '' -s /bin/ash -G tal -D tal

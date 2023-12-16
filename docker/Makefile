@@ -1,6 +1,5 @@
 default:
 	bash build_all_docker.sh
-#	for i in `ls -F | grep / | grep -v ^erlang/$$ | grep -v ^apl/$$ | grep -v ^bqn/$$ | grep -v ^dc/$$ | grep -v haskell | grep -v clojure | grep -v kotlin | grep -v ^k/$$ | grep -v ^j/$$ | grep -v ^r/$$ `; do cd $$i && make &&  cd test && make && cd ../.. ; done
 
 .PHONY:version.json
 version.json:
@@ -19,12 +18,21 @@ image_size:
 	bash generate_size_data_file.sh
 	python generate_size_png_file.py || echo -e "Error, install matplotlib:\n    python -m pip install -U pip\n    python -m pip install -U matplotlib"
 	mv docker_image_size_by_language.png ../images/
-	rm image_size.json
+	mv image_size.json ../images/
+	git add ../images/docker_image_size_by_language.png ../images/image_size.json
+	git commit ../images/docker_image_size_by_language.png ../images/image_size.json -m 'update'
+	git pull
+	git push
+
 time:
 	bash compute_time.sh
 	python generate_time_png_file.py || echo -e "Error, install matplotlib:\n    python -m pip install -U pip\n    python -m pip install -U matplotlib"
 	mv docker_time_by_language.png ../images/
-	rm execution_time.json
+	mv execution_time.json ../images
+	git add ../images/docker_time_by_language.png ../images/execution_time.json
+	git commit ../images/docker_time_by_language.png ../images/execution_time.json -m 'update'
+	git pull
+	git push
 
 clean_images:
 	docker rmi -f `docker images | grep ^tal- | tr -s ' ' | cut -d ' ' -f 3 | sort -u`
