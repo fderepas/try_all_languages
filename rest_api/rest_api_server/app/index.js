@@ -1,7 +1,10 @@
 
 const express = require('express');
+var bodyParser = require('body-parser');
 const querystring = require("querystring");
 const app = express();
+app.use(express.json());
+app.use( bodyParser.json() ); 
 const fs = require('fs');
 const port = 8087;
 const { exec } = require("child_process");
@@ -58,36 +61,32 @@ function callDocker(req,res,tmp,countInput,argc) {
     });
 }
 
-app.get('/',(req,res) => {
-    if (!('query' in req)) {
-	res.send('{"code":1000,"msg":"query string expected."}');
-	return;
-    }
-    if (!('lang' in req.query)) {
+function handleRestRequest(req,res,query) {
+    if (!('lang' in query)) {
         s=" The 'lang' variable should have on of the following value: ";
         s+=Object.keys(ext).join(", ")
 	res.send('{"code":1002,"msg":"\'lang\' variable is expected in query string. '+s+'."}');
 	return;
     }
-    if (!(req.query.lang in ext)) {
+    if (!(query.lang in ext)) {
         s=" The 'lang' variable should have on of the following value: ";
         s+=Object.keys(ext).join(", ")
 	res.send('{"code":1005,"msg":"Language not supported. '+s+'."}');
 	return;
     }
-    if (!('countInput' in req.query)) {
+    if (!('countInput' in query)) {
 	res.send('{"code":10022,"msg":"countInput variable expected, to give the number of different executions to perform."}');
 	return;
     }
-    if (isNaN(Number(req.query.countInput))) {
+    if (isNaN(Number(query.countInput))) {
 	res.send('{"code":10022,"msg":"countInput variable expected, to give the number of different executions to perform."}');
 	return;
     }
     let argc=[];
-    let countInput=Number(req.query.countInput);
+    let countInput=Number(query.countInput);
     for (let i=0;i<countInput;++i) {
-        if (('argc'+i) in req.query) {
-            b=Number(req.query["argc"+i])
+        if (('argc'+i) in query) {
+            b=Number(query["argc"+i])
             if (!isNaN(b)) {
                 argc[i]=b;
             } else {
@@ -96,13 +95,13 @@ app.get('/',(req,res) => {
         } else {
             argc[i]=0;
         }
-	if (!(('input'+i) in req.query)) {
-            req.query['input'+i]='';
+	if (!(('input'+i) in query)) {
+            query['input'+i]='';
 	    //res.send('{"code":10022,"msg":"\'input$i\' variable expected in query string."}');
 	    //return;
 	}
     }
-    if (!('code' in req.query)) {
+    if (!('code' in query)) {
 	res.send('{"code":1003,"msg":"\'code\' variable expected in query string."}');
 	return;
     }
@@ -122,21 +121,21 @@ app.get('/',(req,res) => {
 		return;
 	    }
 	    console.log('Directory '+tmp+'/in created successfully!');
-	    if (!(req.query.lang in ext)) {
+	    if (!(query.lang in ext)) {
 		res.send('{"code":1005,"msg":"language not supported. Here is the list: '
                          +JSON.stringify(Object.keys(ext)).replace(/"/g, '\'')+'."}');
 		return;
 	    }
-	    const myext = ext[req.query.lang];
+	    const myext = ext[query.lang];
 	    //querystring.unescape
-	    fs.writeFileSync('data/'+tmp+'/in/prog.'+myext,req.query.code);
+	    fs.writeFileSync('data/'+tmp+'/in/prog.'+myext,query.code);
 	    for (let i=0;i<countInput;++i) {
-		fs.writeFileSync('data/'+tmp+"/in/input"+i+".txt", req.query["input"+i]);
+		fs.writeFileSync('data/'+tmp+"/in/input"+i+".txt", query["input"+i]);
 		fs.writeFileSync('data/'+tmp+"/in/argc"+i+".txt", argc[i]);
                 for (let j=0;j<argc[i];++j) {
                     let fname='data/'+tmp+"/in/argv_"+i+"_"+j+".txt";
-                    if ("argv_"+i+"_"+j in req.query) {
-                        fs.writeFileSync(fname, req.query["argv_"+i+"_"+j]);
+                    if ("argv_"+i+"_"+j in query) {
+                        fs.writeFileSync(fname, query["argv_"+i+"_"+j]);
                     } else {
                         fs.writeFileSync(fname, "");
                     }
@@ -145,10 +144,20 @@ app.get('/',(req,res) => {
 	    callDocker(req,res,tmp,countInput,argc);
 	}); 
     });
-    
+
+}
+
+app.get('/',(req,res) => {
+    if (!('query' in req)) {
+	res.send('{"code":1000,"msg":"query string expected."}');
+	return;
+    }
+    handleRestRequest(req,req,req.query);
 })
 
 app.post('/',(req,res) => {
+    res.send('reading post request.\n'+JSON.stringify(Object.keys(req.body)));
+    handleRestRequest(req,req,req.body);
 })
 
 app.listen(port,() => {

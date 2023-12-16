@@ -14,6 +14,7 @@ r1=()
 r2=()
 r3=()
 data=""
+postdata=""
 for testcount in `seq 0 1 9`
 do
     r1[$testcount]=$RANDOM
@@ -24,6 +25,7 @@ do
     echo ${r3[$testcount]} >> input$testcount.txt
     node -e 'console.log(encodeURIComponent(require("fs").readFileSync(0).toString()));' < input$testcount.txt > input$testcount.enc
     data=$data"&input$testcount="`cat input$testcount.enc`
+    postdata=$postdata"\"input$testcount\":\""`cat input$testcount.enc`"\","
 #rm input.txt
 done
 
@@ -45,3 +47,13 @@ do
 
 done
 
+# now test post interface
+cat <<EOF > body.json
+{
+  "lang":"$lang",
+  "countInput":"10",
+  $postdata
+  "code":"`cat program.enc`"
+}
+EOF
+#curl -H "Content-Type: application/json" -X POST --data @body.json http://127.0.0.1:8087/
