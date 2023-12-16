@@ -18,6 +18,7 @@ RUN git clone https://github.com/dzaima/CBQN && \
     cd CBQN && \
     git rev-parse --short HEAD > ../CBQN_git_hash.txt && \
     make CC=gcc && \
+    mkdir /home/tal/include/ && \
     make install CC=gcc PREFIX=/home/tal
 
 ######################################################################
