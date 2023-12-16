@@ -11,10 +11,10 @@ const { exec } = require("child_process");
 var ext=JSON.parse(fs.readFileSync(__dirname+'/ext.json','utf8'));
 
 
-function callDocker(req,res,tmp,countInput,argc) {
+function callDocker(req,res,tmp,countInput,argc,query) {
     var s="";
-    console.log("script/launchvm.sh "+req.query.lang+" data/"+tmp+" "+req.query.countInput);
-    exec("script/launchvm.sh "+req.query.lang+" data/"+tmp+" "+req.query.countInput, (error, stdout, stderr) => {
+    console.log("script/launchvm.sh "+query.lang+" data/"+tmp+" "+query.countInput);
+    exec("script/launchvm.sh "+query.lang+" data/"+tmp+" "+query.countInput, (error, stdout, stderr) => {
 	if (error) {
 	    res.send('{"code":1006,"msg":"error trying to execute virtual machine \''
                      +error.cmd+'\' error message is \''+stderr+'\' stdout: '+stdout+'."}');
@@ -56,7 +56,7 @@ function callDocker(req,res,tmp,countInput,argc) {
 	    if (i+1<countInput) output+=',';
 	}
 	output+="]}";
-	
+	console.log(output);
 	res.send(output);
     });
 }
@@ -141,7 +141,7 @@ function handleRestRequest(req,res,query) {
                     }
                 }
 	    }
-	    callDocker(req,res,tmp,countInput,argc);
+	    callDocker(req,res,tmp,countInput,argc,query);
 	}); 
     });
 
@@ -152,7 +152,7 @@ app.get('/',(req,res) => {
 	res.send('{"code":1000,"msg":"query string expected."}');
 	return;
     }
-    handleRestRequest(req,req,req.query);
+    handleRestRequest(req,res,req.query);
 })
 
 app.post('/',(req,res) => {
