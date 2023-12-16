@@ -3,6 +3,7 @@ default : install
 	node_modules/.bin/pm2 start
 install :
 	@if [ `which npm | wc -l` -eq 0 ]; then echo 'npm not installed, please install npm.' ; exit 1; fi
+	@npm install express > /dev/null 2> /dev/null
 	@if [ ! -e ./node_modules/.bin/pm2 ]; then npm install pm2 ; fi
 	@if [ ! -d node_modules ]; then npm install express --save; fi
 stop: install
