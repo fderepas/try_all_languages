@@ -1,8 +1,14 @@
 #!/bin/bash
+# This script builds docker images which do not already exist.
+
+# change to the location of the script
+cd `dirname $0`
+# function to push an image to docker hub
 push_to_registry () {
     docker tag tal-$1:$3 $2/tal-$1:$3
     docker push $2/tal-$1:$3
 }
+# loop on all languages
 for i in `ls -F | grep / `; do
     cd $i
     j=`echo $i | tr -d '/'`
