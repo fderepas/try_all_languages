@@ -3,11 +3,7 @@ default:
 
 .PHONY:version.json
 version.json:
-	echo "{" > tmp.json
-	for i in `ls -F | grep /`; do echo $$i ; cd $$i && n=`echo $$i | tr -d /` && p=`bash version.sh | tr -d '\14' | tr -s '"' "'" | tr -d '\n' ` &&  echo "\"$$n\":\"$$p\",">> ../tmp.json ; cd .. ; done
-	echo "}" >> tmp.json
-	tr -cd '\11\12\40-\176' < tmp.json > version.json
-	rm tmp.json
+	bash update_version.sh
 	cat version.json > ../rest_api/rest_api_server/public/version.json
 	git pull && git commit version.json ../rest_api/rest_api_server/public/version.json -m 'updated versions' && git push
 
