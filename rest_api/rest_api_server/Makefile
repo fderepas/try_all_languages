@@ -12,6 +12,8 @@ restart: install
 	./node_modules/.bin/pm2 restart all
 start: install
 	./node_modules/.bin/pm2 start all
+status: install
+	./node_modules/.bin/pm2 status
 list: install
 	./node_modules/.bin/pm2 list
 logs: install

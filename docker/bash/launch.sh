@@ -5,7 +5,7 @@ cd /mnt/in
 set +e # support errors
 for testcount in `seq 0 1 $countNbTest`
 do
-    bash /mnt/in/prog.sh               \
+    timeout -s 9 10 bash /mnt/in/prog.sh               \
          < /mnt/in/input$testcount.txt \
          > /mnt/out/out$testcount.txt  \
          2> /mnt/out/err$testcount.txt
