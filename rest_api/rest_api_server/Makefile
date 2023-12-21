@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 default : install
-=======
-default :
-	@if [ `which npm | wc -l` -eq 0 ]; then echo 'npm not installed, please install npm.' ; exit 1; fi
-	if [ ! -e node_modules/.bin/pm2 ]; then npm install pm2 ; fi
->>>>>>> ca8859e (added local pm2 install)
 	mkdir -p data
 	node_modules/.bin/pm2 start
 install :
