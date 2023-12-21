@@ -3,6 +3,16 @@
 #include <unistd.h>
 
 /**
+ * Wrapper for a call to execve where argv contents is read from a set of files.
+ *
+ * For instance:
+ *     execve_wrapper foo 3 /bin/my/exec
+ * is equivalent to 
+ *     /bin/my/exec `cat foo0` `cat foo1` `cat foo2`
+ * if there are no spaces in files foo*.
+ */
+
+/**
  * Read the file supplied as argument and returns an allocated buffer
  * with the file contents.
  */
