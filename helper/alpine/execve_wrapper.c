@@ -8,7 +8,7 @@
  * For instance:
  *     execve_wrapper foo 3 /bin/my/exec
  * is equivalent to 
- *     /bin/my/exec `cat foo0` `cat foo1` `cat foo2`
+ *     /bin/my/exec `cat foo0.txt` `cat foo1.txt` `cat foo2.txt`
  * if there are no spaces in files foo*.
  */
 
@@ -40,20 +40,26 @@ char * getBufferFromFile(char * filename) {
 }
 
 int main(int argc, char* argv[]) {
-    if (argc<3) {
-        fprintf(stderr,"Should provide 3 arguments: prefix, num of arg, cmd.\n");
+    if (argc<4) {
+        fprintf(stderr,"Should provide at least 3 arguments: prefix, num of arg, cmd.\n");
+        fprintf(stderr," For instance:\n");
+        fprintf(stderr,"     execve_wrapper foo 3 /bin/my/exec\n");
+        fprintf(stderr," is equivalent to \n");
+        fprintf(stderr,"     /bin/my/exec `cat foo0.txt` `cat foo1.txt` `cat foo2.txt`\n");
+        fprintf(stderr," if there are no spaces in files foo*.\n");        
         exit(1);
     }
     char * prefix=argv[1];
     int num=atoi(argv[2]);
-    char * cmd=argv[3];
-    char * values [num+2];
+    char * values [num+2+argc-3];
     char buf[100];
+    for (int i=0;i<argc-3;++i) {
+        values[i]=argv[3+i];
+    }
     for (int i=0;i<num;++i) {
         sprintf(buf,"%s%d.txt",prefix,i);
-        values[i+1]=getBufferFromFile(buf);
+        values[i+argc-3]=getBufferFromFile(buf);
     }
-    values[0]=cmd;
     values[num+1]=NULL;
     char *envp[]={NULL};
     if (execve(values[0], values, envp) == -1)
