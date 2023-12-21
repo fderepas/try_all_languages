@@ -4,5 +4,7 @@ set -x
 set -e
 cd `dirname $0` && docker pull alpine 
 docker build --rm --no-cache -t tal_base_alpine:latest .
+docker tag tal_base_alpine:latest fderepas/tal_base_alpine:latest
+docker push fderepas/tal_base_alpine:latest
 
 
