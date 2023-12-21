@@ -1,11 +1,7 @@
-FROM alpine:latest
+FROM tal_base_alpine:latest
 
-RUN apk update
 RUN apk add --update build-base 
 RUN apk add --update --repository https://dl-3.alpinelinux.org/alpine/edge/main/ clang libstdc++
-RUN addgroup tal
-RUN adduser -h /home/tal -g '' -s /bin/ash -G tal -D tal
-RUN chown tal:tal /mnt
 
 WORKDIR /mnt
 

@@ -85,8 +85,8 @@ function handleRestRequest(req,res,query) {
     let argc=[];
     let countInput=Number(query.countInput);
     for (let i=0;i<countInput;++i) {
-        if (('argc'+i) in query) {
-            b=Number(query["argc"+i])
+        if (('argc_'+i) in query) {
+            b=Number(query["argc_"+i])
             if (!isNaN(b)) {
                 argc[i]=b;
             } else {
@@ -131,7 +131,7 @@ function handleRestRequest(req,res,query) {
 	    fs.writeFileSync('data/'+tmp+'/in/prog.'+myext,query.code);
 	    for (let i=0;i<countInput;++i) {
 		fs.writeFileSync('data/'+tmp+"/in/input"+i+".txt", query["input"+i]);
-		fs.writeFileSync('data/'+tmp+"/in/argc"+i+".txt", argc[i]);
+		fs.writeFileSync('data/'+tmp+"/in/argc_"+i+".txt", String(argc[i]));
                 for (let j=0;j<argc[i];++j) {
                     let fname='data/'+tmp+"/in/argv_"+i+"_"+j+".txt";
                     if ("argv_"+i+"_"+j in query) {
