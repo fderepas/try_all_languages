@@ -54,23 +54,20 @@ int main(int argc, char* argv[]) {
     char * values [num+2+argc-3];
     char buf[100];
     for (int i=0;i<argc-3;++i) {
-        printf("i=%d %s\n",i,argv[3+i]);
         values[i]=argv[3+i];
     }
     for (int i=0;i<num;++i) {
         sprintf(buf,"%s%d.txt",prefix,i);
-        printf("i=%d %s\n",i+argc-3,buf);
         values[i+argc-3]=getBufferFromFile(buf);
     }
     values[num+argc-3]=NULL;
     char *envp[]={NULL};
-    int i=0;
-    while (values[i]) {
-        printf("%s ",values[i++]);
-    }
-    printf("\n");
-    fflush(stdout);
-    if (execve(values[0], values, envp) == -1)
+    if (execve(values[0], values, envp) == -1) {
+        int i=0;
+        while (values[i]) {
+            fprintf(stderr,"(%d)%s ",i,values[i++]);
+        }
         perror("Could not execve");
+    }
     return 1;
 }
