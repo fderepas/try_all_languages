@@ -28,7 +28,7 @@
     "lisp":"(loop for x in '(1 2 3)\n  do(write-line (read-line)))\n",
     "logo":"repeat 3 [print readrawline]\nbye\n",
     "lua":"print(io.read(\"*a\"))\n",
-    "node":"// prompt is a function which enables to read stdin\nfor(let i=0;i<3;++i)\n    console.log(prompt());\n",
+    "node":"for (var i=2;i<process.argv.length;++i) {\n    console.log(process.argv[i].trim());\n}\n",
     "ocaml":"for i = 1 to 3 do\n  print_int (read_int ());\n  print_string \"\\n\";\ndone\n",
     "perl":"while (<>) {\nprint;\n}\n",
     "php":"<?php\n$a=\"\";\nwhile (fscanf(STDIN, \"%s\",$a)) {\n  echo \"$a\\n\";\n}\n?>\n",

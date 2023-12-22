@@ -20,12 +20,29 @@ function prompt() {
 EOF
 # add user data
 cat /mnt/in/prog.js >> ~/prog.js
+# create an empty file
+touch /home/tal/empty_file
+# run the code
 for testcount in `seq 0 1 $countNbTest`
 do
+    stdinData=/home/tal/empty_file
+    if [ -e /mnt/in/input$testcount.txt ]; then
+        stdinData=/mnt/in/input$testcount.txt
+    fi
+    argc=0
+    if [ -e  /mnt/in/argc_${testcount}.txt ]; then
+        argc=`cat /mnt/in/argc_${testcount}.txt`
+    fi
+
     # copy stdin to a file named 'toto'
-    cp /mnt/in/input$testcount.txt  toto
+    cp $stdinData toto
     # call nodejs 
-    node ~/prog.js > /mnt/out/out$testcount.txt 2> /mnt/out/err$testcount.txt
+    /home/tal/execve_wrapper              \
+        /mnt/in/argv_${testcount}_        \
+        $argc                             \
+        /usr/bin/node ~/prog.js           \
+    > /mnt/out/out$testcount.txt          \
+    2> /mnt/out/err$testcount.txt
     # get stderr
     echo $? > /mnt/out/errcode$testcount.txt
 done

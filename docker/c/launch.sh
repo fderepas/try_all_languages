@@ -8,6 +8,7 @@ gcc -Wall -o /home/tal/a.out prog.c \
     > /dev/null                     \
     2> /mnt/out/err0.txt            \
     || exit 1
+# create an empty file
 touch /home/tal/empty_file
 # run the code
 for testcount in `seq 0 1 $countNbTest`
