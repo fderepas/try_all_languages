@@ -1,10 +1,11 @@
 name: Docker Image CI
-
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  schedule:
+    - cron: '0 4 * * *'
+#  push:
+#    branches: [ "main" ]
+#  pull_request:
+#    branches: [ "main" ]
 
 jobs:
 
@@ -14,6 +15,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
+    - name: Build the Ada Docker image
       working-directory: ./docker/ada
-      run: docker build . --file Dockerfile --tag tal-ada:latest
+      run: docker build . --file Dockerfile --tag tal-ada:latest && docker tag tal-ada:latest fderepas/tal-ada:latest && docker push fderepas/tal-ada:latest
