@@ -41,8 +41,8 @@
 "ruby":"ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [x86_64-linux-musl]",
 "rust":" 1.76.0 (07dca489a 2024-02-04) (Alpine Linux 1.76.0-r0)",
 "scala":" 3.4.0",
-"swift":"",
-"typescript":"",
-"vyxal":"",
+"swift":"Swift version 5.10 (swift-5.10-RELEASE)",
+"typescript":"Version 5.4.3",
+"vyxal":"2.22.0",
 "zsh":"",
 }
