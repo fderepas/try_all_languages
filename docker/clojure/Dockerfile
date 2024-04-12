@@ -7,9 +7,6 @@ RUN adduser -h /home/tal -g '' -s /bin/ash -G tal -D tal
 RUN chown tal:tal /mnt
 
 WORKDIR /home/tal
-#RUN curl -O https://download.clojure.org/install/linux-install-1.11.1.1113.sh
-#RUN chmod +x linux-install-1.11.1.1113.sh
-#RUN ./linux-install-1.11.1.1113.sh
 
 # copy launch script
 COPY --chown=tal:tal launch.sh /home/tal/launch.sh
