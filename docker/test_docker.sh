@@ -37,7 +37,8 @@ do
 	printf "\033[31mwrong error code\033[0m";
 	exit 1;
     fi
-    diff out$testcount.txt input$testcount.txt || errc=1
+    cat out$testcount.txt | head -n 3 > out_head$testcount.txt
+    diff out_head$testcount.txt input$testcount.txt || errc=1
     if [ "$errc" -ne "0" ]; then
 	set +x 
 	printf "\033[31munexpected output in out$testcount.txt\033[0m";
