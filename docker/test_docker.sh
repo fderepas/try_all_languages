@@ -37,7 +37,7 @@ do
 	printf "\033[31mwrong error code\033[0m";
 	exit 1;
     fi
-    cat out$testcount.txt | head -n 3 > out_head$testcount.txt
+    cat out$testcount.txt | head -n 3 | sed -e 's/ *$//' > out_head$testcount.txt
     diff out_head$testcount.txt input$testcount.txt || errc=1
     if [ "$errc" -ne "0" ]; then
 	set +x 
