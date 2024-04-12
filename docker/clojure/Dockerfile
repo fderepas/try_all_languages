@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 RUN apk update
-RUN apk add --update git openjdk11 wget bash curl rlwrap --repository https://dl-3.alpinelinux.org/alpine/edge/community/
+RUN apk add --update git openjdk21 wget bash curl rlwrap --repository https://dl-3.alpinelinux.org/alpine/edge/community/
 RUN addgroup tal
 RUN adduser -h /home/tal -g '' -s /bin/ash -G tal -D tal
 RUN chown tal:tal /mnt
