@@ -1,7 +1,7 @@
 #!/bin/sh
 # this script is to be run from a docker image
 countNbTest=$1
-cd /home/tal/j903
+cd /home/tal/j9.5
 cp /mnt/in/prog.ijs .
 set +e # support errors
 for testcount in `seq 0 1 $countNbTest`

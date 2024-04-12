@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+ FROM ubuntu:latest
 
 RUN apt update -q -y && \
     apt upgrade -q -y && \
@@ -17,5 +17,5 @@ USER tal:tal
 RUN mkdir /mnt/in /mnt/out
 
 WORKDIR /home/tal/
-RUN wget http://www.jsoftware.com/download/j903/install/j903_linux64.tar.gz && tar xvfz j903_linux64.tar.gz
-WORKDIR /home/tal/j903
+RUN wget https://www.jsoftware.com/download/j9.5/install/j9.5_linux64.tar.gz && tar xvfz j9.5_linux64.tar.gz
+WORKDIR /home/tal/j9.5
