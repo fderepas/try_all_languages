@@ -47,7 +47,7 @@
 [Swift](https://en.wikipedia.org/wiki/Swift_(programming_language)), 
 [Vyxal](https://vyxapedia.hyper-neutrino.xyz/), 
 [Zsh](https://en.wikipedia.org/wiki/Z_shell). 
-The version of runtimes or compilers is given [here](docker/version.json).
+The version of runtimes or compilers is given [here](https://t-a-l.org/version.json).
 
 
 Here is an example from the [test.html](rest_api/rest_api_server/public/test.html) page that comes with the rest api server:
