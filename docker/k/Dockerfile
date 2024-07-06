@@ -1,14 +1,11 @@
 FROM ubuntu:latest
 
-RUN apt update -q -y
-RUN apt upgrade -q -y
-RUN apt install -y apt-utils
-RUN apt install -y make cmake unzip git
-RUN apt install -y wget tar gzip xzdec gcc sed libgmp3-dev
-RUN apt install -y python3
-RUN addgroup tal
-RUN adduser --home /home/tal --shell /bin/bash --uid 1000 --gid 1000 tal
-RUN chown tal:tal /mnt
+RUN apt update -q -y && \
+    apt upgrade -q -y && \
+    apt install -y apt-utils make cmake unzip git wget tar gzip xzdec gcc sed libgmp3-dev python3 adduser && \
+    addgroup tal && \
+    adduser --home /home/tal --shell /bin/bash --uid 1001 --gid 1001 tal && \
+    chown tal:tal /mnt
 
 WORKDIR /home/tal
 
