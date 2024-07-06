@@ -19,6 +19,7 @@ RUN apt-get clean && \
           pkg-config \
           tzdata \
           unzip \
+          adduser \
           zlib1g-dev && \
   adduser --disabled-password --gecos "" tal && \
   chown tal:tal /mnt
