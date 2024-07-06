@@ -1,11 +1,11 @@
 ##################################################### -*- sh -*- #####
 FROM ubuntu:latest
 
-RUN apt update -q -y 
-RUN apt upgrade -q -y
-RUN apt install -y curl 
-RUN adduser --disabled-password --gecos "" tal
-RUN chown tal:tal /mnt
+RUN apt update -q -y && \
+    apt upgrade -q -y && \
+    apt install -y curl adduser && \
+    adduser --disabled-password --gecos "" tal && \
+    chown tal:tal /mnt
 
 # compile
 COPY --chown=tal:tal launch.sh /home/tal/launch.sh
