@@ -3,7 +3,7 @@
 RUN apt update -q -y && \
     apt upgrade -q -y && \
     apt install -y apt-utils &&  \
-    apt install -y make cmake unzip git  wget tar gzip && \
+    apt install -y make cmake unzip git  wget tar gzip adduser && \
     adduser --disabled-password --gecos "" tal && \
     chown tal:tal /mnt
 
