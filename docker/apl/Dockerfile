@@ -4,7 +4,7 @@ FROM ubuntu:latest
 RUN apt-get clean && \
   apt-get update -q -y && \
   apt upgrade -q -y && \
-  apt install -y apt-utils wget libncurses5 && \
+  apt install -y apt-utils wget libncurses6 adduser && \
   adduser --disabled-password --gecos "" tal && \
   chown tal:tal /mnt
 
