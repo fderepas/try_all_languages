@@ -31,7 +31,7 @@ FROM ubuntu:latest
 
 RUN apt update -q -y && \
     apt upgrade -q -y  && \
-    apt install gnupg apt-utils libncurses5-dev libncursesw5-dev locales -y && \
+    apt install gnupg apt-utils libncurses5-dev libncursesw5-dev locales adduser -y && \
     adduser --disabled-password --gecos "" tal && \
     chown tal:tal /mnt && \
     locale-gen en_US.UTF-8 && \
