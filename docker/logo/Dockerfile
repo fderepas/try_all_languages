@@ -3,7 +3,7 @@ FROM ubuntu:latest
 RUN apt-get clean && \
   apt-get update -q -y && \
   apt upgrade -q -y && \
-  apt install -y libncurses6 libncurses5-dev make gcc g++ unzip bison wget texinfo adduser && \
+  apt install -y libncurses6 libncurses6-dev make gcc g++ unzip bison wget texinfo adduser && \
   adduser --disabled-password --gecos "" tal && \
   chown tal:tal /mnt
 
