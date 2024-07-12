@@ -1,6 +1,6 @@
 FROM tal_base_alpine:latest
 
-RUN apk add --update dart-sdk --repository https://dl-3.alpinelinux.org/alpine/edge/testing/
+RUN apk add --update dart --repository https://dl-3.alpinelinux.org/alpine/edge/testing/
 
 WORKDIR /mnt
 
