@@ -9,6 +9,7 @@
     "cobol":"cob",
     "cpp":"cc",
     "csharp":"cs",
+    "dart":"dart",
     "dc":"dc",
     "elixir":"exs",
     "erlang":"erl",
