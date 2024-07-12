@@ -12,6 +12,7 @@
 [Cobol](https://en.wikipedia.org/wiki/COBOL),
 [C++](https://en.wikipedia.org/wiki/C%2B%2B), 
 [C#](https://en.wikipedia.org/wiki/C_Sharp_(programming_language)), 
+[Dart](https://en.wikipedia.org/wiki/Dart_(programming_language)),
 [DC](https://en.wikipedia.org/wiki/Dc_(computer_program)), 
 [Elixir](https://en.wikipedia.org/wiki/Elixir_(programming_language)), 
 [Elang](https://en.wikipedia.org/wiki/Erlang_(programming_language)) , 
