@@ -11,6 +11,7 @@ push_to_registry () {
 # loop on all languages
 for i in `ls -F | grep / `; do
     cd $i
+    make clean
     j=`echo $i | tr -d '/'`
     # image was done today
     #c=$(docker images | grep ^tal-$j | grep `date +"%Y%m%d"` | wc -l)
