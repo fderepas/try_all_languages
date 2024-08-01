@@ -14,7 +14,7 @@ Hello Word!
 
 ## T
 
-The ```T``` operator splits a string into chars and pushes it on the stack.
+The ```T``` operator splits a string into chars and pushes them on the stack.
 
 Example:
 ```
