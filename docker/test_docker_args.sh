@@ -1,3 +1,4 @@
+
 #!/bin/bash
 # test a docker by running a simple program which takes 3 numbers as an input
 # and outputs the same numbers.
@@ -22,10 +23,10 @@ do
     r1[$testcount]=$RANDOM
     r2[$testcount]=$RANDOM
     r3[$testcount]=$RANDOM
-    echo ${r1[$testcount]} > argv_${testcount}_0.txt
-    echo ${r2[$testcount]} >> argv_${testcount}_1.txt
-    echo ${r3[$testcount]} >> argv_${testcount}_2.txt
-    echo 3 >  argc_${testcount}.txt
+    printf ${r1[$testcount]} > argv_${testcount}_0.txt
+    printf ${r2[$testcount]} >> argv_${testcount}_1.txt
+    printf ${r3[$testcount]} >> argv_${testcount}_2.txt
+    printf 3 >  argc_${testcount}.txt
 done
 docker run \
        --mount type=bind,source=`pwd`,target=/mnt/in,ro \
@@ -40,9 +41,9 @@ do
 	printf "\033[31mwrong error code\033[0m";
 	exit 1;
     fi
-    cat argv_${testcount}_0.txt > input$testcount.txt
-    cat argv_${testcount}_1.txt >> input$testcount.txt
-    cat argv_${testcount}_2.txt >> input$testcount.txt
+    echo `cat argv_${testcount}_0.txt` > input$testcount.txt
+    echo `cat argv_${testcount}_1.txt` >> input$testcount.txt
+    echo `cat argv_${testcount}_2.txt` >> input$testcount.txt
     diff out$testcount.txt input$testcount.txt || errc=1
     if [ "$errc" -ne "0" ]; then
 	set +x 
