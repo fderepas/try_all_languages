@@ -1,5 +1,6 @@
 default:
 	./build.sh
+
 .PHONY:test
 test :
 	rm -rf test
@@ -10,6 +11,6 @@ test :
 	cd test_args && make 
 
 clean:
-	rm -fr *~ test/ test_args
+	rm -rf *~ test/ test_args/
 
 
