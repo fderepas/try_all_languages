@@ -2,6 +2,7 @@
 # launch the test_docker.sh script with the name of the language so
 # that the files are generated in this directory
 default:
+	chmod 777 .
 	lang=`pwd  | sed -e 's/\(.*\)\/[^\/]*$$/\1/' | sed -e 's/.*\/\([^\/]*\)$$/\1/'` && \
             bash ../../test_docker_args.sh $$lang
 

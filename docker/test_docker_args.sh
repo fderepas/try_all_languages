@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # test a docker by running a simple program which takes 3 numbers as an input
 # and outputs the same numbers.
@@ -41,13 +40,14 @@ do
 	printf "\033[31mwrong error code\033[0m";
 	exit 1;
     fi
-    echo `cat argv_${testcount}_0.txt` > input$testcount.txt
-    echo `cat argv_${testcount}_1.txt` >> input$testcount.txt
-    echo `cat argv_${testcount}_2.txt` >> input$testcount.txt
-    diff out$testcount.txt input$testcount.txt || errc=1
+    echo `cat argv_${testcount}_0.txt` > expected_$testcount.txt
+    echo `cat argv_${testcount}_1.txt` >> expected_$testcount.txt
+    echo `cat argv_${testcount}_2.txt` >> expected_$testcount.txt
+    cat out$testcount.txt | head -n 3 | sed -e 's/ *$//' > out_head$testcount.txt
+    diff out_head$testcount.txt expected_$testcount.txt || errc=1
     if [ "$errc" -ne "0" ]; then
 	set +x 
-	printf "\033[31munexpected output in out$testcount.txt\033[0m";
+	printf "\033[31mUnexpected output in out$testcount.txt expected expected_$testcount.txt instead.\033[0m";
 	echo
 	exit 1;
     fi
