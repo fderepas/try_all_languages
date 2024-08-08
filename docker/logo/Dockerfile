@@ -1,13 +1,7 @@
-FROM ubuntu:latest
+FROM tal_base_ubuntu:latest
 
-RUN apt-get clean && \
-  apt-get update -q -y && \
-  apt upgrade -q -y && \
-  apt install -y libncurses6 libncurses-dev make gcc g++ unzip bison wget texinfo adduser && \
-  adduser --disabled-password --gecos "" tal && \
-  chown tal:tal /mnt
-
-RUN cd /root && \
+RUN apt install -y libncurses6 libncurses-dev make gcc g++ unzip bison wget texinfo adduser && \
+    cd /root && \
     wget https://github.com/jrincayc/ucblogo-code/releases/download/version_6.2.4/ucblogo-6.2.4.tar.gz && \
     tar xvfz ucblogo-6.2.4.tar.gz && \
     cd ucblogo-6.2.4 && \
