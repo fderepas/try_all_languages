@@ -7,6 +7,6 @@ test :
 	cd test && make 
 
 clean:
-	rm -fr *~ test/
+	rm -fr *~ test/ execve_wrapper.c
 
 
