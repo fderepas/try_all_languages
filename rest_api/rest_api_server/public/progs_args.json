@@ -3,5 +3,6 @@
     "cpp":"#include <iostream>\nusing namespace std;\n\nint main (int argc, char ** argv) {\n  int a;\n  cout << argv[1] << endl << argv[2] << endl << argv[3] << endl;\n  return 0;\n}\n",
     "dart":"import 'dart:io';\n\nvoid main(List<String> args) {\n  for(String arg in args)\n    print(arg);\n}",
     "logo":"to displayStrings :stringList\n    if empty? :stringList [stop]\n    print first :stringList\n    displayStrings butfirst :stringList\nend\ndisplayStrings COMMAND.LINE\nbye\n",
-    "node":"for (var i=2;i<process.argv.length;++i) {\n    console.log(process.argv[i].trim());\n}\n"
+    "node":"for (var i=2;i<process.argv.length;++i) {\n    console.log(process.argv[i].trim());\n}\n",
+    "rust":"fn main() {\n    let mut args: Vec<String> = std::env::args().collect();\n    args.remove(0);\n    for arg in args.iter() {\n        println!(\"{}\",*arg);\n    }\n}\n"
 }
