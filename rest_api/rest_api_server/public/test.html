@@ -28,7 +28,7 @@
     </style>
     
     <script>
-      // disctionnary holding all programs
+      // dictionnary holding all programs
       var progs;
       // filling progs using progs.json
       const response = fetch('progs.json')
@@ -41,6 +41,51 @@
             .catch(function (err) {
                 console.log('error: ' + err);
             });
+      // dictionnary holding all programs supporting args
+      var progs_args;
+      var argCount=[0,0];
+      // filling progs using progs.json
+      const response2 = fetch('progs_args.json')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                progs_args=data;
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+      function writeHTMLForArgs(testId) {
+          var textForButtons= `
+            <table>
+              <tr>
+                <td>
+                  <button style="color: white;border: none;padding: 10px 10px;background-color: #404040;" onClick="setNumArgs(${testId},1);">
+	            +
+	          </button>
+                </td>`;
+          if (argCount[testId-1]>0)
+              textForButtons+=`
+                <td>
+                  <button style="color: white;border: none;padding: 10px 10px;background-color: #404040;" onClick="setNumArgs(${testId},-1);">
+	            -
+	          </button>
+                </td>
+                <td>args</td>`;
+          else
+              textForButtons+=`
+                <td> click to add arguments to test ${testId}.</td>`;
+          for (let i=0;i<argCount[testId-1];++i) {
+              textForButtons+=`
+                <td>${i}</td>
+                <td><input id='ta_${testId}_${i}' type='text' size='4'/></td>`;
+          }
+          textForButtons+=`
+              </tr>
+            </table>`;
+          document.getElementById(`test${testId}args`).innerHTML=
+              textForButtons;
+      }
       // empty the log
       function resetLog() {
           document.getElementById('textarea-log').value = "";
@@ -49,14 +94,33 @@
       function appendLog(msg) {
           document.getElementById('textarea-log').value += "\n" + msg;
       }
+      // set number of arguments
+      function setNumArgs(testNum,change) {
+          if (testNum==1 || testNum==2) {
+              argCount[testNum-1]+=change;
+              writeHTMLForArgs(testNum);
+          }
+      }
       // send the form 
       function sendForm() {
           var countInput=2
           var url ="/?lang="+document.getElementById('lang').value;
           url+="&countInput="+countInput;
-          url+="&code="+encodeURIComponent(document.getElementById('code').value);
-          url+="&input0="+encodeURIComponent(document.getElementById('input0').value);
-          url+="&input1="+encodeURIComponent(document.getElementById('input1').value);
+          url+="&code="+encodeURIComponent
+              (document.getElementById('code').value);
+          url+="&input0="+encodeURIComponent
+              (document.getElementById('input0').value);
+          url+="&input1="+encodeURIComponent
+              (document.getElementById('input1').value);
+          for (let t=0;t<=1;++t) {
+              if (argCount[t]>0) {
+                  url+=`&argc_${t}=${argCount[t]}`;
+                  for (let i=0;i<argCount[t];++i) {
+                      url+=`&argv_${t}_${i}=`+
+                          (document.getElementById(`ta_`+(t+1)+`_${i}`).value);
+                  }
+              }
+          }
           appendLog("URL: " + url);
           
           let xhr = new XMLHttpRequest();
@@ -72,13 +136,16 @@
               var count=0;
               // add stdout, stderr and error code.
               for (const e of answer.data) {
-                  document.getElementById('output'+count).value=decodeURIComponent(e.out);
-                  document.getElementById('err'+count).value=decodeURIComponent(e.err);
+                  document.getElementById('output'+count).value=
+                      decodeURIComponent(e.out);
+                  document.getElementById('err'+count).value=
+                      decodeURIComponent(e.err);
                   document.getElementById('code'+count).innerHTML=e.code;
                   ++count;
               }
           }
-          document.getElementById('waitlogo').innerHTML='<img src="wait.png" style="height:3em;">';
+          document.getElementById('waitlogo').innerHTML=
+              '<img src="wait.png" style="height:3em;">';
           let async = true;
           // Initialize XMLHttpRequest
           xhr.open("GET", url, async);
@@ -106,8 +173,22 @@
           document.getElementById('err1').value="";
           document.getElementById('code0').innerHTML="";
           document.getElementById('code1').innerHTML="";
-	  document.getElementById('dockerfilelink').outerHTML="<a id='dockerfilelink' href='https://github.com/fderepas/try_all_languages/tree/main/docker/"+lang+"' target='_blank'>"+lang+" Dockerfile</a>";
-	  document.getElementById('dockerhublink').outerHTML="<a id='dockerhublink' href='https://hub.docker.com/r/fderepas/tal-"+lang+"' target='_blank'>"+lang+" docker image</a>";
+	  document.getElementById('dockerfilelink').outerHTML=
+              "<a id='dockerfilelink' href='https://github.com/fderepas/"+
+              "try_all_languages/tree/main/docker/"+lang+
+              "' target='_blank'>"+lang+" Dockerfile</a>";
+	  document.getElementById('dockerhublink').outerHTML=
+              "<a id='dockerhublink' href='https://hub.docker.com/r/fderepas/"+
+              "tal-"+lang+"' target='_blank'>"+lang+" docker image</a>";
+          argCount[0]=0;
+          argCount[1]=0;
+          if (progs_args.hasOwnProperty(lang)) {
+              writeHTMLForArgs(1);
+              writeHTMLForArgs(2);
+          } else {
+              document.getElementById("test1args").innerHTML="";
+              document.getElementById("test2args").innerHTML="";
+          }
           resetLog();
       }
       // change language to selected value
@@ -164,17 +245,22 @@
           <td>
             <table>
               <tr>
-                <td>standard input</td><td>standard output</td><td>standard error</td><td>ret. code</td>
+                <td>standard input</td><td>standard output</td>
+                <td>standard error</td><td>ret. code</td>
               </tr>
               <tr>
                 <td>
                   <textarea id="input0" rows="4" cols="20"></textarea>
                 </td>
                 <td>
-                  <textarea id="output0" rows="4" cols="20" style="background-color:black;color:white;" readonly></textarea>
+                  <textarea id="output0" rows="4" cols="20"
+                            style="background-color:black;color:white;"
+                            readonly></textarea>
                 </td>
                 <td>
-                  <textarea id="err0" rows="4" cols="20" style="background-color:black;color:white;" readonly></textarea>
+                  <textarea id="err0" rows="4" cols="20"
+                            style="background-color:black;color:white;"
+                            readonly></textarea>
                 </td>
                 <td id="code0"></td>
               </tr>
@@ -182,22 +268,41 @@
           </td>
         </tr>
         <tr>
+          <td></td>
+          <td id="test1args">
+          </td>
+        </tr>
+        
+        <tr>
           <td>test 2</td>
           <td>
             <table>
+              <tr>
+                <td>standard input</td><td>standard output</td>
+                <td>standard error</td><td>ret. code</td>
+              </tr>
               <tr>
                 <td>
                   <textarea id="input1" rows="4" cols="20"></textarea>
                 </td>
                 <td>
-                  <textarea id="output1" rows="4" cols="20" style="background-color:black;color:white;" readonly></textarea>
+                  <textarea id="output1" rows="4" cols="20"
+                            style="background-color:black;color:white;"
+                            readonly></textarea>
                 </td>
                 <td>
-                  <textarea id="err1" rows="4" cols="20" style="background-color:black;color:white;" readonly></textarea>
+                  <textarea id="err1" rows="4" cols="20"
+                            style="background-color:black;color:white;"
+                            readonly></textarea>
                 </td>
                 <td id="code1"></td>
               </tr>
             </table>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td id="test2args">
           </td>
         </tr>
         <tr>
@@ -220,13 +325,18 @@
         <tr>
           <td>log</td>
           <td>
-            <textarea id="textarea-log" cols="80" rows="5" style="background-color:black;color:white;" readonly></textarea>
+            <textarea id="textarea-log" cols="80" rows="5"
+                      style="background-color:black;color:white;" readonly>
+            </textarea>
           </td>
         </tr>
         <tr>
           <td></td>
           <td>
-	    access the source of <a href="https://github.com/fderepas/try_all_languages">try_all_languages</a>
+	    access the source of
+            <a href="https://github.com/fderepas/try_all_languages">
+              try_all_languages
+            </a>
           </td>
         </tr>
         <tr>

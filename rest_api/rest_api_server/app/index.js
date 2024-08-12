@@ -86,7 +86,7 @@ function handleRestRequest(req,res,query) {
     let countInput=Number(query.countInput);
     for (let i=0;i<countInput;++i) {
         if (('argc_'+i) in query) {
-            b=Number(query["argc_"+i])
+            let b=Number(query["argc_"+i])
             if (!isNaN(b)) {
                 argc[i]=b;
             } else {
