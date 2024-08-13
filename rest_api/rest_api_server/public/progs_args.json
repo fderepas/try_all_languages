@@ -1,4 +1,5 @@
 {
+    "bash":"#!/bin/bash\nwhile (( \"$#\" )); do \n  echo $1 \n  shift \ndone\n",
     "c":"#include <stdio.h>\n\nint main(int argc,char* argv[]) {\n    int i=1;\n    while (argv[i]) {\n        printf(\"%s\\n\",argv[i++]);\n    }   \n    return 0;\n}\n",
     "cpp":"#include <iostream>\nusing namespace std;\n\nint main (int argc, char ** argv) {\n  int a;\n  cout << argv[1] << endl << argv[2] << endl << argv[3] << endl;\n  return 0;\n}\n",
     "dart":"import 'dart:io';\n\nvoid main(List<String> args) {\n  for(String arg in args)\n    print(arg);\n}",
