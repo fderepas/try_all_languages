@@ -60,21 +60,21 @@ You can test it live at [https://t-a-l.org/test.html](https://t-a-l.org/test.htm
 
 Here is an example of the usage of the REST API. Let's consider the following C program:
 
-```
+```c
 #include <unistd.h>
 #include <stdio.h>
 
 int main(int argc,char** argv) {
     if (argc>1) {
         // display arguments
-        while (*(++argv)) printf("%s\n",*argv);
+        while (*(++argv))
+            printf("%s\n",*argv);
     } else {
         // display stdin on stdout
         char buf[1000];
         int c;
-        while ((c=read(0,buf,1000))>0) {
+        while ((c=read(0,buf,1000))>0) 
             write(1,buf,c);
-        }
     }
     return 0;
 }
