@@ -55,6 +55,7 @@
             .catch(function (err) {
                 console.log('error: ' + err);
             });
+      // write html code to enter command line arguments
       function writeHTMLForArgs(testId) {
           var textForButtons= `
             <table>
@@ -74,11 +75,17 @@
                 <td>args</td>`;
           else
               textForButtons+=`
-                <td> click to add arguments to test ${testId}.</td>`;
+                <td> click to add command line arguments to test ${testId}.</td>`;
           for (let i=0;i<argCount[testId-1];++i) {
+	      let e =  document.getElementById(`ta_${testId}_${i}`);
+	      let v = "";
+	      if (e!=null) {
+		  // keep value previously entered
+		  v=e.value;
+	      }
               textForButtons+=`
                 <td>${i}</td>
-                <td><input id='ta_${testId}_${i}' type='text' size='4'/></td>`;
+                <td><input id='ta_${testId}_${i}' type='text' value='${v}' size='4'/></td>`;
           }
           textForButtons+=`
               </tr>
