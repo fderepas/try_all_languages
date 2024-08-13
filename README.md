@@ -94,7 +94,7 @@ c_0=2&argv_0_0=foo&argv_0_1=bar
 ```
 Here is the meaning of the different parameters in the query string:
 
-- ```lang``` the source code language, in this example the value is "c". The ```lang``` variable should have on of the following value: ada, apl, assembly, bash, bqn, c, clojure, cobol, cpp, csharp, dart, dc, elixir, erlang, fig, fortran, fsharp, go, golfscript, groovy, haskell, j, java, jelly, julia, k, kotlin, lisp, logo, lua, node, ocaml, perl, php, postscript, powershell, prolog, python, r, raku, ruby, rust, sass, scala, typescript, swift, vyxal, zsh.
+- ```lang``` the source code language, in this example the value is "c". The ```lang``` variable should have one of the following value: ada, apl, assembly, bash, bqn, c, clojure, cobol, cpp, csharp, dart, dc, elixir, erlang, fig, fortran, fsharp, go, golfscript, groovy, haskell, j, java, jelly, julia, k, kotlin, lisp, logo, lua, node, ocaml, perl, php, postscript, powershell, prolog, python, r, raku, ruby, rust, sass, scala, typescript, swift, vyxal, zsh.
 - ```countInput``` number of tests to perform (two in this example).
 - ```code``` the url encoded version of the source code.
 - ```intput0``` url encoded version of standard input for test 1.
