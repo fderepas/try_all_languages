@@ -112,7 +112,7 @@ Returned value is the following json file:
   ]
 }
 ```
-It has a single ```data``` attributing holding an array of results for each execution. For each execution the return code, url encoded value of standard output and standard error stream are shown.
+It has a single ```data``` field holding an array of results for each execution. For each execution the return code, url encoded value of standard output and standard error stream are shown.
 ## Docker images
 
 Docker images are also available on [DockerHub](https://hub.docker.com/u/fderepas).
