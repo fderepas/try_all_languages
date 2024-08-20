@@ -40,7 +40,7 @@ do
 	printf "\033[31mwrong error code\033[0m";
 	exit 1;
     fi
-    echo `cat argv_${testcount}_0.txt` > expected_$testcount.txt
+    echo `cat argv_${testcount}_0.txt` >  expected_$testcount.txt
     echo `cat argv_${testcount}_1.txt` >> expected_$testcount.txt
     echo `cat argv_${testcount}_2.txt` >> expected_$testcount.txt
     cat out$testcount.txt | head -n 3 | sed -e 's/ *$//' > out_head$testcount.txt
