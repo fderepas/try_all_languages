@@ -1,10 +1,6 @@
-FROM alpine:latest
+FROM tal_base_alpine:latest
 
-RUN apk update
 RUN apk add --update openjdk21 --repository https://dl-3.alpinelinux.org/alpine/edge/community/
-RUN addgroup tal
-RUN adduser -h /home/tal -g '' -s /bin/ash -G tal -D tal
-RUN chown tal:tal /mnt
 
 WORKDIR /mnt
 
@@ -15,5 +11,3 @@ COPY --chown=tal:tal launch.sh /home/tal/launch.sh
 USER tal:tal
 RUN mkdir /mnt/in
 RUN mkdir /mnt/out
-
-RUN ln -s /home/tal/launch.sh /home/tal/compile_alpine.sh

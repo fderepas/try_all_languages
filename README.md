@@ -56,6 +56,54 @@ Here is an example from the [test.html](rest_api/rest_api_server/public/test.htm
 
 You can test it live at [https://t-a-l.org/test.html](https://t-a-l.org/test.html).
 
+## REST API example
+
+Here is an example of the usage of the REST API. Let's consider the following C program:
+
+```c
+#include <unistd.h>
+#include <stdio.h>
+
+int main(int argc,char** argv) {
+    if (argc>1) {
+        // display arguments
+        while (*(++argv))
+            printf("%s\n",*argv);
+    } else {
+        // display stdin on stdout
+        char buf[1000];
+        int c;
+        while ((c=read(0,buf,1000))>0) 
+            write(1,buf,c);
+    }
+    return 0;
+}
+```
+It can be compiled and executed twice using the following URL:
+```http
+https://t-a-l.org/?lang=c&countInput=2&code=%23include%20%3Cunistd.h%3E%0A%23include%20%3Cstdio.h%3E%0A%0Aint%20main(int%20argc%2Cchar**%20argv)%20%7B%0A%20%20%20%20if%20(argc%3E1)%20%7B%0A%20%20%20%20%20%20%20%20%2F%2F%20display%20arguments%0A%20%20%20%20%20%20%20%20while%20(*(%2B%2Bargv))%20printf(%22%25s%5Cn%22%2C*argv)%3B%0A%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20%2F%2F%20display%20stdin%20on%20stdout%0A%20%20%20%20%20%20%20%20char%20buf%5B1000%5D%3B%0A%20%20%20%20%20%20%20%20int%20c%3B%0A%20%20%20%20%20%20%20%20while%20((c%3Dread(0%2Cbuf%2C1000))%3E0)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20write(1%2Cbuf%2Cc)%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20return%200%3B%0A%7D%0A&input0=%0A&input1=4300%0A6389%0A1425%0A&argc_0=2&argv_0_0=foo&argv_0_1=bar
+```
+Here is the meaning of the different parameters in the query string:
+
+- ```lang``` the source code language, in this example the value is "c". The ```lang``` variable should have one of the following value: ada, apl, assembly, bash, bqn, c, clojure, cobol, cpp, csharp, dart, dc, elixir, erlang, fig, fortran, fsharp, go, golfscript, groovy, haskell, j, java, jelly, julia, k, kotlin, lisp, logo, lua, node, ocaml, perl, php, postscript, powershell, prolog, python, r, raku, ruby, rust, sass, scala, typescript, swift, vyxal, zsh.
+- ```countInput``` number of tests to perform (two in this example).
+- ```code``` the url encoded version of the source code.
+- ```intput0``` url encoded version of standard input for test 1.
+- ```intput1``` url encoded version of standard input for test 2.
+- ```argc_0``` number of extra command line arguments for test 1.
+- ```argv_0_0``` value of first argument for test 1.
+- ```argv_0_1``` value of second argument for test 1.
+
+Returned value is the following json file:
+```json
+{
+  "data": [
+    {"code":0,"out":"foo%0Abar%0A","err":""},
+    {"code":0,"out":"4300%0A6389%0A1425%0A","err":""}
+  ]
+}
+```
+It has a single ```data``` field holding an array of results for each execution. For each execution the return code, url encoded value of standard output and standard error stream are shown.
 ## Docker images
 
 Docker images are also available on [DockerHub](https://hub.docker.com/u/fderepas).
