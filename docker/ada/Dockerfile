@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 RUN apk update
-RUN apk add --update gcc-gnat
+RUN apk add --update gcc-gnat musl-dev
 RUN addgroup tal
 RUN adduser -h /home/tal -g '' -s /bin/ash -G tal -D tal
 RUN chown tal:tal /mnt
