@@ -1,6 +1,7 @@
 FROM tal_base_alpine:latest
 
-RUN apk add --update build-base gcc --repository https://dl-3.alpinelinux.org/alpine/edge/main/
+RUN apk add --update gcc --repository https://dl-3.alpinelinux.org/alpine/edge/main/ && \
+    apk add linux-headers libc-dev
 
 WORKDIR /mnt
 
