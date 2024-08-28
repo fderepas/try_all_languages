@@ -100,7 +100,7 @@ function handleRestRequest(req,res,query) {
 	}
     }
     if (!('code' in query)) {
-	res.send('{"code":1003,"msg":"\'code\' variable expected in query string. It should hold the url encoded version of the source code. For instance type \'https://t-a-l.org/api/?lang=c&countInput=1&code=int%20main()%20{%20return%2042;}\'"}');
+	res.send('{"code":1003,"msg":"\'code\' variable expected in query string. It should hold the url encoded version of the source code. For instance type \'https://t-a-l.org/api/?lang=c&countInput=1&code=int%20main()%20{%20return%2042;}\'. More info on the rest api here: https://github.com/fderepas/try_all_languages#rest-api-example"}');
 	return;
     }
 
