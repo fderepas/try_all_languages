@@ -45,7 +45,7 @@
       // dictionnary holding all programs supporting args
       var progs_args;
       var argCount=[0,0];
-      // filling progs using progs.json
+      // filling progs_args using progs_args.json
       const response2 = fetch('progs_args.json')
             .then(function (response) {
                 return response.json();
@@ -109,7 +109,7 @@
               writeHTMLForArgs(testNum);
           }
       }
-      // send the form 
+      // send the form to execute the code to /api/
       function sendForm() {
           var countInput=2
           var url ="/api/?lang="+document.getElementById('lang').value;
@@ -160,6 +160,7 @@
           // Send XMLHttpRequest (without body data)
           xhr.send();
       }
+      // return a random interger in [0;max[
       function getRandomInt(max) {
           return Math.floor(Math.random() * max);
       }
@@ -204,11 +205,10 @@
           var lang=document.getElementById('lang').value;
           updateLang(lang);
       }
-
-      // DOM fully loaded and parsed
+      // What to do when DOM is fully loaded and parsed
       window.addEventListener('DOMContentLoaded', (event) => {
+          // wait 1 sec for json to load
           setTimeout(() => {
-              // wait 1 sec for json to load
               var select = document.getElementById('lang');
               for (let k in progs) {
                   // add language j in select
@@ -226,7 +226,7 @@
           }, 1000);
       });
     </script>
-    <title>testing programs</title>
+    <title>t-a-l.org</title>
   </head>
   <body>
     <table>
