@@ -97,8 +97,6 @@ function handleRestRequest(req,res,query) {
         }
 	if (!(('input'+i) in query)) {
             query['input'+i]='';
-	    //res.send('{"code":10022,"msg":"\'input$i\' variable expected in query string."}');
-	    //return;
 	}
     }
     if (!('code' in query)) {
@@ -146,15 +144,7 @@ function handleRestRequest(req,res,query) {
     });
 
 }
-/*
-app.get('/',(req,res) => {
-    if (!('query' in req)) {
-	res.send('{"code":1000,"msg":"query string expected."}');
-	return;
-    }
-    handleRestRequest(req,res,req.query);
-    })
-    */
+
 app.get('/api',(req,res) => {
     if (!('query' in req)) {
 	res.send('{"code":1000,"msg":"query string expected."}');
@@ -162,12 +152,7 @@ app.get('/api',(req,res) => {
     }
     handleRestRequest(req,res,req.query);
 })
-/*
-app.post('/',(req,res) => {
-    res.send('reading post request.\n'+JSON.stringify(Object.keys(req.body)));
-    handleRestRequest(req,req,req.body);
-})
-*/
+
 app.post('/api',(req,res) => {
     res.send('reading post request.\n'+JSON.stringify(Object.keys(req.body)));
     handleRestRequest(req,req,req.body);
