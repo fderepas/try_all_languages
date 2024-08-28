@@ -99,8 +99,10 @@
           document.getElementById('textarea-log').value = "";
       }
       // add data to the log
-      function appendLog(msg) {
-          document.getElementById('textarea-log').value += "\n" + msg;
+     function appendLog(msg) {
+          var t = document.getElementById('textarea-log');
+          t.value += "\n" + msg;
+          t.scrollTop = t.scrollHeight;
       }
       // set number of arguments
       function setNumArgs(testNum,change) {
@@ -138,7 +140,7 @@
               // add the status to the log
               appendLog(" status = " + xhr.status);
               appendLog(" statusText = " + xhr.statusText);
-              appendLog(" ------ xhr.responseText ------: ");
+              appendLog(" ------ XMLHttpRequest response ------: ");
               appendLog(xhr.responseText);
               var answer = JSON.parse(xhr.responseText);
               var count=0;
