@@ -51,10 +51,10 @@
 The version of runtimes or compilers is given [here](https://t-a-l.org/version.json).
 
 
-Here is an example from the [test.html](rest_api/rest_api_server/public/test.html) page that comes with the rest api server:
+Here is an example from the [index.html](rest_api/rest_api_server/public/index.html) page that comes with the rest api server:
 ![all colors](https://github.com/fderepas/try_all_languages/blob/main/images/screenshot_of_live_web_site.png?raw=true)
 
-You can test it live at [https://t-a-l.org/test.html](https://t-a-l.org/test.html).
+You can test it live at [https://t-a-l.org](https://t-a-l.org).
 
 ## REST API example
 

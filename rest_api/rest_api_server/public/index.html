@@ -112,7 +112,7 @@
       // send the form 
       function sendForm() {
           var countInput=2
-          var url ="/?lang="+document.getElementById('lang').value;
+          var url ="/api/?lang="+document.getElementById('lang').value;
           url+="&countInput="+countInput;
           url+="&code="+encodeURIComponent
               (document.getElementById('code').value);
