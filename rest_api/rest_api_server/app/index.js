@@ -65,17 +65,17 @@ function handleRestRequest(req,res,query) {
     if (!('lang' in query)) {
         s=" The 'lang' variable should have on of the following value: ";
         s+=Object.keys(ext).join(", ")
-	res.send('{"code":1002,"msg":"\'lang\' variable is expected in query string. '+s+'."}');
+	res.send('{"code":1002,"msg":"\'lang\' variable is expected in query string. '+s+'. For instance type \'https://t-a-l.org/api/?lang=c\'"}');
 	return;
     }
     if (!(query.lang in ext)) {
         s=" The 'lang' variable should have on of the following value: ";
         s+=Object.keys(ext).join(", ")
-	res.send('{"code":1005,"msg":"Language not supported. '+s+'."}');
+	res.send('{"code":1005,"msg":"Language \''+query.lang+'\' not supported. '+s+'."}');
 	return;
     }
     if (!('countInput' in query)) {
-	res.send('{"code":10022,"msg":"countInput variable expected, to give the number of different executions to perform."}');
+	res.send('{"code":10022,"msg":"countInput variable expected, to give the number of different executions to perform. For instance type \'https://t-a-l.org/api/?lang=c&countInput=1\' to launch 1 test."}');
 	return;
     }
     if (isNaN(Number(query.countInput))) {
@@ -100,7 +100,7 @@ function handleRestRequest(req,res,query) {
 	}
     }
     if (!('code' in query)) {
-	res.send('{"code":1003,"msg":"\'code\' variable expected in query string."}');
+	res.send('{"code":1003,"msg":"\'code\' variable expected in query string. It should hold the url encoded version of the source code. For instance type \'https://t-a-l.org/api/?lang=c&countInput=1&code=int%20main()%20{%20return%200;}\'"}');
 	return;
     }
 
