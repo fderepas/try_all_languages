@@ -5,7 +5,8 @@
 "b":"atelierb-free-24.04",
 "bash":"GNU bash, version 5.2.32(1)-release (x86_64-alpine-linux-musl)",
 "bqn":"CBQN git 05690c00",
-"c":"gcc (Alpine 14.2.0) 14.2.0",
+"c":"gcc (Alpine 14.2.0) 14.2.0
+write /dev/stdout: broken pipe",
 "clojure":"Clojure 1.12.0-master-SNAPSHOT",
 "cobol":"cobc (GnuCOBOL) 3.1.2.0",
 "cpp":"Alpine clang version 18.1.8",
