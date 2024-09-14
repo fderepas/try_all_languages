@@ -42,6 +42,7 @@
     "ruby":"puts *$<\n",
     "rust":"use std::io::{self, BufRead};\n\nfn main() {\n    let stdin = io::stdin();\n    for line in stdin.lock().lines() {\n        println!(\"{}\", line.unwrap());\n    }\n}\n",
     "scala":"import scala.io.StdIn.readLine\nobject p {\n  def main(args: Array[String]): Unit = {\n    for i <- 1 to 3 do\n        println(readLine())\n  }\n}\n",
+    "sql":"-- type \"desc stdin;\" to see table with standard input\n-- type \"desc argv;\" to see table with command line arguments\nSELECT val FROM stdin ORDER BY id;\nSELECT val FROM argv ORDER BY id;",
     "swift":"for i in 1...3 {\n    print(readLine(strippingNewline: true)!)\n}\n",
     "typescript":"// prompt is a function which enables to read stdin\nfor(let i=0;i<3;++i)\n    console.log(prompt());\n",
     "vyxal":"\n",

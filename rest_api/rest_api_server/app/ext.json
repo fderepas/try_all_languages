@@ -43,8 +43,9 @@
     "rust":"rs",
     "sass": "sass",
     "scala":"scala",
-    "typescript":"ts",
+    "sql":"sql",
     "swift":"swift",
+    "typescript":"ts",
     "vyxal":"vyxal",
     "zsh":"zsh"
 }

@@ -154,8 +154,9 @@ app.get('/api',(req,res) => {
 })
 
 app.post('/api',(req,res) => {
-    res.send('reading post request.\n'+JSON.stringify(Object.keys(req.body)));
-    handleRestRequest(req,req,req.body);
+    //res.send('reading post request.\n'+JSON.stringify(req));
+    res.json(req.body);
+    //handleRestRequest(req,res,req.body);
 })
 
 app.listen(port,() => {
