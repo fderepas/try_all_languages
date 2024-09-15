@@ -1,4 +1,4 @@
-This is a version of [Gnu Dc] where some options have been added to ease operations on strings. It is based on Gnu Bc version 1.07. It is the version which currently runs on [tal](https://t-a-l.org/test.html).
+This is a version of [Gnu Dc] where some options have been added to ease operations on strings. It is based on Gnu Bc version 1.07. It is the version which currently runs on [tal](https://t-a-l.org/).
 
 # List of new operations
 
