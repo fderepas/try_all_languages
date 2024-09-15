@@ -45,6 +45,7 @@
 [Ruby](https://en.wikipedia.org/wiki/Ruby_(programming_language)), 
 [Rust](https://en.wikipedia.org/wiki/Rust_(programming_language)), 
 [Scala](https://en.wikipedia.org/wiki/Scala_(programming_language)), 
+[Sql](https://en.wikipedia.org/wiki/SQL), 
 [Swift](https://en.wikipedia.org/wiki/Swift_(programming_language)), 
 [Vyxal](https://vyxapedia.hyper-neutrino.xyz/), 
 [Zsh](https://en.wikipedia.org/wiki/Z_shell). 
