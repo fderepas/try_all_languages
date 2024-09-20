@@ -30,6 +30,7 @@
   "lisp":"SBCL 2.4.7",
   "logo":"ucblogo-6.2.4",
   "lua":"Lua 5.4.6  Copyright (C) 1994-2023 Lua.org, PUC-Rio",
+  "lustre":"docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: \"/usr/bin/ocamlc\": stat /usr/bin/ocamlc: no such file or directory: unknown.",
   "node":"20.15.1",
   "ocaml":"4.14.2",
   "perl":"This is perl 5, version 40, subversion 0 (v5.40.0) built for x86_64-linux-thread-multi",
