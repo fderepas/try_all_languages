@@ -22,7 +22,8 @@
   "groovy":"Groovy Version: 4.0.22 JVM: 21.0.4 Vendor: Alpine OS: Linux",
   "haskell":"The Glorious Glasgow Haskell Compilation System, version 9.8.2",
   "j":"j9.5",
-  "java":"openjdk 21.0.4 2024-07-16",
+  "java":"openjdk 21.0.4 2024-07-16
+write /dev/stdout: broken pipe",
   "jelly":"github.com/DennisMitchell/jellylanguage.git 70c9fd93ab009c05dc396f8cc091f72b212fb188",
   "julia":"julia version 1.9.3",
   "k":"github.com/kevinlawler/kona.git 67da192f476e12632a6cb61f3b094109f3cd93ef",
@@ -30,7 +31,6 @@
   "lisp":"SBCL 2.4.7",
   "logo":"ucblogo-6.2.4",
   "lua":"Lua 5.4.6  Copyright (C) 1994-2023 Lua.org, PUC-Rio",
-  "lustre":"docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: \"/usr/bin/ocamlc\": stat /usr/bin/ocamlc: no such file or directory: unknown.",
   "node":"20.15.1",
   "ocaml":"4.14.2",
   "perl":"This is perl 5, version 40, subversion 0 (v5.40.0) built for x86_64-linux-thread-multi",
@@ -48,5 +48,5 @@
   "swift":"Swift version 5.10.1 (swift-5.10.1-RELEASE)",
   "typescript":"Version 5.5.4",
   "vyxal":"2.21.5",
-  "zsh":"the input device is not a TTY",
+  "zsh":"zsh 5.9 (x86_64-alpine-linux-musl)",
 }
