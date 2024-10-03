@@ -42,7 +42,9 @@
   "raku":"Welcome to Rakudo™ v2024.07.",
   "ruby":"ruby 3.3.3 (2024-06-12 revision f1c7b6f435) [x86_64-linux-musl]",
   "rust":" 1.78.0 (9b00956e5 2024-04-29) (Alpine Linux 1.78.0-r0)",
-  "scala":" 3.5.0",
+  "scala":"Your Scala CLI version is outdated. The newest version is 1.5.1
+It is recommended that you update Scala CLI through the same tool or method you used for its initial installation for avoiding the creation of outdated duplicates.
+ 3.5.0",
   "sql":"/usr/bin/mariadbd  Ver 10.11.8-MariaDB for Linux on x86_64 (Alpine Linux)",
   "swift":"Swift version 5.10.1 (swift-5.10.1-RELEASE)",
   "typescript":"Version 5.5.4",
