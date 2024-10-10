@@ -22,8 +22,7 @@
   "groovy":"Groovy Version: 4.0.22 JVM: 21.0.4 Vendor: Alpine OS: Linux",
   "haskell":"The Glorious Glasgow Haskell Compilation System, version 9.8.2",
   "j":"j9.5",
-  "java":"openjdk 21.0.4 2024-07-16
-write /dev/stdout: broken pipe",
+  "java":"openjdk 21.0.4 2024-07-16",
   "jelly":"github.com/DennisMitchell/jellylanguage.git 70c9fd93ab009c05dc396f8cc091f72b212fb188",
   "julia":"julia version 1.9.3",
   "k":"github.com/kevinlawler/kona.git 67da192f476e12632a6cb61f3b094109f3cd93ef",
@@ -43,9 +42,7 @@ write /dev/stdout: broken pipe",
   "raku":"Welcome to Rakudo™ v2024.07.",
   "ruby":"ruby 3.3.3 (2024-06-12 revision f1c7b6f435) [x86_64-linux-musl]",
   "rust":" 1.78.0 (9b00956e5 2024-04-29) (Alpine Linux 1.78.0-r0)",
-  "scala":"Your Scala CLI version is outdated. The newest version is 1.5.1
-It is recommended that you update Scala CLI through the same tool or method you used for its initial installation for avoiding the creation of outdated duplicates.
- 3.5.0",
+  "scala":" 3.5.0",
   "sql":"/usr/bin/mariadbd  Ver 10.11.8-MariaDB for Linux on x86_64 (Alpine Linux)",
   "swift":"Swift version 5.10.1 (swift-5.10.1-RELEASE)",
   "typescript":"Version 5.5.4",
