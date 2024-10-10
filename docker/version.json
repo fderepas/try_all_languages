@@ -22,7 +22,8 @@
   "groovy":"Groovy Version: 4.0.22 JVM: 21.0.4 Vendor: Alpine OS: Linux",
   "haskell":"The Glorious Glasgow Haskell Compilation System, version 9.8.2",
   "j":"j9.5",
-  "java":"openjdk 21.0.4 2024-07-16",
+  "java":"openjdk 21.0.4 2024-07-16
+write /dev/stdout: broken pipe",
   "jelly":"github.com/DennisMitchell/jellylanguage.git 70c9fd93ab009c05dc396f8cc091f72b212fb188",
   "julia":"julia version 1.9.3",
   "k":"github.com/kevinlawler/kona.git 67da192f476e12632a6cb61f3b094109f3cd93ef",
