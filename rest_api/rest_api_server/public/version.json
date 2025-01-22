@@ -7,7 +7,8 @@ docker: Error response from daemon: pull access denied for tal-b, repository doe
 See 'docker run --help'.",
   "bash":"GNU bash, version 5.2.37(1)-release (x86_64-alpine-linux-musl)",
   "bqn":"CBQN git 8b0d0399",
-  "c":"gcc (Alpine 14.2.0) 14.2.0",
+  "c":"gcc (Alpine 14.2.0) 14.2.0
+write /dev/stdout: broken pipe",
   "clojure":"Clojure 1.13.0-master-SNAPSHOT",
   "cobol":"cobc (GnuCOBOL) 3.1.2.0",
   "cpp":"Alpine clang version 19.1.7",
