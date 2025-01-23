@@ -7,8 +7,7 @@ docker: Error response from daemon: pull access denied for tal-b, repository doe
 See 'docker run --help'.",
   "bash":"GNU bash, version 5.2.37(1)-release (x86_64-alpine-linux-musl)",
   "bqn":"CBQN git 8b0d0399",
-  "c":"gcc (Alpine 14.2.0) 14.2.0
-write /dev/stdout: broken pipe",
+  "c":"gcc (Alpine 14.2.0) 14.2.0",
   "clojure":"Clojure 1.13.0-master-SNAPSHOT",
   "cobol":"cobc (GnuCOBOL) 3.1.2.0",
   "cpp":"Alpine clang version 19.1.7",
@@ -45,7 +44,7 @@ write /dev/stdout: broken pipe",
   "raku":"Welcome to Rakudo™ v2024.07.",
   "ruby":"ruby 3.3.3 (2024-06-12 revision f1c7b6f435) [x86_64-linux-musl]",
   "rust":" 1.78.0 (9b00956e5 2024-04-29) (Alpine Linux 1.78.0-r0)",
-  "scala":"Your Scala CLI version is outdated. The newest version is 1.5.4
+  "scala":"Your Scala CLI version is outdated. The newest version is 1.6.1
 It is recommended that you update Scala CLI through the same tool or method you used for its initial installation for avoiding the creation of outdated duplicates.
  3.5.0",
   "sql":"/usr/bin/mariadbd  Ver 10.11.8-MariaDB for Linux on x86_64 (Alpine Linux)",
