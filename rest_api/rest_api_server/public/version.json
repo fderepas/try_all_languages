@@ -6,9 +6,8 @@
 docker: Error response from daemon: pull access denied for tal-b, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
 See 'docker run --help'.",
   "bash":"GNU bash, version 5.2.37(1)-release (x86_64-alpine-linux-musl)",
-  "bqn":"CBQN git dcbceccf",
-  "c":"gcc (Alpine 14.2.0) 14.2.0
-write /dev/stdout: broken pipe",
+  "bqn":"CBQN git 4af2fdaf",
+  "c":"gcc (Alpine 14.2.0) 14.2.0",
   "clojure":"Clojure 1.13.0-master-SNAPSHOT",
   "cobol":"cobc (GnuCOBOL) 3.1.2.0",
   "cpp":"Alpine clang version 19.1.7",
@@ -18,8 +17,7 @@ write /dev/stdout: broken pipe",
   "elixir":"Elixir 1.18.0-dev (14595bb) (compiled with Erlang/OTP 25)",
   "erlang":"25.3.2.16",
   "fig":"1.9.0/Fig-1.9.0.jar",
-  "fortran":"GNU Fortran (Alpine 14.2.0) 14.2.0
-write /dev/stdout: broken pipe",
+  "fortran":"GNU Fortran (Alpine 14.2.0) 14.2.0",
   "fsharp":" Version:           9.0.102",
   "go":"go version go1.23.5 linux/amd64",
   "golfscript":"https://github.com/darrenks/golfscript cded542533c2c8f72ab2d5935714f739b0357690",
