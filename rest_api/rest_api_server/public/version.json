@@ -10,7 +10,7 @@ Run 'docker run --help' for more information",
 docker: Error response from daemon: pull access denied for tal-bash, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
 
 Run 'docker run --help' for more information",
-  "bqn":"CBQN git e9621959",
+  "bqn":"CBQN git e09fb53f",
   "c":"Unable to find image 'tal-c:latest' locally
 docker: Error response from daemon: pull access denied for tal-c, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
 
@@ -32,9 +32,9 @@ Run 'docker run --help' for more information",
   "fig":"1.9.0/Fig-1.9.0.jar",
   "fortran":"GNU Fortran (Alpine 14.2.0) 14.2.0",
   "fsharp":" Version:           9.0.200",
-  "go":"go version go1.23.6 linux/amd64",
+  "go":"go version go1.24.0 linux/amd64",
   "golfscript":"https://github.com/darrenks/golfscript cded542533c2c8f72ab2d5935714f739b0357690",
-  "groovy":"Groovy Version: 4.0.25 JVM: 21.0.6 Vendor: Alpine OS: Linux",
+  "groovy":"Groovy Version: 4.0.26 JVM: 21.0.6 Vendor: Alpine OS: Linux",
   "haskell":"The Glorious Glasgow Haskell Compilation System, version 9.8.2",
   "j":"j9.5",
   "java":"Unable to find image 'tal-java:latest' locally
@@ -63,34 +63,19 @@ docker: Error response from daemon: pull access denied for tal-php, repository d
 Run 'docker run --help' for more information",
   "postscript":"ghostscript 10.04.0",
   "powershell":"PowerShell 7.4.3",
-  "prolog":"Unable to find image 'tal-prolog:latest' locally
-docker: Error response from daemon: pull access denied for tal-prolog, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-
-Run 'docker run --help' for more information",
+  "prolog":"SWI-Prolog version 8.4.3 for x86_64-linux",
   "python":"Unable to find image 'tal-python:latest' locally
 docker: Error response from daemon: pull access denied for tal-python, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
 
 Run 'docker run --help' for more information",
-  "r":"Unable to find image 'tal-r:latest' locally
-docker: Error response from daemon: pull access denied for tal-r, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-
-Run 'docker run --help' for more information",
-  "raku":"Unable to find image 'tal-raku:latest' locally
-docker: Error response from daemon: pull access denied for tal-raku, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-
-Run 'docker run --help' for more information",
-  "ruby":"Unable to find image 'tal-ruby:latest' locally
-docker: Error response from daemon: pull access denied for tal-ruby, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-
-Run 'docker run --help' for more information",
+  "r":"R version 4.4.2 (2024-10-31) -- \"Pile of Leaves\"",
+  "raku":"Welcome to Rakudo™ v2024.09.",
+  "ruby":"ruby 3.3.6 (2024-11-05 revision 75015d4c1f) [x86_64-linux-musl]",
   "rust":"Unable to find image 'tal-rust:latest' locally
 docker: Error response from daemon: pull access denied for tal-rust, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
 
 Run 'docker run --help' for more information",
-  "scala":"Unable to find image 'tal-scala:latest' locally
-docker: Error response from daemon: pull access denied for tal-scala, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-
-Run 'docker run --help' for more information",
+  "scala":" 3.6.3",
   "sql":"Unable to find image 'tal-sql:latest' locally
 docker: Error response from daemon: pull access denied for tal-sql, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
 
@@ -99,14 +84,8 @@ Run 'docker run --help' for more information",
 docker: Error response from daemon: pull access denied for tal-swift, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
 
 Run 'docker run --help' for more information",
-  "typescript":"Unable to find image 'tal-typescript:latest' locally
-docker: Error response from daemon: pull access denied for tal-typescript, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-
-Run 'docker run --help' for more information",
-  "vyxal":"Unable to find image 'tal-vyxal:latest' locally
-docker: Error response from daemon: pull access denied for tal-vyxal, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-
-Run 'docker run --help' for more information",
+  "typescript":"Version 5.8.2",
+  "vyxal":"2.21.5",
   "zsh":"Unable to find image 'tal-zsh:latest' locally
 docker: Error response from daemon: pull access denied for tal-zsh, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
 
