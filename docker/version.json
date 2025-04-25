@@ -10,7 +10,7 @@ Run 'docker run --help' for more information",
 docker: Error response from daemon: pull access denied for tal-bash, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
 
 Run 'docker run --help' for more information",
-  "bqn":"CBQN git 09642a35",
+  "bqn":"CBQN git 0ec37303",
   "c":"Unable to find image 'tal-c:latest' locally
 docker: Error response from daemon: pull access denied for tal-c, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
 
@@ -21,18 +21,18 @@ Run 'docker run --help' for more information",
 docker: Error response from daemon: pull access denied for tal-cpp, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
 
 Run 'docker run --help' for more information",
-  "csharp":" Version:           9.0.202",
+  "csharp":" Version:           9.0.203",
   "dart":"Unable to find image 'tal-dart:latest' locally
 docker: Error response from daemon: pull access denied for tal-dart, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
 
 Run 'docker run --help' for more information",
   "dc":"1.07",
   "elixir":"",
-  "erlang":"25.3.2.18",
+  "erlang":"25.3.2.20",
   "fig":"1.9.0/Fig-1.9.0.jar",
   "fortran":"GNU Fortran (Alpine 14.2.0) 14.2.0",
   "fsharp":" Version:           9.0.202",
-  "go":"go version go1.24.1 linux/amd64",
+  "go":"go version go1.24.2 linux/amd64",
   "golfscript":"https://github.com/darrenks/golfscript cded542533c2c8f72ab2d5935714f739b0357690",
   "groovy":"Groovy Version: 4.0.26 JVM: 21.0.6 Vendor: Alpine OS: Linux",
   "haskell":"The Glorious Glasgow Haskell Compilation System, version 9.8.2",
