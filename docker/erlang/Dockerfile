@@ -18,7 +18,7 @@ WORKDIR /home/tal
 RUN echo "### compiling erlang" && \
     git clone https://github.com/erlang/otp.git && \
     cd otp && \
-    git checkout maint-25 && \
+    git checkout maint-28 && \
     ./configure --prefix=/home/tal/erlang && \
     make && \
     make install && \
