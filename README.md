@@ -1,3 +1,4 @@
+[![Nightly Rebuild](https://github.com/fderepas/try_all_languages/actions/workflows/nightly-build.yml/badge.svg)](https://github.com/fderepas/try_all_languages/actions/workflows/nightly-build.yml)
 
 ## About try_all_languages
 
