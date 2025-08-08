@@ -1,0 +1,26 @@
+name: Nightly Rebuild
+
+on:
+  # Trigger the workflow every night at 4:00 AM UTC
+  schedule:
+    - cron: '0 4 * * *'
+
+  # Allows to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  run-tests-on-local-machine:
+    runs-on: self-hosted
+
+    steps:
+      # Check out repository's code onto local machine
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      # Testing command
+      - name: Build images
+        run: |
+          echo "Rebuilding base applications"
+          make -C helper
+          echo "Building images"
+          make -C docker
