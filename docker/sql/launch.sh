@@ -1,7 +1,7 @@
 #!/bin/sh
 # this script is to be run from a docker image
 /usr/bin/mariadbd-safe --datadir='/var/lib/mysql' --no-watch
-sleep 2
+sleep 8
 countNbTest=$1
 cd /mnt/in
 set +e # support errors
@@ -10,8 +10,8 @@ touch /home/tal/empty_file
 # perform sql requests
 for testcount in `seq 0 1 $countNbTest`
 do
-    echo 'delete from stdin' | mysql tal
-    echo 'delete from argv' | mysql tal
+    echo 'delete from stdin' | mariadb tal
+    echo 'delete from argv' | mariadb tal
     
     stdinData=/home/tal/empty_file
     if [ -e /mnt/in/input$testcount.txt ]; then
@@ -26,7 +26,7 @@ do
     while IFS= read -r line; do     # Read file line by line
         out="/tmp/foo.txt"
         echo "$line" | tr -d "\n" > "$out"
-        echo "INSERT INTO stdin VALUES (${counter},LOAD_FILE('${out}'));" | mysql tal
+        echo "INSERT INTO stdin VALUES (${counter},LOAD_FILE('${out}'));" | mariadb tal
         # Increment counter for next file
         counter=$((counter + 1))
     done < "$stdinData"
@@ -34,7 +34,7 @@ do
     # populate table argv
     i=0
     while [ $i -lt $argc ]; do
-        echo "INSERT INTO argv VALUES (${i},LOAD_FILE('/mnt/in/argv_"$testcount"_"$i".txt'));" | mysql tal
+        echo "INSERT INTO argv VALUES (${i},LOAD_FILE('/mnt/in/argv_"$testcount"_"$i".txt'));" | mariadb tal
         i=$((i + 1))
     done
     
