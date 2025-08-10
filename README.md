@@ -1,4 +1,6 @@
 [![Nightly Rebuild](https://github.com/fderepas/try_all_languages/actions/workflows/nightly-build.yml/badge.svg)](https://github.com/fderepas/try_all_languages/actions/workflows/nightly-build.yml)
+[![Nightly Rebuild Ada](https://github.com/fderepas/try_all_languages/actions/workflows/nightly_rebuild_ada.yml/badge.svg)](https://github.com/fderepas/try_all_languages/actions/workflows/nightly_rebuild_ada.yml)
+
 
 ## About try_all_languages
 
