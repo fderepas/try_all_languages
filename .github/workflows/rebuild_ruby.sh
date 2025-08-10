@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 set -x
-cd .
+cd `dirname $0`
 cd ../../docker/ruby
 make
 if [ 0 -eq 0 ]; then
@@ -10,9 +10,9 @@ if [ 0 -eq 0 ]; then
         printf \033[32mOK\033[0m"\n"
         push_to_registry  fderepas latest
     else
-        printf \033[31mtest_\KO\033[0m"\n"
+        printf \033[31mruby test_\KO\033[0m"\n"
     fi
 else
-    printf \033[31mKO\033[0m"\n"
+    printf \033[31mruby KO\033[0m"\n"
     exit 1
 fi
