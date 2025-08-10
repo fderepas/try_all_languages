@@ -27,21 +27,32 @@ jobs:
       # Testing command
       - name: Build images
         run: |
-          echo "Building images"
-          cd docker/$lang
-          make
-          if [ $? -eq 0 ]; then
-              make test > /dev/null 2> /dev/null
-              if [ $? -eq 0 ]; then
-                  printf \\033[32mOK\\033[0m"\n"
-                  push_to_registry $j fderepas latest
-              else
-                  printf \\033[31mtest_\KO\\033[0m"\n"
-              fi
-          else
-              printf \\033[31mKO\\033[0m"\n"
-              exit 1
-          fi
+          echo "Building images $lang"
+          bash .github/workflows/rebuild_$lang.sh
+EOF
+    cat <<EOF > rebuild_$lang.sh
+#!/bin/bash
+set -e
+set -x
+
+cd \`dirname \$0\`
+cd ../../docker/$lang
+
+make
+if [ \$? -eq 0 ]; then
+    make test > /dev/null 2> /dev/null
+    if [ \$? -eq 0 ]; then
+        printf \\033[32mOK\\033[0m"\n"
+        docker tag tal-$lang:latest fderepas/tal-$lang:latest
+        docker push fderepas/tal-$lang:latest
+    else
+        printf \\033[31m$lang tests \KO\\033[0m"\n"
+        exit 2
+    fi
+else
+    printf \\033[31m$lang docker build KO\\033[0m"\n"
+    exit 1
+fi
 EOF
     m_counter=$((m_counter+1))
     if [[ "$m_counter" -ge 60 ]]; then
