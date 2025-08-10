@@ -34,19 +34,22 @@ EOF
 #!/bin/bash
 set -e
 set -x
+
 cd \`dirname \$0\`
 cd ../../docker/$lang
+
 make
-if [ $? -eq 0 ]; then
+if [ \$? -eq 0 ]; then
     make test > /dev/null 2> /dev/null
-    if [ $? -eq 0 ]; then
+    if [ \$? -eq 0 ]; then
         printf \\033[32mOK\\033[0m"\n"
-        push_to_registry $j fderepas latest
+        docker tag tal-$lang:latest fderepas/tal-$lang:latest
+        docker push fderepas/tal-$lang:latest
     else
-        printf \\033[31m$lang test_\KO\\033[0m"\n"
+        printf \\033[31m$lang tests \KO\\033[0m"\n"
     fi
 else
-    printf \\033[31m$lang KO\\033[0m"\n"
+    printf \\033[31m$lang docker build KO\\033[0m"\n"
     exit 1
 fi
 EOF

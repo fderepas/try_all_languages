@@ -1,18 +1,21 @@
 #!/bin/bash
 set -e
 set -x
+
 cd `dirname $0`
 cd ../../docker/fsharp
+
 make
-if [ 0 -eq 0 ]; then
+if [ $? -eq 0 ]; then
     make test > /dev/null 2> /dev/null
-    if [ 0 -eq 0 ]; then
+    if [ $? -eq 0 ]; then
         printf \033[32mOK\033[0m"\n"
-        push_to_registry  fderepas latest
+        docker tag tal-fsharp:latest fderepas/tal-fsharp:latest
+        docker push fderepas/tal-fsharp:latest
     else
-        printf \033[31mfsharp test_\KO\033[0m"\n"
+        printf \033[31mfsharp tests \KO\033[0m"\n"
     fi
 else
-    printf \033[31mfsharp KO\033[0m"\n"
+    printf \033[31mfsharp docker build KO\033[0m"\n"
     exit 1
 fi

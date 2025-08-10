@@ -1,18 +1,21 @@
 #!/bin/bash
 set -e
 set -x
+
 cd `dirname $0`
 cd ../../docker/zsh
+
 make
-if [ 0 -eq 0 ]; then
+if [ $? -eq 0 ]; then
     make test > /dev/null 2> /dev/null
-    if [ 0 -eq 0 ]; then
+    if [ $? -eq 0 ]; then
         printf \033[32mOK\033[0m"\n"
-        push_to_registry  fderepas latest
+        docker tag tal-zsh:latest fderepas/tal-zsh:latest
+        docker push fderepas/tal-zsh:latest
     else
-        printf \033[31mzsh test_\KO\033[0m"\n"
+        printf \033[31mzsh tests \KO\033[0m"\n"
     fi
 else
-    printf \033[31mzsh KO\033[0m"\n"
+    printf \033[31mzsh docker build KO\033[0m"\n"
     exit 1
 fi

@@ -1,18 +1,21 @@
 #!/bin/bash
 set -e
 set -x
+
 cd `dirname $0`
 cd ../../docker/cobol
+
 make
-if [ 0 -eq 0 ]; then
+if [ $? -eq 0 ]; then
     make test > /dev/null 2> /dev/null
-    if [ 0 -eq 0 ]; then
+    if [ $? -eq 0 ]; then
         printf \033[32mOK\033[0m"\n"
-        push_to_registry  fderepas latest
+        docker tag tal-cobol:latest fderepas/tal-cobol:latest
+        docker push fderepas/tal-cobol:latest
     else
-        printf \033[31mcobol test_\KO\033[0m"\n"
+        printf \033[31mcobol tests \KO\033[0m"\n"
     fi
 else
-    printf \033[31mcobol KO\033[0m"\n"
+    printf \033[31mcobol docker build KO\033[0m"\n"
     exit 1
 fi

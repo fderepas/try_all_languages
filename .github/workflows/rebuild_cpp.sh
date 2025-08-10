@@ -1,18 +1,21 @@
 #!/bin/bash
 set -e
 set -x
+
 cd `dirname $0`
 cd ../../docker/cpp
+
 make
-if [ 0 -eq 0 ]; then
+if [ $? -eq 0 ]; then
     make test > /dev/null 2> /dev/null
-    if [ 0 -eq 0 ]; then
+    if [ $? -eq 0 ]; then
         printf \033[32mOK\033[0m"\n"
-        push_to_registry  fderepas latest
+        docker tag tal-cpp:latest fderepas/tal-cpp:latest
+        docker push fderepas/tal-cpp:latest
     else
-        printf \033[31mcpp test_\KO\033[0m"\n"
+        printf \033[31mcpp tests \KO\033[0m"\n"
     fi
 else
-    printf \033[31mcpp KO\033[0m"\n"
+    printf \033[31mcpp docker build KO\033[0m"\n"
     exit 1
 fi
