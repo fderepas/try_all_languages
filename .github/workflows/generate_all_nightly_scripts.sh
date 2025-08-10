@@ -47,6 +47,7 @@ if [ \$? -eq 0 ]; then
         docker push fderepas/tal-$lang:latest
     else
         printf \\033[31m$lang tests \KO\\033[0m"\n"
+        exit 2
     fi
 else
     printf \\033[31m$lang docker build KO\\033[0m"\n"
