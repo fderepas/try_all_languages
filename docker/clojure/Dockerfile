@@ -17,7 +17,7 @@ RUN mkdir /mnt/in
 RUN mkdir /mnt/out
 
 # compile and run a dummy program one so that all init structure are already here
-RUN wget https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bin.tar.gz && \
+RUN wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz && \
   export JAVA_HOME=/usr/lib/jvm/default-jvm/ && \
   tar xvfz apache-maven-*bin.tar.gz && \
   rm -rf apache-maven-*-bin.tar.gz && \
