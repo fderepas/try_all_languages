@@ -14,6 +14,7 @@ if [ $? -eq 0 ]; then
         docker push fderepas/tal-jelly:latest
     else
         printf \033[31mjelly tests \KO\033[0m"\n"
+        exit 2
     fi
 else
     printf \033[31mjelly docker build KO\033[0m"\n"

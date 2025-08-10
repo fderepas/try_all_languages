@@ -14,6 +14,7 @@ if [ $? -eq 0 ]; then
         docker push fderepas/tal-bqn:latest
     else
         printf \033[31mbqn tests \KO\033[0m"\n"
+        exit 2
     fi
 else
     printf \033[31mbqn docker build KO\033[0m"\n"

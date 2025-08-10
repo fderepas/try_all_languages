@@ -14,6 +14,7 @@ if [ $? -eq 0 ]; then
         docker push fderepas/tal-elixir:latest
     else
         printf \033[31melixir tests \KO\033[0m"\n"
+        exit 2
     fi
 else
     printf \033[31melixir docker build KO\033[0m"\n"

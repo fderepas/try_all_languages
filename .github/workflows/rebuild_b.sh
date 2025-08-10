@@ -14,6 +14,7 @@ if [ $? -eq 0 ]; then
         docker push fderepas/tal-b:latest
     else
         printf \033[31mb tests \KO\033[0m"\n"
+        exit 2
     fi
 else
     printf \033[31mb docker build KO\033[0m"\n"
