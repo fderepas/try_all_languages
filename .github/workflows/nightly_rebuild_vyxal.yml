@@ -1,7 +1,7 @@
-name: vyxal Nightly Rebuild
+name: vyxal
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:47 AM UTC
   schedule:
     - cron: '47 4 * * *'
 

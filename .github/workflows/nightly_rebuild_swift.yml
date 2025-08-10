@@ -1,7 +1,7 @@
-name: swift Nightly Rebuild
+name: swift
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:45 AM UTC
   schedule:
     - cron: '45 4 * * *'
 

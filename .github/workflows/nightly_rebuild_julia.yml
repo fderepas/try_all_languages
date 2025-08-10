@@ -1,7 +1,7 @@
-name: julia Nightly Rebuild
+name: julia
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:25 AM UTC
   schedule:
     - cron: '25 4 * * *'
 

@@ -1,7 +1,7 @@
-name: lisp Nightly Rebuild
+name: lisp
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:28 AM UTC
   schedule:
     - cron: '28 4 * * *'
 

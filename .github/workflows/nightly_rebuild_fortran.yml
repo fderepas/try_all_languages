@@ -1,7 +1,7 @@
-name: fortran Nightly Rebuild
+name: fortran
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:16 AM UTC
   schedule:
     - cron: '16 4 * * *'
 

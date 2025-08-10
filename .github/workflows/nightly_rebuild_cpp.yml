@@ -1,7 +1,7 @@
-name: cpp Nightly Rebuild
+name: cpp
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:9 AM UTC
   schedule:
     - cron: '9 4 * * *'
 

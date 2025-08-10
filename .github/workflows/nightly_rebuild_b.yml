@@ -1,7 +1,7 @@
-name: b Nightly Rebuild
+name: b
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:3 AM UTC
   schedule:
     - cron: '3 4 * * *'
 

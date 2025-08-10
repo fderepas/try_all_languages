@@ -1,7 +1,7 @@
-name: haskell Nightly Rebuild
+name: haskell
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:21 AM UTC
   schedule:
     - cron: '21 4 * * *'
 

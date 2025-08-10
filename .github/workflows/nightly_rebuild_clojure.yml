@@ -1,7 +1,7 @@
-name: clojure Nightly Rebuild
+name: clojure
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:7 AM UTC
   schedule:
     - cron: '7 4 * * *'
 

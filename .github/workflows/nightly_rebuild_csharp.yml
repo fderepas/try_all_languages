@@ -1,7 +1,7 @@
-name: csharp Nightly Rebuild
+name: csharp
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:10 AM UTC
   schedule:
     - cron: '10 4 * * *'
 

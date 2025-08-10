@@ -1,7 +1,7 @@
-name: go Nightly Rebuild
+name: go
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:18 AM UTC
   schedule:
     - cron: '18 4 * * *'
 

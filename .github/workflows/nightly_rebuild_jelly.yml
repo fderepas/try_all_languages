@@ -1,7 +1,7 @@
-name: jelly Nightly Rebuild
+name: jelly
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:24 AM UTC
   schedule:
     - cron: '24 4 * * *'
 
