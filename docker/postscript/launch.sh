@@ -6,7 +6,7 @@ set +e # support errors
 for testcount in `seq 0 1 $countNbTest`
 do
     timeout -s 9 10                       \
-        gs  -q -dBATCH -dNOPAUSE prog.ps  \
+        gs -sDEVICE=nullpage -q -dBATCH -dNOPAUSE prog.ps  \
             < input$testcount.txt         \
             > /mnt/out/out$testcount.txt  \
             2> /mnt/out/err$testcount.txt
