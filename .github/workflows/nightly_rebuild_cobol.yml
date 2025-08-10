@@ -1,7 +1,7 @@
-name: cobol Nightly Rebuild
+name: cobol
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:8 AM UTC
   schedule:
     - cron: '8 4 * * *'
 

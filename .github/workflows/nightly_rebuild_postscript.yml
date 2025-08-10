@@ -1,7 +1,7 @@
-name: postscript Nightly Rebuild
+name: postscript
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:35 AM UTC
   schedule:
     - cron: '35 4 * * *'
 

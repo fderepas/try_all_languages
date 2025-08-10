@@ -1,7 +1,7 @@
-name: apl Nightly Rebuild
+name: apl
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:1 AM UTC
   schedule:
     - cron: '1 4 * * *'
 

@@ -1,7 +1,7 @@
-name: elixir Nightly Rebuild
+name: elixir
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:13 AM UTC
   schedule:
     - cron: '13 4 * * *'
 

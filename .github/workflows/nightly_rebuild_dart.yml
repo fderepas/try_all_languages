@@ -1,7 +1,7 @@
-name: dart Nightly Rebuild
+name: dart
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:11 AM UTC
   schedule:
     - cron: '11 4 * * *'
 

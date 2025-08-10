@@ -1,7 +1,7 @@
-name: zsh Nightly Rebuild
+name: zsh
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:48 AM UTC
   schedule:
     - cron: '48 4 * * *'
 

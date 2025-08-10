@@ -1,7 +1,7 @@
-name: bash Nightly Rebuild
+name: bash
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:4 AM UTC
   schedule:
     - cron: '4 4 * * *'
 

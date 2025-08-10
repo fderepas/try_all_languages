@@ -1,7 +1,7 @@
-name: ruby Nightly Rebuild
+name: ruby
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:41 AM UTC
   schedule:
     - cron: '41 4 * * *'
 

@@ -1,7 +1,7 @@
-name: ada Nightly Rebuild
+name: ada
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:0 AM UTC
   schedule:
     - cron: '0 4 * * *'
 

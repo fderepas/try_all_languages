@@ -1,7 +1,7 @@
-name: fsharp Nightly Rebuild
+name: fsharp
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:17 AM UTC
   schedule:
     - cron: '17 4 * * *'
 

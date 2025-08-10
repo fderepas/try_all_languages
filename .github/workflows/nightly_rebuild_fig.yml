@@ -1,7 +1,7 @@
-name: fig Nightly Rebuild
+name: fig
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:15 AM UTC
   schedule:
     - cron: '15 4 * * *'
 

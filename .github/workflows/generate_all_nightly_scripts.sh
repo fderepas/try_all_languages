@@ -3,12 +3,12 @@
 m_counter=0
 h_counter=4
 for lang in ada apl assembly b bash bqn c clojure cobol cpp csharp dart dc elixir erlang fig fortran fsharp go golfscript groovy haskell j java jelly julia k kotlin lisp logo lua node ocaml perl php postscript powershell prolog python r raku ruby rust scala sql swift typescript vyxal zsh ; do
-    echo $lang
+    echo "[![$lang](https://github.com/fderepas/try_all_languages/actions/workflows/nightly_rebuild_$lang.yml/badge.svg)](https://github.com/fderepas/try_all_languages/actions/workflows/nightly_rebuild_$lang.yml)"
     cat <<EOF > nightly_rebuild_$lang.yml
-name: $lang Nightly Rebuild
+name: $lang
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at $h_counter:$m_counter AM UTC
   schedule:
     - cron: '$m_counter $h_counter * * *'
 

@@ -1,7 +1,7 @@
-name: bqn Nightly Rebuild
+name: bqn
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:5 AM UTC
   schedule:
     - cron: '5 4 * * *'
 

@@ -1,7 +1,7 @@
-name: dc Nightly Rebuild
+name: dc
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:12 AM UTC
   schedule:
     - cron: '12 4 * * *'
 

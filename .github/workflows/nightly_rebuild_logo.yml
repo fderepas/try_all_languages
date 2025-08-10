@@ -1,7 +1,7 @@
-name: logo Nightly Rebuild
+name: logo
 
 on:
-  # Trigger the workflow every night at 4:00 AM UTC
+  # Trigger the workflow every night at 4:29 AM UTC
   schedule:
     - cron: '29 4 * * *'
 
