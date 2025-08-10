@@ -10,18 +10,18 @@ RUN chown tal:tal /mnt
 
 # copy launch script
 COPY --chown=tal:tal launch.sh /home/tal/launch.sh
+# explicitely store some hostname resolution which fails afterwards
 RUN chmod 777 /mnt
 
 # leave root user
 USER tal:tal
-RUN mkdir /mnt/in
-RUN mkdir /mnt/out
-RUN chmod 777 /mnt/out
+RUN mkdir /mnt/in && \
+     mkdir /mnt/out && \
+     chmod 777 /mnt/out
 
-RUN curl -s "https://get.sdkman.io" | bash
-
-#RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk version"
-RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk install kotlin"
+RUN curl -s "https://get.sdkman.io" | bash && \
+    bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk install kotlin"
+    
 WORKDIR /home/tal/
 
 # run a dummy code one so that all init structures are already in place
