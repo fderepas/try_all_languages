@@ -8,5 +8,5 @@ pyfname=/tmp/_py_f_$$.py
 printf "d="> $pyfname
 cat progs.json >> $pyfname
 echo "print(d['$lang'])">> $pyfname
-python $pyfname
+python3 $pyfname
 rm $pyfname
