@@ -7,7 +7,7 @@ cd ../../docker/ruby
 
 make
 if [ $? -eq 0 ]; then
-    make test > /dev/null 2> /dev/null
+    make test
     if [ $? -eq 0 ]; then
         printf \033[32mOK\033[0m"\n"
         docker tag tal-ruby:latest fderepas/tal-ruby:latest
