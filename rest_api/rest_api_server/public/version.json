@@ -6,89 +6,58 @@
 docker: Error response from daemon: pull access denied for tal-b, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
 
 Run 'docker run --help' for more information",
-  "bash":"Unable to find image 'tal-bash:latest' locally
-docker: Error response from daemon: pull access denied for tal-bash, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-
-Run 'docker run --help' for more information",
-  "bqn":"CBQN git 0ec37303",
-  "c":"Unable to find image 'tal-c:latest' locally
-docker: Error response from daemon: pull access denied for tal-c, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-
-Run 'docker run --help' for more information",
+  "bash":"GNU bash, version 5.3.3(1)-release (x86_64-alpine-linux-musl)",
+  "bqn":"CBQN git bf0075d7",
+  "c":"gcc (Alpine 15.2.0) 15.2.0",
   "clojure":"Clojure 1.13.0-master-SNAPSHOT",
   "cobol":"cobc (GnuCOBOL) 3.1.2.0",
-  "cpp":"Unable to find image 'tal-cpp:latest' locally
-docker: Error response from daemon: pull access denied for tal-cpp, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-
-Run 'docker run --help' for more information",
-  "csharp":" Version:           9.0.203",
-  "dart":"Unable to find image 'tal-dart:latest' locally
-docker: Error response from daemon: pull access denied for tal-dart, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-
-Run 'docker run --help' for more information",
+  "cpp":"Alpine clang version 20.1.8",
+  "csharp":" Version:           9.0.305",
+  "dart":"Dart SDK version: 3.8.1 (stable) (2025-06-12T21:07+00:00) on \"linux_x64\"",
   "dc":"1.07",
   "elixir":"",
-  "erlang":"25.3.2.20",
+  "erlang":"",
   "fig":"1.9.0/Fig-1.9.0.jar",
-  "fortran":"GNU Fortran (Alpine 14.2.0) 14.2.0
+  "fortran":"GNU Fortran (Alpine 15.2.0) 15.2.0
 write /dev/stdout: broken pipe",
-  "fsharp":" Version:           9.0.202",
-  "go":"go version go1.24.2 linux/amd64",
+  "fsharp":" Version:           9.0.305",
+  "go":"go version go1.25.1 linux/amd64",
   "golfscript":"https://github.com/darrenks/golfscript cded542533c2c8f72ab2d5935714f739b0357690",
-  "groovy":"Groovy Version: 4.0.26 JVM: 21.0.6 Vendor: Alpine OS: Linux",
-  "haskell":"The Glorious Glasgow Haskell Compilation System, version 9.8.2",
-  "j":"j9.5",
-  "java":"Unable to find image 'tal-java:latest' locally
-docker: Error response from daemon: pull access denied for tal-java, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
+  "groovy":"Unable to find image 'tal-groovy:latest' locally
+docker: Error response from daemon: pull access denied for tal-groovy, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
 
 Run 'docker run --help' for more information",
+  "haskell":"The Glorious Glasgow Haskell Compilation System, version 9.8.2",
+  "j":"j9.5",
+  "java":"openjdk 21.0.8 2025-07-15",
   "jelly":"github.com/DennisMitchell/jellylanguage.git 70c9fd93ab009c05dc396f8cc091f72b212fb188",
   "julia":"julia version 1.9.3",
   "k":"github.com/kevinlawler/kona.git 544d014afd8dd84b18c2011cabd3aa3d76571ca3",
-  "kotlin":"info: kotlinc-jvm 2.1.20 (JRE 21.0.6+7-alpine-r1)",
-  "lisp":"SBCL 2.5.1",
+  "kotlin":"info: kotlinc-jvm 2.2.20 (JRE 21.0.8+9-alpine-r0)",
+  "lisp":"SBCL 2.5.8",
   "logo":"ucblogo-6.2.4",
   "lua":"Lua 5.4.7  Copyright (C) 1994-2024 Lua.org, PUC-Rio",
-  "node":"Unable to find image 'tal-node:latest' locally
-docker: Error response from daemon: pull access denied for tal-node, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-
-Run 'docker run --help' for more information",
-  "ocaml":"Unable to find image 'tal-ocaml:latest' locally
-docker: Error response from daemon: pull access denied for tal-ocaml, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-
-Run 'docker run --help' for more information",
-  "perl":"This is perl 5, version 40, subversion 1 (v5.40.1) built for x86_64-linux-thread-multi",
-  "php":"Unable to find image 'tal-php:latest' locally
-docker: Error response from daemon: pull access denied for tal-php, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-
-Run 'docker run --help' for more information",
-  "postscript":"ghostscript 10.04.0",
+  "node":"22.16.0",
+  "ocaml":"4.14.2",
+  "perl":"This is perl 5, version 42, subversion 0 (v5.42.0) built for x86_64-linux-thread-multi",
+  "php":"PHP 8.3.24-dev (cli) (built: Sep 14 2025 05:53:08) (NTS)",
+  "postscript":"ghostscript 10.05.1",
   "powershell":"PowerShell 7.4.3",
-  "prolog":"SWI-Prolog version 8.4.3 for x86_64-linux",
-  "python":"Unable to find image 'tal-python:latest' locally
-docker: Error response from daemon: pull access denied for tal-python, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
+  "prolog":"Unable to find image 'tal-prolog:latest' locally
+docker: Error response from daemon: pull access denied for tal-prolog, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
 
 Run 'docker run --help' for more information",
-  "r":"R version 4.4.2 (2024-10-31) -- \"Pile of Leaves\"",
-  "raku":"Welcome to Rakudo™ v2024.09.",
-  "ruby":"ruby 3.3.6 (2024-11-05 revision 75015d4c1f) [x86_64-linux-musl]",
-  "rust":"Unable to find image 'tal-rust:latest' locally
-docker: Error response from daemon: pull access denied for tal-rust, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
+  "python":"3.12.11",
+  "r":"R version 4.5.1 (2025-06-13) -- \"Great Square Root\"",
+  "raku":"Welcome to Rakudo™ v2025.08.",
+  "ruby":"ruby 3.4.4 (2025-05-14 revision a38531fd3f) +PRISM [x86_64-linux-musl]",
+  "rust":" 1.87.0 (17067e9ac 2025-05-09) (Alpine Linux 1.87.0-r0)",
+  "scala":" 3.7.2",
+  "sql":"/usr/bin/mariadbd  Ver 11.4.8-MariaDB for Linux on x86_64 (Alpine Linux)",
+  "swift":"docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: exec: \"/usr/bin/swiftc\": stat /usr/bin/swiftc: no such file or directory: unknown
 
 Run 'docker run --help' for more information",
-  "scala":" 3.6.4",
-  "sql":"Unable to find image 'tal-sql:latest' locally
-docker: Error response from daemon: pull access denied for tal-sql, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-
-Run 'docker run --help' for more information",
-  "swift":"Unable to find image 'tal-swift:latest' locally
-docker: Error response from daemon: pull access denied for tal-swift, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-
-Run 'docker run --help' for more information",
-  "typescript":"Version 5.8.2",
+  "typescript":"Version 5.9.2",
   "vyxal":"2.21.5",
-  "zsh":"Unable to find image 'tal-zsh:latest' locally
-docker: Error response from daemon: pull access denied for tal-zsh, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-
-Run 'docker run --help' for more information",
+  "zsh":"zsh 5.9 (x86_64-alpine-linux-musl)",
 }
