@@ -12,6 +12,7 @@ RUN apt-get clean && \
           libcurl4-openssl-dev \
           libedit2 \
           libgcc-9-dev \
+          libncurses6 \
           libsqlite3-0 \
           libstdc++-9-dev \
           libxml2-dev \
