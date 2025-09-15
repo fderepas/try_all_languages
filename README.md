@@ -1,7 +1,6 @@
 [![ada](https://github.com/fderepas/try_all_languages/actions/workflows/nightly_rebuild_ada.yml/badge.svg)](https://github.com/fderepas/try_all_languages/actions/workflows/nightly_rebuild_ada.yml)
 [![apl](https://github.com/fderepas/try_all_languages/actions/workflows/nightly_rebuild_apl.yml/badge.svg)](https://github.com/fderepas/try_all_languages/actions/workflows/nightly_rebuild_apl.yml)
 [![assembly](https://github.com/fderepas/try_all_languages/actions/workflows/nightly_rebuild_assembly.yml/badge.svg)](https://github.com/fderepas/try_all_languages/actions/workflows/nightly_rebuild_assembly.yml)
-[![b](https://github.com/fderepas/try_all_languages/actions/workflows/nightly_rebuild_b.yml/badge.svg)](https://github.com/fderepas/try_all_languages/actions/workflows/nightly_rebuild_b.yml)
 [![bash](https://github.com/fderepas/try_all_languages/actions/workflows/nightly_rebuild_bash.yml/badge.svg)](https://github.com/fderepas/try_all_languages/actions/workflows/nightly_rebuild_bash.yml)
 [![bqn](https://github.com/fderepas/try_all_languages/actions/workflows/nightly_rebuild_bqn.yml/badge.svg)](https://github.com/fderepas/try_all_languages/actions/workflows/nightly_rebuild_bqn.yml)
 [![c](https://github.com/fderepas/try_all_languages/actions/workflows/nightly_rebuild_c.yml/badge.svg)](https://github.com/fderepas/try_all_languages/actions/workflows/nightly_rebuild_c.yml)
